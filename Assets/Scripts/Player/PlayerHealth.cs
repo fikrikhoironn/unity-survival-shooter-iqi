@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
 {
     public int startingHealth = 100;
     public int currentHealth;
+
     public Slider healthSlider;
     public Image damageImage;
     public AudioClip deathClip;
@@ -19,6 +20,7 @@ public class PlayerHealth : MonoBehaviour
     AudioSource playerAudio;
     PlayerMovement playerMovement;
     PlayerShooting playerShooting;
+
     bool isDead;
     bool damaged;
 
@@ -98,5 +100,11 @@ public class PlayerHealth : MonoBehaviour
     {
         //meload ulang scene dengan index 0 pada build setting
         SceneManager.LoadScene(0);
+    }
+
+    public void UseHeal(int amount)
+    {
+        currentHealth = Mathf.Min(startingHealth, currentHealth+amount);
+        healthSlider.value = currentHealth;
     }
 }

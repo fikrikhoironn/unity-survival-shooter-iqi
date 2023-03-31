@@ -2,10 +2,11 @@
 
 public class PlayerShooting : MonoBehaviour
 {
-    public int damagePerShot = 20;
+    public int initialDamagePerShot = 20;
+    public int damagePerShot;
+
     public float timeBetweenBullets = 0.15f;
     public float range = 100f;
-
 
     float timer;
     Ray shootRay = new Ray();
@@ -28,6 +29,7 @@ public class PlayerShooting : MonoBehaviour
         gunLine = GetComponent<LineRenderer>();
         gunAudio = GetComponent<AudioSource>();
         gunLight = GetComponent<Light>();
+        damagePerShot = initialDamagePerShot;
     }
 
 
@@ -57,6 +59,15 @@ public class PlayerShooting : MonoBehaviour
         gunLight.enabled = false;
     }
 
+    public void BuffDamageShot(int amount)
+    {
+        damagePerShot = amount + initialDamagePerShot; 
+    }
+
+    public void ResetDamageShot()
+    {
+        damagePerShot = initialDamagePerShot;
+    }
 
     void Shoot()
     {

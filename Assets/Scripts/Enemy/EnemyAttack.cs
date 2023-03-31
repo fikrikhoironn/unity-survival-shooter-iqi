@@ -7,26 +7,34 @@ public class EnemyAttack : MonoBehaviour
     public int attackDamage = 10;
 
     Animator anim;
-    GameObject player;
-    PlayerHealth playerHealth;
-    EnemyHealth enemyHealth;
-    bool playerInRange;
-    float timer;
 
+    GameObject player;
+    GameObject pet = null;
+
+    PlayerHealth playerHealth;
+    PetHealth petHealth = null;
+    EnemyHealth enemyHealth;
+
+    bool playerInRange;
+    bool petInRange;
+
+    float timer;
 
     void Awake()
     {
         //Mencari game object dengan tag "Player"
         player = GameObject.FindGameObjectWithTag("Player");
+        if (GameObject.FindGameObjectWithTag("Pet")){
+            pet = GameObject.FindGameObjectWithTag("Pet");
+            petHealth = pet.GetComponent<PetHealth>();
+        }
 
-        //mendapatkan komponen player health
+        //mendapatkan komponen health
         playerHealth = player.GetComponent<PlayerHealth>();
+        enemyHealth = GetComponent<EnemyHealth>();
 
         //mendapatkan komponen Animator
         anim = GetComponent<Animator>();
-
-        //Mendapatkan Enemy health
-        enemyHealth = GetComponent<EnemyHealth>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -35,6 +43,11 @@ public class EnemyAttack : MonoBehaviour
         if (other.gameObject == player && other.isTrigger == false)
         {
             playerInRange = true;
+        }
+
+        if (pet != null && other.gameObject == pet && other.isTrigger == false)
+        {
+            petInRange = true;
         }
     }
 
@@ -47,6 +60,11 @@ public class EnemyAttack : MonoBehaviour
         {
             playerInRange = false;
         }
+
+        if (pet != null && other.gameObject == pet)
+        {
+            petInRange = false;
+        }
     }
 
 
@@ -56,7 +74,12 @@ public class EnemyAttack : MonoBehaviour
 
         if (timer >= timeBetweenAttacks && playerInRange && enemyHealth.currentHealth > 0)
         {
-            Attack();
+            AttackPlayer();
+        }
+
+        if (pet != null && timer >= timeBetweenAttacks && petInRange && enemyHealth.currentHealth > 0)
+        {
+            AttackPet();
         }
 
         //mentrigger animasi PlayerDead jika darah player kurang dari sama dengan 0
@@ -67,7 +90,7 @@ public class EnemyAttack : MonoBehaviour
     }
 
 
-    void Attack()
+    void AttackPlayer()
     {
         //Reset timer
         timer = 0f;
@@ -76,6 +99,22 @@ public class EnemyAttack : MonoBehaviour
         if (playerHealth.currentHealth > 0)
         {
             playerHealth.TakeDamage(attackDamage);
+        }
+    }
+
+
+    void AttackPet()
+    {
+        if (pet != null)
+        {
+            //Reset timer
+            timer = 0f;
+
+            //Taking Damage
+            if (petHealth.currentHealth > 0)
+            {
+                petHealth.TakeDamage(attackDamage);
+            }
         }
     }
 }
