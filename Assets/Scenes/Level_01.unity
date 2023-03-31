@@ -554,7 +554,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 230, z: 0}
---- !u!1001 &473095164
+--- !u!1001 &739159243
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -608,6 +608,14 @@ PrefabInstance:
     - target: {fileID: 4106248567623272, guid: 050fa3cb6f70d498b9572ac69750c8ae, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 2.248
+      objectReference: {fileID: 0}
+    - target: {fileID: 4241710367313968649, guid: 050fa3cb6f70d498b9572ac69750c8ae, type: 3}
+      propertyPath: m_Volume
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4241710367313968649, guid: 050fa3cb6f70d498b9572ac69750c8ae, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 050fa3cb6f70d498b9572ac69750c8ae, type: 3}
@@ -1176,6 +1184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27c63be2a8918c741863160b9d9da122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialDamagePerShot: 20
   damagePerShot: 20
   timeBetweenBullets: 0.15
   range: 100

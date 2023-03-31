@@ -18,7 +18,7 @@ public class PetMovement : MonoBehaviour
         nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
 
-        void Update()
+    void Update()
     {
         if (playerHealth.currentHealth > 0)
         {
