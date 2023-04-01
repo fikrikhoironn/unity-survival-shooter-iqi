@@ -2,13 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PetMovement : MonoBehaviour
+public class PetAttackerMovement : MonoBehaviour
 {
     Transform player;
     PlayerHealth playerHealth;
     UnityEngine.AI.NavMeshAgent nav;
 
+    Animator anim;
+
+    // get this object transform
     Transform thisTransform;
+
+
     private void Awake()
     {
         // find game object with tag player
@@ -17,6 +22,7 @@ public class PetMovement : MonoBehaviour
         // get reference component
         playerHealth = player.GetComponent<PlayerHealth>();
         nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        anim = GetComponent<Animator>();
 
         // get this object transform
         thisTransform = GetComponent<Transform>();
@@ -24,8 +30,11 @@ public class PetMovement : MonoBehaviour
 
     void Update()
     {
-
+        // lookk at player, then rotate 90 degree
         thisTransform.LookAt(player.position);
+        thisTransform.Rotate(0, 90, 0);
+        // set anim state, isWalking = true
+        anim.SetBool("isWalking", true);
         if (playerHealth.currentHealth > 0)
         {
             nav.SetDestination(player.position);
