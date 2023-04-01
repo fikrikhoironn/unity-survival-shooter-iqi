@@ -10,10 +10,6 @@ public class PetAttackerMovement : MonoBehaviour
 
     Animator anim;
 
-    // get this object transform
-    Transform thisTransform;
-
-
     private void Awake()
     {
         // find game object with tag player
@@ -23,25 +19,32 @@ public class PetAttackerMovement : MonoBehaviour
         playerHealth = player.GetComponent<PlayerHealth>();
         nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
         anim = GetComponent<Animator>();
-
-        // get this object transform
-        thisTransform = GetComponent<Transform>();
     }
 
     void Update()
     {
-        // lookk at player, then rotate 90 degree
-        thisTransform.LookAt(player.position);
-        thisTransform.Rotate(0, 90, 0);
-        // set anim state, isWalking = true
-        anim.SetBool("isWalking", true);
         if (playerHealth.currentHealth > 0)
         {
             nav.SetDestination(player.position);
+            // look at player then rotate 90 degree
+            transform.LookAt(player.position);
+            transform.Rotate(new Vector3(0, 90, 0));
         }
         else
         {
             nav.enabled = false;
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (nav.velocity.magnitude > 0)
+        {
+            anim.SetBool("walking", true);
+        }
+        else
+        {
+            anim.SetBool("walking", false);
         }
     }
 }

@@ -1,0 +1,152 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+
+public class PetAttackerAttack : MonoBehaviour
+{
+
+
+    Animator anim;
+
+    // get this object transform
+    Transform thisTransform;
+
+    // shockwave prefab and object
+    public GameObject ShockWavePrefab;
+
+
+    // enemy array
+    public List<GameObject> enemies;
+
+    // timer
+    float timer = 0.0f;
+
+    float timeBetweenShockWave = 5.0f;
+
+
+    GameObject closestEnemy = null;
+
+
+
+
+
+    private void Awake()
+    {
+        // get reference component
+        anim = GetComponent<Animator>();
+
+        // get this object transform
+        thisTransform = GetComponent<Transform>();
+
+
+
+
+
+    }
+
+    void Update()
+    {
+
+    }
+    void FixedUpdate()
+    {
+        
+        timer += Time.deltaTime;
+
+        if (timer >= timeBetweenShockWave)
+        {
+            
+            
+
+            timer = 0.0f;
+
+            // 1 second delay
+
+
+            FindClosestEnemy();
+            // print message
+
+            // if there is an enemy
+            if (closestEnemy != null)
+            {
+                // // instantiate shockwave
+                // ShockWaveObject = Instantiate(ShockWavePrefab, closestEnemy.transform.position, Quaternion.identity);
+
+                // set anim trigger isJumping to true
+                anim.SetBool("attacking", true);
+
+                StartCoroutine(Attack());
+
+            }
+
+
+
+
+        }
+    }
+
+    private IEnumerator Attack()
+    {
+        yield return new WaitForSeconds(1.0f);
+
+        // instantiate shockwave
+        GameObject shockwave = Instantiate(ShockWavePrefab, closestEnemy.transform.position, Quaternion.identity);
+        Destroy(shockwave, 2.0f);
+
+
+
+
+
+
+
+
+        anim.SetBool("attacking", false);
+    }
+
+    // on trigger enter
+    private void OnTriggerEnter(Collider other)
+    {
+        // if other object is player
+        if (other.tag == "Enemy")
+        {
+            // append other object to enemies array
+            GameObject enemy = other.gameObject;
+            enemies.Add(enemy);
+
+
+
+        }
+    }
+
+    // on trigger exit
+    private void OnTriggerExit(Collider other)
+    {
+        // if other object is player
+        if (other.tag == "Enemy")
+        {
+            // remove other object from enemies array
+            GameObject enemy = other.gameObject;
+            enemies.Remove(enemy);
+        }
+    }
+
+    private void FindClosestEnemy()
+    {
+        // find closest enemy
+        float distance = Mathf.Infinity;
+        Vector3 position = thisTransform.position;
+        foreach (GameObject enemy in enemies)
+        {
+            if (enemy != null) {
+            Vector3 diff = enemy.transform.position - position;
+            float curDistance = diff.sqrMagnitude;
+            if (curDistance < distance)
+            {
+                closestEnemy = enemy;
+                distance = curDistance;
+            }
+            }
+        }
+    }
+}
