@@ -27,6 +27,9 @@ public class PetAttackerAttack : MonoBehaviour
 
     GameObject closestEnemy = null;
 
+    // pet navmesh agent
+    UnityEngine.AI.NavMeshAgent nav;
+
 
 
 
@@ -38,6 +41,9 @@ public class PetAttackerAttack : MonoBehaviour
 
         // get this object transform
         thisTransform = GetComponent<Transform>();
+
+        // get pet navmesh agent
+        nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
 
 
 
@@ -52,14 +58,13 @@ public class PetAttackerAttack : MonoBehaviour
     void FixedUpdate()
     {
         
+        // add time to timer
         timer += Time.deltaTime;
 
         if (timer >= timeBetweenShockWave)
         {
             
-            
-
-            timer = 0.0f;
+        
 
             // 1 second delay
 
@@ -70,13 +75,19 @@ public class PetAttackerAttack : MonoBehaviour
             // if there is an enemy
             if (closestEnemy != null)
             {
+                timer = 0.0f;
                 // // instantiate shockwave
                 // ShockWaveObject = Instantiate(ShockWavePrefab, closestEnemy.transform.position, Quaternion.identity);
 
                 // set anim trigger isJumping to true
                 anim.SetBool("attacking", true);
 
+                // set nav, make stop
+                nav.isStopped = true;
+
                 StartCoroutine(Attack());
+
+                Debug.Log("Attacking, time now = " + timer + "");
 
             }
 
@@ -102,6 +113,9 @@ public class PetAttackerAttack : MonoBehaviour
 
 
         anim.SetBool("attacking", false);
+
+        // resume nav
+        nav.isStopped = false;
     }
 
     // on trigger enter
