@@ -45,7 +45,7 @@ public class PetHealth : MonoBehaviour
         }
     }
 
-    public void Death()
+    void Death()
     {
         IsDead = true;
         petMovement.enabled = false;
