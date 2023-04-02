@@ -8,6 +8,7 @@ public class PetMovement : MonoBehaviour
     PlayerHealth playerHealth;
     UnityEngine.AI.NavMeshAgent nav;
 
+    Transform thisTransform;
     private void Awake()
     {
         // find game object with tag player
@@ -16,10 +17,15 @@ public class PetMovement : MonoBehaviour
         // get reference component
         playerHealth = player.GetComponent<PlayerHealth>();
         nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
+
+        // get this object transform
+        thisTransform = GetComponent<Transform>();
     }
 
     void Update()
     {
+
+        thisTransform.LookAt(player.position);
         if (playerHealth.currentHealth > 0)
         {
             nav.SetDestination(player.position);
