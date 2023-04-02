@@ -12,4 +12,10 @@ public class Wallet : MonoBehaviour
     {
         goldBalance.SetText(gold.ToString());
     }
+    
+    // cheat code to add gold
+    public void AddGold()
+    {
+        gold += 999;
+    }
 }

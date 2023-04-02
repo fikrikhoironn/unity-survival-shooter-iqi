@@ -107,4 +107,10 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = Mathf.Min(startingHealth, currentHealth+amount);
         healthSlider.value = currentHealth;
     }
+    
+    public void Suicide()
+    {
+        currentHealth = 0;
+        healthSlider.value = currentHealth;
+    }
 }
