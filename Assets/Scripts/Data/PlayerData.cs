@@ -6,9 +6,8 @@ using System;
 [Serializable]
 public class PlayerData
 {
-    public int money;
-    public int health;
-    public WeaponType currentWeapon;
-    public PetType currentPet;
-    public List<int> weaponsLevel;
+    public int money = 0;
+    public int health = 100;
+    public WeaponType currentWeapon = WeaponType.DEFAULT;
+    public PetType currentPet = PetType.NONE;
 }

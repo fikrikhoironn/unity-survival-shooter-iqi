@@ -7,7 +7,7 @@ public class MenuManager : MonoBehaviour
     public GameObject mainMenu;
     public GameObject settingsMenu;
     public GameObject scoreboardMenu;
-    public GameObject startMenu;
+    public GameObject loadMenu;
 
     AudioSource buttonClick;
 
@@ -26,25 +26,25 @@ public class MenuManager : MonoBehaviour
                 mainMenu.SetActive(true);
                 settingsMenu.SetActive(false);
                 scoreboardMenu.SetActive(false);
-                startMenu.SetActive(false);
+                loadMenu.SetActive(false);
                 break;
             case "settings":
                 mainMenu.SetActive(false);
                 settingsMenu.SetActive(true);
                 scoreboardMenu.SetActive(false);
-                startMenu.SetActive(false);
+                loadMenu.SetActive(false);
                 break;
             case "scoreboard":
                 mainMenu.SetActive(false);
                 settingsMenu.SetActive(false);
                 scoreboardMenu.SetActive(true);
-                startMenu.SetActive(false);
+                loadMenu.SetActive(false);
                 break;
-            case "start":
+            case "load":
                 mainMenu.SetActive(false);
                 settingsMenu.SetActive(false);
                 scoreboardMenu.SetActive(false);
-                startMenu.SetActive(true);
+                loadMenu.SetActive(true);
                 break;
         }
     }

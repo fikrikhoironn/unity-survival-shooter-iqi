@@ -1,43 +1,39 @@
 using UnityEngine;
 using System.IO;
+using System;
 
 public class DataManager : MonoBehaviour
 {
     public static DataManager instance;
     public GameData[] saves = new GameData[3];
-    public int currentSaveIndex = -1;
-    public GameData currentSaveData
-    {
-        get
-        {
-            if (currentSaveIndex < 0 || currentSaveIndex >= saves.Length)
-            {
-                Debug.LogError("Invalid save index");
-                return null;
-            }
-            return saves[currentSaveIndex];
-        }
-    }
+    public GameData currentSaveData;
 
     void Start()
     {
         DontDestroyOnLoad(gameObject);
-        loadAllGameData();
+        LoadAllGameData();
         if (instance == null)
         {
             instance = this;
         }
     }
 
-    private void loadAllGameData()
+    private void LoadAllGameData()
     {
         for (int i = 0; i < saves.Length; i++)
         {
-            saves[i] = loadGameData(i);
+            saves[i] = LoadGameData(i);
         }
     }
 
-    private GameData loadGameData(int saveIndex)
+    public void InstantiateGame()
+    {
+        currentSaveData = new GameData();
+        // Change scene to level1
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Scenes/Level 1");
+    }
+
+    private GameData LoadGameData(int saveIndex)
     {
         if (saveIndex < 0 || saveIndex >= saves.Length)
         {
@@ -58,34 +54,46 @@ public class DataManager : MonoBehaviour
         }
     }
 
-    public void save()
+    public void LoadGame(int saveIndex)
     {
-        if (currentSaveIndex < 0 || currentSaveIndex >= saves.Length)
+        if (saveIndex < 0 || saveIndex >= saves.Length)
         {
             Debug.LogError("Invalid save index");
             return;
         }
-        // TODO: Get current game data from other object
-        saveGameData(currentSaveData, currentSaveIndex);
+        currentSaveData = saves[saveIndex];
+        if (currentSaveData == null)
+        {
+            Debug.LogError("Save file does not exist");
+            return;
+        }
+
+        // Change scene to level1
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Scenes/Level 1");
     }
 
-    private void saveGameData(GameData gameData, int index)
+    public void SaveGameData(GameData gameData, int saveIndex)
     {
+        if (saveIndex < 0 || saveIndex >= saves.Length)
+        {
+            Debug.LogError("Invalid save index");
+            return;
+        }
         if (gameData != null)
         {
-            saves[index] = gameData;
+            saves[saveIndex] = gameData;
             string json = JsonUtility.ToJson(gameData);
-            File.WriteAllText(Application.persistentDataPath + "/save" + index + ".json", json);
+            File.WriteAllText(Application.persistentDataPath + "/save" + saveIndex + ".json", json);
             return;
         }
         else
         {
             // Delete save file
-            if (File.Exists(Application.persistentDataPath + "/save" + index + ".json"))
+            if (File.Exists(Application.persistentDataPath + "/save" + saveIndex + ".json"))
             {
-                File.Delete(Application.persistentDataPath + "/save" + index + ".json");
+                File.Delete(Application.persistentDataPath + "/save" + saveIndex + ".json");
             }
-            saves[index] = null;
+            saves[saveIndex] = null;
         }
     }
 }

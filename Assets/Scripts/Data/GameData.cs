@@ -6,7 +6,8 @@ using System;
 [Serializable]
 public class GameData
 {
-    public int level;
-    public string time; // String representation of the timeSpan
-    PlayerData playerData;
+    public string saveName = "My Game";
+    public int level = 1;
+    public string time = TimeSpan.FromSeconds(0).ToString(); // String representation of the timeSpan
+    public PlayerData playerData = new PlayerData();
 }
