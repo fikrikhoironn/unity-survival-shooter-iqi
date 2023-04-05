@@ -82,8 +82,12 @@ public class PetAttackerAttack : MonoBehaviour
                 // set anim trigger isJumping to true
                 anim.SetBool("attacking", true);
 
-                // set nav, make stop
+                // set nav
+                nav.velocity = Vector3.zero;
                 nav.isStopped = true;
+
+
+
 
                 StartCoroutine(Attack());
 
