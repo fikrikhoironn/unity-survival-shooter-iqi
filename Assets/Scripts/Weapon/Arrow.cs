@@ -41,12 +41,14 @@ public class Arrow : MonoBehaviour
     void OnTriggerEnter(Collider collider)
     {
         if (didHit) return;
-        didHit = true;
+        
         // if colliding with player
         if (collider.CompareTag("Player") || collider.CompareTag("Pet"))
         {
             return;
         }
+
+        didHit = true;
 
 
 

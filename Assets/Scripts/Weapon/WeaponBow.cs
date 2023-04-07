@@ -55,8 +55,10 @@ public class WeaponBow : MonoBehaviour
 
         Debug.Log("firepowerPerSecond: " + firepowerPerSecond);
 
-        GameObject WeaponUI = GameObject.Find("Weapon");
-        GameObject chargeBar = Instantiate(chargeBarPrefab, WeaponUI.transform);
+        GameObject WeaponExtraAttributes = GameObject.Find("WeaponExtraAttributes");
+
+        GameObject chargeBar = WeaponExtraAttributes.transform.GetChild(0).gameObject;
+
         slider = chargeBar.GetComponent<Slider>();
 
         // audio from object archedAudio
