@@ -7,7 +7,7 @@ public class ShockWave : MonoBehaviour
 
     List<GameObject> enemies;
 
-    int damage = 500;
+    public int damage;
 
     void Awake()
     {
@@ -32,11 +32,16 @@ public class ShockWave : MonoBehaviour
         // if other object is player
         if (other.tag == "Enemy")
         {
-            Debug.Log("Enemy Detected, " + other.gameObject);
+
             // append other object to enemies array
             GameObject enemy = other.gameObject;
-            enemies.Add(enemy);
-            
+            // add if not exist
+            if (!enemies.Contains(enemy))
+            {
+                Debug.Log("Enemy Added, " + other.gameObject);
+                enemies.Add(enemy);
+            }
+
 
 
 
@@ -65,8 +70,11 @@ public class ShockWave : MonoBehaviour
 
         foreach (GameObject enemy in enemies)
         {
-            EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
-            enemyHealth.TakeDamage(damage, enemy.transform.position);
+            if (enemy != null)
+            {
+                EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
+                enemyHealth.TakeDamage(damage, enemy.transform.position);
+            }
         }
     }
 }

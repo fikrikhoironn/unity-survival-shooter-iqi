@@ -32,6 +32,10 @@ public class WeaponBow : MonoBehaviour
 
     public GameObject chargeBarPrefab;
 
+    AudioSource clipArched;
+    AudioSource clipReleased;
+
+
 
 
     void Awake()
@@ -54,9 +58,11 @@ public class WeaponBow : MonoBehaviour
         GameObject WeaponUI = GameObject.Find("Weapon");
         GameObject chargeBar = Instantiate(chargeBarPrefab, WeaponUI.transform);
         slider = chargeBar.GetComponent<Slider>();
-        Debug.Log("WeaponUI: " + WeaponUI);
-        Debug.Log("chargeBar: " + chargeBar);
-        Debug.Log("slider: " + slider);
+
+        // audio from object archedAudio
+        clipArched = transform.Find("archedAudio").GetComponent<AudioSource>();
+        clipReleased = transform.Find("releasedAudio").GetComponent<AudioSource>();
+
 
     }
 
@@ -82,6 +88,9 @@ public class WeaponBow : MonoBehaviour
     {
         if (Input.GetButtonUp("Fire1") && isCharging)
         {
+            // play released
+            clipReleased.time = 0.5f;
+            clipReleased.Play();
             isCharging = false;
             Fire(firepower);
             currentChargeTime = 0f;
@@ -95,12 +104,15 @@ public class WeaponBow : MonoBehaviour
         }
         if (Input.GetButtonDown("Fire1"))
         {
+            // play arched, skip 0.1s using time
+            clipArched.time = 0.1f;
+            clipArched.Play();
             isCharging = true;
             currentChargeTime = 0f;
             slider.value = maxChargePower;
 
         }
-        
+
         if (isCharging)
         {
             currentChargeTime += Time.deltaTime;
@@ -148,10 +160,16 @@ public class WeaponBow : MonoBehaviour
     // on destroy
     void OnDestroy()
     {
-        Destroy(this.currentArrow.gameObject);
+        if (this.currentArrow != null)
+        {
+            Destroy(this.currentArrow.gameObject);
+        }
 
         // destroy slider
-        Destroy(slider.gameObject);
+        if (slider != null)
+        {
+            Destroy(slider.gameObject);
+        }
     }
 
 

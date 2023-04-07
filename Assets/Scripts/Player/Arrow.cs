@@ -31,24 +31,23 @@ public class Arrow : MonoBehaviour
 
     public void Fly(Vector3 force)
     {
-        fly = true;
         rb.isKinematic = false;
         rb.AddForce(force, ForceMode.Impulse);
         // rb.AddTorque(transform.right * torque);
         transform.SetParent(null);
-        
+
     }
 
     void OnTriggerEnter(Collider collider)
     {
-        if (!fly) return;
+        if (didHit) return;
+        didHit = true;
         // if colliding with player
         if (collider.CompareTag("Player") || collider.CompareTag("Pet"))
         {
             return;
         }
-        // if (didHit) return;
-        // didHit = true;
+
 
 
         rb.velocity = Vector3.zero;
@@ -61,7 +60,7 @@ public class Arrow : MonoBehaviour
             enemyHealth.TakeDamage(damage, transform.position);
 
         }
-        
+
 
         // deactivate all collider
         Collider[] colliders = GetComponentsInChildren<Collider>();

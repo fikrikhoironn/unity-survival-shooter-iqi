@@ -43,6 +43,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int amount, Vector3 hitPoint)
     {
+        Debug.Log("Enemy Take Damage = " + amount);
         //Check jika dead
         if (isDead)
             return;

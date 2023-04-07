@@ -30,6 +30,9 @@ public class PetAttackerAttack : MonoBehaviour
     // pet navmesh agent
     UnityEngine.AI.NavMeshAgent nav;
 
+    // audio source
+    AudioSource audioSource;
+
 
 
 
@@ -44,6 +47,9 @@ public class PetAttackerAttack : MonoBehaviour
 
         // get pet navmesh agent
         nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
+
+        // get audio source
+        audioSource = GetComponent<AudioSource>();
 
 
 
@@ -103,6 +109,9 @@ public class PetAttackerAttack : MonoBehaviour
 
     private IEnumerator Attack()
     {
+        // play audio clip
+        audioSource.Play();
+
         yield return new WaitForSeconds(1.0f);
 
         // instantiate shockwave
