@@ -12,6 +12,7 @@ public struct QuestData
 [Serializable]
 public struct ObjectiveData
 {
-    public string enemyName;
+    [SerializeField]
+    public GameObject enemy;
     public int enemyCount;
 }

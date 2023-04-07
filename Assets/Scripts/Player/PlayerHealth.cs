@@ -30,6 +30,10 @@ public class PlayerHealth : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
 
         playerShooting = GetComponentInChildren<PlayerShooting>();
+        if (currentHealth == 0)
+        {
+            currentHealth = startingHealth;
+        }
         healthSlider.value = currentHealth;
     }
 

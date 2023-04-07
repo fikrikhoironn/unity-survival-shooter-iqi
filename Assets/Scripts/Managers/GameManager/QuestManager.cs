@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using TMPro;
 
 public class QuestManager : MonoBehaviour
@@ -13,15 +14,16 @@ public class QuestManager : MonoBehaviour
     {
         get { return quests[DataManager.instance.currentSaveData.level - 1]; }
     }
+    public static QuestManager instance;
     public bool isQuestComplete
     {
         get
         {
             foreach (ObjectiveData objective in activeQuest.objectives)
             {
-                if (enemyKills.ContainsKey(objective.enemyName))
+                if (enemyKills.ContainsKey(objective.enemy.name))
                 {
-                    if (enemyKills[objective.enemyName] < objective.enemyCount)
+                    if (enemyKills[objective.enemy.name] < objective.enemyCount)
                     {
                         return false;
                     }
@@ -39,20 +41,39 @@ public class QuestManager : MonoBehaviour
     {
         content = QuestTracker.GetChild(0).GetChild(0).GetComponent<RectTransform>();
         EnemyHealth.onEnemyKilled += addKillCount;
-        for (int i = 0; i < activeQuest.objectives.Length; i++)
+        startLevel();
+        if (instance == null)
         {
-            enemyKills.Add(activeQuest.objectives[i].enemyName, 0);
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 
-    public void nextLevel()
+    public void startLevel()
     {
-        if (isQuestComplete)
+        if (DataManager.instance.currentSaveData.level > quests.Length)
         {
-            DataManager.instance.currentSaveData.level++;
-            for (int i = 0; i < activeQuest.objectives.Length; i++)
+            return;
+        }
+        for (int i = 0; i < activeQuest.objectives.Length; i++)
+        {
+            enemyKills.Add(activeQuest.objectives[i].enemy.name, 0);
+            // Spawn objective
+            for (int j = 0; j < activeQuest.objectives[i].enemyCount; j++)
             {
-                enemyKills.Add(activeQuest.objectives[i].enemyName, 0);
+                // Get random position on navmesh with min distance of 10 and max distance of 30
+                Vector3 vec = Random.insideUnitSphere * 20;
+                NavMeshHit hit;
+                NavMesh.SamplePosition(vec + vec.normalized * 10, out hit, 30, NavMesh.AllAreas);
+                // Spawn enemy
+                GameObject enemy = Instantiate(
+                    activeQuest.objectives[i].enemy,
+                    hit.position,
+                    Quaternion.identity
+                );
             }
         }
     }
@@ -66,9 +87,9 @@ public class QuestManager : MonoBehaviour
             {
                 RectTransform objective = content.GetChild(i).GetComponent<RectTransform>();
                 objective.GetComponent<TextMeshProUGUI>().text =
-                    activeQuest.objectives[i].enemyName
+                    activeQuest.objectives[i].enemy.name
                     + ": "
-                    + enemyKills[activeQuest.objectives[i].enemyName]
+                    + enemyKills[activeQuest.objectives[i].enemy.name]
                     + "/"
                     + activeQuest.objectives[i].enemyCount;
             }
@@ -79,12 +100,11 @@ public class QuestManager : MonoBehaviour
                     content
                 );
                 objective.GetComponent<TMPro.TextMeshPro>().text =
-                    activeQuest.objectives[i].enemyName
+                    activeQuest.objectives[i].enemy.name
                     + ": "
-                    + enemyKills[activeQuest.objectives[i].enemyName]
+                    + enemyKills[activeQuest.objectives[i].enemy.name]
                     + "/"
                     + activeQuest.objectives[i].enemyCount;
-                objective.transform.SetParent(content);
             }
         }
         for (int i = activeQuest.objectives.Length; i < content.childCount; i++)

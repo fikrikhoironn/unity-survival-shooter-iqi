@@ -83,7 +83,7 @@ public class EnemyHealth : MonoBehaviour
         //trigger event onEnemyKilled
         if (onEnemyKilled != null)
         {
-            onEnemyKilled(gameObject.name.Split(' ')[0]);
+            onEnemyKilled(gameObject.name.Replace("(Clone)", ""));
         }
     }
 
