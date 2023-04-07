@@ -8,7 +8,7 @@ public class DataManager : MonoBehaviour
     public GameData[] saves = new GameData[3];
     public GameData currentSaveData;
 
-    void Start()
+    void Awake()
     {
         DontDestroyOnLoad(gameObject);
         LoadAllGameData();

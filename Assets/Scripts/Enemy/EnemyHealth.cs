@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class EnemyHealth : MonoBehaviour
     public int scoreValue = 10;
     public AudioClip deathClip;
 
+    public static event Action<string> onEnemyKilled;
 
     Animator anim;
     AudioSource enemyAudio;
@@ -16,11 +18,10 @@ public class EnemyHealth : MonoBehaviour
     bool isDead;
     bool isSinking;
 
-
     void Awake()
     {
-        //Mendapatkan reference komponen
-        anim = GetComponent<Animator>();
+        //Mendapatkan reference komponen
+        anim = GetComponent<Animator>();
         enemyAudio = GetComponent<AudioSource>();
         hitParticles = GetComponentInChildren<ParticleSystem>();
         capsuleCollider = GetComponent<CapsuleCollider>();
@@ -29,23 +30,20 @@ public class EnemyHealth : MonoBehaviour
         currentHealth = startingHealth;
     }
 
-
     void Update()
     {
-        //Check jika sinking
-        if (isSinking)
+        //Check jika sinking
+        if (isSinking)
         {
-            //memindahkan object kebawah
-            transform.Translate(-Vector3.up * sinkSpeed * Time.deltaTime);
+            //memindahkan object kebawah
+            transform.Translate(-Vector3.up * sinkSpeed * Time.deltaTime);
         }
     }
 
-
     public void TakeDamage(int amount, Vector3 hitPoint)
     {
-        Debug.Log("Enemy Take Damage = " + amount);
-        //Check jika dead
-        if (isDead)
+        //Check jika dead
+        if (isDead)
             return;
 
         //play audio
@@ -69,8 +67,8 @@ public class EnemyHealth : MonoBehaviour
 
     void Death()
     {
-        //set isdead
-        isDead = true;
+        //set isdead
+        isDead = true;
 
         //SetCapcollider ke trigger
         capsuleCollider.isTrigger = true;
@@ -81,14 +79,20 @@ public class EnemyHealth : MonoBehaviour
         //Play Sound Dead
         enemyAudio.clip = deathClip;
         enemyAudio.Play();
+
+        //trigger event onEnemyKilled
+        if (onEnemyKilled != null)
+        {
+            onEnemyKilled(gameObject.name.Split(' ')[0]);
+        }
     }
 
     public void StartSinking()
     {
-        //disable Navmesh Component
-        GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
-        //Set rigisbody ke kinematic
-        GetComponent<Rigidbody>().isKinematic = true;
+        //disable Navmesh Component
+        GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
+        //Set rigisbody ke kinematic
+        GetComponent<Rigidbody>().isKinematic = true;
         isSinking = true;
         ScoreManager.score += scoreValue;
         Destroy(gameObject, 2f);
