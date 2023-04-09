@@ -43,17 +43,50 @@ public class WeaponManager : MonoBehaviour
     void Start()
     {
 
-        ChangeWeapon(selectedWeapon);
+        // ChangeWeapon(selectedWeapon);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            selectedWeapon = 1;
+            ChangeWeapon(selectedWeapon);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            selectedWeapon = 2;
+            ChangeWeapon(selectedWeapon);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            selectedWeapon = 3;
+            ChangeWeapon(selectedWeapon);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            selectedWeapon = 4;
+            ChangeWeapon(selectedWeapon);
+        }
     }
 
     void ChangeWeapon(int weaponIdx)
     {
+        Debug.Log("Change to weapon " + weaponIdx);
+
+        // clear current weapon attributes
+        foreach (Transform child in WeaponExtraAttributes.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        // destroy current weapon
+        if (currentWeapon != null)
+        {
+            Destroy(currentWeapon);
+        }
+
         switch (weaponIdx)
         {
             case 4:
@@ -75,7 +108,7 @@ public class WeaponManager : MonoBehaviour
 
                 break;
             case 1:
-                weponIcon.sprite = bowSprite;
+                weponIcon.sprite = gunSprite;
                 break;
             default:
                 break;
