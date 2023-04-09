@@ -9,12 +9,18 @@ public class StateManager : MonoBehaviour
         get { return _time; }
     }
 
-    public float delayBetweenLevels = 5;
+    public Transform shopTransform;
+    Shop shop;
 
-    public bool paused = false;
+    public float delayBetweenLevels = 5;
+    float delay;
+
+    public bool isBreak = false;
+    public static StateManager instance;
 
     void Start()
     {
+        shop = shopTransform.GetComponent<Shop>();
         if (DataManager.instance.currentSaveData != null)
         {
             _time = TimeSpan.Parse(DataManager.instance.currentSaveData.time);
@@ -23,29 +29,36 @@ public class StateManager : MonoBehaviour
         {
             _time = new TimeSpan(0, 0, 0, 0, 0);
         }
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Update()
     {
-        if (!paused && QuestManager.instance.isQuestComplete)
+        if (!isBreak && QuestManager.instance.isQuestComplete)
         {
-            switchPause();
+            switchBreak();
         }
-        else if (!paused)
+        else if (!isBreak)
         {
             _time += TimeSpan.FromSeconds(Time.deltaTime);
         }
-        else if (paused && QuestManager.instance.isQuestComplete)
+        else if (isBreak && QuestManager.instance.isQuestComplete)
         {
-            if (delayBetweenLevels > 0)
+            if (delay > 0)
             {
-                delayBetweenLevels -= Time.deltaTime;
+                delay -= Time.deltaTime;
             }
             else
             {
-                switchPause();
+                switchBreak();
                 increaseLevel();
-                delayBetweenLevels = 5;
             }
         }
     }
@@ -56,8 +69,10 @@ public class StateManager : MonoBehaviour
         QuestManager.instance.startLevel();
     }
 
-    public void switchPause()
+    public void switchBreak()
     {
-        paused = !paused;
+        delay = delayBetweenLevels;
+        isBreak = !isBreak;
+        shop.active = !shop.active;
     }
 }

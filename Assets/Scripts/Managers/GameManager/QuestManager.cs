@@ -12,7 +12,19 @@ public class QuestManager : MonoBehaviour
     public Dictionary<string, int> enemyKills = new Dictionary<string, int>();
     public QuestData activeQuest
     {
-        get { return quests[DataManager.instance.currentSaveData.level - 1]; }
+        get
+        {
+            if (DataManager.instance.currentSaveData.level <= quests.Length)
+            {
+                return quests[DataManager.instance.currentSaveData.level - 1];
+            }
+            else
+            {
+                var quest = new QuestData();
+                quest.objectives = new ObjectiveData[0];
+                return quest;
+            }
+        }
     }
     public static QuestManager instance;
     public bool isQuestComplete
@@ -36,6 +48,7 @@ public class QuestManager : MonoBehaviour
             return true;
         }
     }
+    public bool autoSpawn = true;
 
     void Start()
     {
@@ -62,18 +75,26 @@ public class QuestManager : MonoBehaviour
         {
             enemyKills.Add(activeQuest.objectives[i].enemy.name, 0);
             // Spawn objective
-            for (int j = 0; j < activeQuest.objectives[i].enemyCount; j++)
+            if (autoSpawn)
             {
-                // Get random position on navmesh with min distance of 10 and max distance of 30
-                Vector3 vec = Random.insideUnitSphere * 20;
-                NavMeshHit hit;
-                NavMesh.SamplePosition(vec + vec.normalized * 10, out hit, 30, NavMesh.AllAreas);
-                // Spawn enemy
-                GameObject enemy = Instantiate(
-                    activeQuest.objectives[i].enemy,
-                    hit.position,
-                    Quaternion.identity
-                );
+                for (int j = 0; j < activeQuest.objectives[i].enemyCount; j++)
+                {
+                    // Get random position on navmesh with min distance of 10 and max distance of 30
+                    Vector3 vec = Random.insideUnitSphere * 20;
+                    NavMeshHit hit;
+                    NavMesh.SamplePosition(
+                        vec + vec.normalized * 10,
+                        out hit,
+                        30,
+                        NavMesh.AllAreas
+                    );
+                    // Spawn enemy
+                    GameObject enemy = Instantiate(
+                        activeQuest.objectives[i].enemy,
+                        hit.position,
+                        Quaternion.identity
+                    );
+                }
             }
         }
     }
@@ -99,7 +120,7 @@ public class QuestManager : MonoBehaviour
                     Resources.Load("Objective") as GameObject,
                     content
                 );
-                objective.GetComponent<TMPro.TextMeshPro>().text =
+                objective.GetComponent<TMPro.TextMeshProUGUI>().text =
                     activeQuest.objectives[i].enemy.name
                     + ": "
                     + enemyKills[activeQuest.objectives[i].enemy.name]
