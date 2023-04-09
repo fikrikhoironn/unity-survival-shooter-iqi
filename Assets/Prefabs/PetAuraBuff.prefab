@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4020997739471590}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:Eye1_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4366469808680812}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:Tail4_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4016818940381858}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:NeckPart2_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4854032282926680}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:Scapula_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +136,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4032899960586698}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:frontBall_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4414879201871486}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:backKnee_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4444842156823938}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:frontHip_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4699130372936914}
   - component: {fileID: 137893423009652258}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:cat_8888_cat_fashionista
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -370,7 +370,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4641830841318724}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:frontKnee_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -402,7 +402,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4071928214316056}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:JawEnd_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -433,7 +433,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4694896956122150}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:frontKnee_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -465,7 +465,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4322746662396642}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:R_Eye_Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -498,7 +498,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4274345876905466}
   - component: {fileID: 137544017865460750}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:eye_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -585,7 +585,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4893498169122388}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:Hair_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -616,7 +616,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4833221095229898}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:EarEnd_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -647,7 +647,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4370600243496144}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:frontAnkle_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -679,7 +679,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4823249728329384}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:frontAnkle_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -711,7 +711,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4400355930633034}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:L_EyeEnd_D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -742,7 +742,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4472481624323472}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:backBall_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -773,7 +773,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4773108594883194}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:Tail1_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -805,7 +805,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4559577546163296}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:Scapula_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -837,7 +837,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4589738577017874}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:L_Eye_D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -869,7 +869,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4011373003094886}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:L_Eye_Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -901,7 +901,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4344160600741786}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:backKnee_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -941,7 +941,7 @@ GameObject:
   - component: {fileID: 8828432760741052453}
   - component: {fileID: 731176500069785591}
   - component: {fileID: 1878771406911872709}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PetAuraBuff
   m_TagString: Pet
   m_Icon: {fileID: 0}
@@ -955,7 +955,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1364823692345502}
-  m_LocalRotation: {x: -0.002032182, y: 0.045613892, z: 0.019730514, w: 0.99876225}
+  m_LocalRotation: {x: -0.002034808, y: 0.045611996, z: 0.019729381, w: 0.99876237}
   m_LocalPosition: {x: 1.4982426, y: 0.00015860796, z: -3.2291834}
   m_LocalScale: {x: 30, y: 30, z: 30}
   m_ConstrainProportionsScale: 0
@@ -977,7 +977,7 @@ Animator:
   m_GameObject: {fileID: 1364823692345502}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: ac8fca9f76380914abe32fda30263b06, type: 3}
-  m_Controller: {fileID: 9100000, guid: a1d7b0db01726284ebb190dd04891b92, type: 2}
+  m_Controller: {fileID: 9100000, guid: c5b72e8a2280b3b46bbf17867dd55173, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1185,7 +1185,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4157074708761430}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:Eye1_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1216,7 +1216,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4145679893146178}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:Jaw_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1248,7 +1248,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4067793163545286}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:Head_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1290,7 +1290,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4145667331490374}
   - component: {fileID: 137726365423317446}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:eye_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1377,7 +1377,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4452253365633000}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:Tail0_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1409,7 +1409,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4107414717361656}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:EarEnd_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1440,7 +1440,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4549664941906854}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:NeckPart1_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1472,7 +1472,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4951751733489136}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:R_EyeEnd_D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1503,7 +1503,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4264193632371530}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:R_Eye_D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1535,7 +1535,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4076724323294752}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:Rump_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1567,7 +1567,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4094148994320170}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:Tail5_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1599,7 +1599,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4023670876237118}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:Neck_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1631,7 +1631,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4323009195342884}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:backHip_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1663,7 +1663,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4418033962889752}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:BackB_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1695,7 +1695,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4902504947956274}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:Chest_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1729,7 +1729,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4404291369597022}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:R_EyeEnd_Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1760,7 +1760,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4982731565294058}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:Eye_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1792,7 +1792,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4574439159222238}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:Rump_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1824,7 +1824,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4278313046216346}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:frontBall_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1855,7 +1855,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4072306405335706}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:frontHip_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1887,7 +1887,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4660427514719882}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:backAnkle_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1919,7 +1919,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4592818325111282}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:Eye_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1951,7 +1951,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4362639116011966}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:backBall_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1982,7 +1982,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4120586243276386}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:Ear_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2014,7 +2014,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4762828641942988}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:L_EyeEnd_Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2045,7 +2045,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4420274959500596}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:Tail3_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2077,7 +2077,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4668264279654882}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:BackA_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2109,7 +2109,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4845737051831932}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:backHip_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2141,7 +2141,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4579008115136502}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:Root_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2176,7 +2176,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4982591319926702}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:backAnkle_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2208,7 +2208,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4611805667199058}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:Ear_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2240,7 +2240,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4471905009228366}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:Tail6_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2271,7 +2271,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4005697757640712}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CatGirl2:Tail2_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}

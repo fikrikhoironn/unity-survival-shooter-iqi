@@ -20,8 +20,6 @@ public class WeaponBow : MonoBehaviour
 
     int shootableMask;
 
-    private Transform transform;
-
     private Transform playerTransform;
 
     private float firepowerPerSecond;
@@ -44,8 +42,6 @@ public class WeaponBow : MonoBehaviour
         shootableMask = LayerMask.GetMask("Shootable");
 
         damagePerShot = initialDamagePerShot;
-
-        transform = GetComponent<Transform>();
 
         playerTransform = transform.parent;
 

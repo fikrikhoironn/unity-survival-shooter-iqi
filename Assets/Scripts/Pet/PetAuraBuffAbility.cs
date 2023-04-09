@@ -21,18 +21,29 @@ public class PetAuraBuffAbility : MonoBehaviour
         gunBarrelEnd = GameObject.FindGameObjectWithTag("Gun");
         pet = GameObject.FindGameObjectWithTag("Pet");
 
-        playerShooting = gunBarrelEnd.GetComponent<PlayerShooting>();
+        if (gunBarrelEnd != null)
+        {
+            playerShooting = gunBarrelEnd.GetComponent<PlayerShooting>();
+            playerShooting.BuffDamageShot(buff);
+        }
+        else
+        {
+            // todo: make general for all weapon
+            playerShooting = null;
+        }
+
         petHealth = pet.GetComponent<PetHealth>();
 
         petAudio.Play();
 
-        playerShooting.BuffDamageShot(buff);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (petHealth.IsDead)
+        // todo: make general for all weapon
+        if (petHealth.IsDead && playerShooting != null)
         {
             playerShooting.ResetDamageShot();
         }

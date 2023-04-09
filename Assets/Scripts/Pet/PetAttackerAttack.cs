@@ -63,14 +63,14 @@ public class PetAttackerAttack : MonoBehaviour
     }
     void FixedUpdate()
     {
-        
+
         // add time to timer
         timer += Time.deltaTime;
 
         if (timer >= timeBetweenShockWave)
         {
-            
-        
+
+
 
             // 1 second delay
 
@@ -116,7 +116,15 @@ public class PetAttackerAttack : MonoBehaviour
 
         // instantiate shockwave
         GameObject shockwave = Instantiate(ShockWavePrefab, closestEnemy.transform.position, Quaternion.identity);
-        Destroy(shockwave, 2.0f);
+
+        try
+        {
+            Destroy(shockwave, 2.0f);
+        }
+        catch (System.Exception)
+        {
+            Debug.Log("Already destroyed");
+        }
 
 
 
@@ -166,14 +174,15 @@ public class PetAttackerAttack : MonoBehaviour
         Vector3 position = thisTransform.position;
         foreach (GameObject enemy in enemies)
         {
-            if (enemy != null) {
-            Vector3 diff = enemy.transform.position - position;
-            float curDistance = diff.sqrMagnitude;
-            if (curDistance < distance)
+            if (enemy != null)
             {
-                closestEnemy = enemy;
-                distance = curDistance;
-            }
+                Vector3 diff = enemy.transform.position - position;
+                float curDistance = diff.sqrMagnitude;
+                if (curDistance < distance)
+                {
+                    closestEnemy = enemy;
+                    distance = curDistance;
+                }
             }
         }
     }

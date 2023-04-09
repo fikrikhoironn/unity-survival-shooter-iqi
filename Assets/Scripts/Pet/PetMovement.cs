@@ -8,6 +8,8 @@ public class PetMovement : MonoBehaviour
     PlayerHealth playerHealth;
     UnityEngine.AI.NavMeshAgent nav;
 
+    Animator anim;
+
     private void Awake()
     {
         // find game object with tag player
@@ -16,6 +18,7 @@ public class PetMovement : MonoBehaviour
         // get reference component
         playerHealth = player.GetComponent<PlayerHealth>();
         nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -23,6 +26,22 @@ public class PetMovement : MonoBehaviour
         if (playerHealth.currentHealth > 0)
         {
             nav.SetDestination(player.position);
+            // look at nav destination
+            transform.LookAt(nav.destination);
+            // fix rotation for pet attacker
+            if (GetComponent<PetAttackerAttack>())
+            {
+                transform.Rotate(new Vector3(0, 90, 0));
+            }
+
+            if (nav.velocity.magnitude > 0)
+            {
+                anim.SetBool("walking", true);
+            }
+            else
+            {
+                anim.SetBool("walking", false);
+            }
         }
         else
         {

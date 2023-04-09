@@ -13,8 +13,6 @@ public class Arrow : MonoBehaviour
 
     private bool didHit;
 
-    private bool fly = false;
-
     private EnemyHealth enemyHealth;
 
     void Awake()

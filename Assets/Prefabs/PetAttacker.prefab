@@ -1580,9 +1580,9 @@ GameObject:
   - component: {fileID: 5052982319186887556}
   - component: {fileID: 5052982319186887553}
   - component: {fileID: 5052982319186887578}
-  - component: {fileID: 5052982319186887581}
   - component: {fileID: 5052982319186887582}
   - component: {fileID: 5052982319186887559}
+  - component: {fileID: 1540677969}
   m_Layer: 9
   m_Name: PetAttacker
   m_TagString: Pet
@@ -1785,18 +1785,6 @@ MonoBehaviour:
   currentHealth: 0
   sinkSpeed: 2.5
   IsDead: 0
---- !u!114 &5052982319186887581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5051796429010878443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ec455bbe5476924f826da336dc526f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!195 &5052982319186887582
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1833,6 +1821,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShockWavePrefab: {fileID: 6446011160342766092, guid: 9c33b374f280d2543b5a3e2d7c2469cb, type: 3}
   enemies: []
+--- !u!114 &1540677969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5051796429010878443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b29c12f873ce43ddad226f2710d9bef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5051812896101344033
 GameObject:
   m_ObjectHideFlags: 0
@@ -2133,7 +2133,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5051943610280326077}
-  m_LocalRotation: {x: 1, y: 1.4994934e-24, z: 1.110223e-16, w: 6.123234e-17}
+  m_LocalRotation: {x: -1, y: 0, z: 0, w: 0}
   m_LocalPosition: {x: 0.0077355793, y: 0.014563161, z: -0.00018182707}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2144,7 +2144,7 @@ Transform:
   - {fileID: 5048116092233522367}
   m_Father: {fileID: 5048940876657004139}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -180, y: 0, z: 0}
 --- !u!1 &5051943844078627651
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,7 +21,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -3100369314251171874, guid: e19ab5ca9c26f254c8fe15550239ff5f, type: 3}
+  m_Motion: {fileID: 7400000, guid: ac8fca9f76380914abe32fda30263b06, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -58,7 +58,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Pet AC
+  m_Name: Pet AuraBuff AC
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: walking
@@ -66,13 +66,13 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: attacking
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -132,7 +132,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -3291206362154003629, guid: e19ab5ca9c26f254c8fe15550239ff5f, type: 3}
+  m_Motion: {fileID: 9067093048684652814, guid: ac8fca9f76380914abe32fda30263b06, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
