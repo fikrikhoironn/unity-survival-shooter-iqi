@@ -3868,17 +3868,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 919132147577844647, guid: 725cfb15c144ff343b76b4a9f4a16bde, type: 3}
-      propertyPath: startingHealth
-      value: 300
-      objectReference: {fileID: 0}
     - target: {fileID: 1123657921359104957, guid: 725cfb15c144ff343b76b4a9f4a16bde, type: 3}
       propertyPath: m_Name
       value: Boss
-      objectReference: {fileID: 0}
-    - target: {fileID: 1123657921359104957, guid: 725cfb15c144ff343b76b4a9f4a16bde, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 725cfb15c144ff343b76b4a9f4a16bde, type: 3}
