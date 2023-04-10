@@ -8,6 +8,10 @@ public class Shop : MonoBehaviour
     public bool active = false;
     bool inRange = false;
     public Canvas shopUI;
+    public Camera viewCam;
+
+    public float camDelay = 2f;
+    float camTimer = 0f;
 
     void Start()
     {
@@ -24,6 +28,18 @@ public class Shop : MonoBehaviour
                 // lerp intensity to 1
                 light.intensity = Mathf.Lerp(light.intensity, 2, Time.deltaTime);
             }
+
+            // Set viewCam.enable to true for camDelay seconds
+            if (camTimer < camDelay)
+            {
+                camTimer += Time.deltaTime;
+                viewCam.enabled = true;
+            }
+            else
+            {
+                viewCam.enabled = false;
+            }
+
             if (inRange && Input.GetKeyDown(KeyCode.E))
             {
                 Time.timeScale = 0;
