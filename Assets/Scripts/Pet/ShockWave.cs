@@ -29,6 +29,8 @@ public class ShockWave : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        // log tag
+        Debug.Log("Tag: " + other.tag);
         // if other object is player
         if (other.tag == "Enemy")
         {

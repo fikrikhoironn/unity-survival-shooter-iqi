@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 193818447305674132}
   - component: {fileID: 1131526992}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: BowAndArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,7 +66,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4223174506371436776}
   - component: {fileID: 8157747779274193428}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: archedAudio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6355318596463768083}
   - component: {fileID: 5413584785437402889}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: releasedAudio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -365,7 +365,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6885188692870601776, guid: 9ac94420720fb734e9b30d220762b212, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6885188692870601778, guid: 9ac94420720fb734e9b30d220762b212, type: 3}
       propertyPath: m_Name
@@ -373,7 +373,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6885188692870601778, guid: 9ac94420720fb734e9b30d220762b212, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ac94420720fb734e9b30d220762b212, type: 3}
@@ -403,11 +403,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 693346317055374061, guid: 38e0cb2e8815ab949900960db26e0df8, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 693346317055374063, guid: 38e0cb2e8815ab949900960db26e0df8, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 693346317055733453, guid: 38e0cb2e8815ab949900960db26e0df8, type: 3}
       propertyPath: m_RootOrder
@@ -524,6 +524,10 @@ PrefabInstance:
     - target: {fileID: 7563132068478850759, guid: 38e0cb2e8815ab949900960db26e0df8, type: 3}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8022999740180669432, guid: 38e0cb2e8815ab949900960db26e0df8, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8749327564378651942, guid: 38e0cb2e8815ab949900960db26e0df8, type: 3}
       propertyPath: m_Range

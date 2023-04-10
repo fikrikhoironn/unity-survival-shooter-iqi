@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6885188692870234128}
   - component: {fileID: 6885188692871561264}
   - component: {fileID: 6885188692872528624}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6885188692870234130}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Elven Long Bow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

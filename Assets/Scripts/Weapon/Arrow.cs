@@ -38,16 +38,25 @@ public class Arrow : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
+        // not colliding trigger
+        if (collider.isTrigger) return;
+
+        Debug.Log("Arrow Hit something");
+        // if (didHit) return;
+        Debug.Log("Arrow Hit: " + collider.gameObject.name);
+
         if (didHit) return;
         
-        // if colliding with player
-        if (collider.CompareTag("Player") || collider.CompareTag("Pet"))
+        // if hit not shootable layer and not floor, (not 6, not 3)
+        if (collider.gameObject.layer != 6 && collider.gameObject.layer != 3)
         {
+            Debug.Log("Arrow Hit non shootable layer");
             return;
         }
 
         didHit = true;
 
+        Debug.Log("HERE");
 
 
         rb.velocity = Vector3.zero;
@@ -56,6 +65,7 @@ public class Arrow : MonoBehaviour
 
         if (collider.CompareTag(enemyTag))
         {
+            Debug.Log("Arrow Hit enemy");
             enemyHealth = collider.GetComponent<EnemyHealth>();
             enemyHealth.TakeDamage(damage, transform.position);
 
