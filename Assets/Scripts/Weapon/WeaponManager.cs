@@ -33,7 +33,7 @@ public class WeaponManager : MonoBehaviour
     void Awake()
     {
 
-        WeaponUI = GameObject.Find("Weapon");
+        WeaponUI = GameObject.Find("WeaponUI");
         weponIcon = WeaponUI.transform.Find("WeaponIcon").GetComponent<Image>();
         WeaponExtraAttributes = WeaponUI.transform.Find("WeaponExtraAttributes").gameObject;
         WeaponSpawnPoint = GameObject.Find("WeaponSpawnPoint");
@@ -91,7 +91,7 @@ public class WeaponManager : MonoBehaviour
         {
             case 4:
                 weponIcon.sprite = bowSprite;
-                GameObject WeaponUI = GameObject.Find("Weapon");
+                GameObject WeaponUI = GameObject.Find("WeaponUI");
                 GameObject WeaponExtraAttributes = WeaponUI.transform.Find("WeaponExtraAttributes").gameObject;
                 GameObject chargeBar = Instantiate(bowChargeBarPrefab, WeaponExtraAttributes.transform);
 
