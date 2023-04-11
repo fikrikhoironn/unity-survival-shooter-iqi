@@ -69,16 +69,6 @@ public class WeaponBow : MonoBehaviour
         Debug.Log("maxChargePower: " + maxChargePower);
         slider.maxValue = maxChargePower;
 
-        // find child component
-        currentArrow = transform.GetChild(0).GetComponent<Arrow>();
-
-        // set position to zero
-        currentArrow.transform.localPosition = Vector3.zero;
-
-        // slider = GameObject.Find("ChargeBar").GetComponent<Slider>();
-        // instansiate chargeBar
-
-
 
     }
 
@@ -127,6 +117,8 @@ public class WeaponBow : MonoBehaviour
 
     public void Fire(float firePower)
     {
+        // instantiate new arrow
+        ReloadArrow();
         var force = playerTransform.TransformDirection(Vector3.forward);
         // elevate y axis
         // normalize force
@@ -145,14 +137,22 @@ public class WeaponBow : MonoBehaviour
         // destroy arrow after 3 seconds
         Destroy(this.currentArrow.gameObject, 3f);
 
-        // instantiate new arrow
+        
+
+
+
+    }
+
+
+    void ReloadArrow()
+    {
         this.currentArrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity, transform);
         // set local position to zero
         this.currentArrow.transform.localPosition = Vector3.zero;
-        // set local rotation to zero
-        this.currentArrow.transform.localRotation = Quaternion.Euler(-90, 0, 0);
+        Quaternion newRotation = Quaternion.LookRotation(playerTransform.forward);
 
-
+        // set rotation
+        this.currentArrow.transform.rotation = newRotation;
     }
 
     // on destroy

@@ -79,5 +79,12 @@ public class Arrow : MonoBehaviour
             c.enabled = false;
         }
 
+        // deactivate light in child component
+        Light[] lights = GetComponentsInChildren<Light>();
+        foreach (Light l in lights)
+        {
+            l.enabled = false;
+        }
+
     }
 }

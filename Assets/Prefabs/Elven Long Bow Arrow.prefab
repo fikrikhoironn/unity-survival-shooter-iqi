@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 693346317055733453}
   - component: {fileID: 5953502221475499429}
   - component: {fileID: -2402558226172064131}
-  - component: {fileID: 7563132068478850759}
-  - component: {fileID: 8824923598120637319}
+  - component: {fileID: 7550659496406755745}
+  - component: {fileID: 4916553055789359003}
   m_Layer: 7
   m_Name: Elven Long Bow Arrow
   m_TagString: Untagged
@@ -27,15 +27,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 693346317055374061}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
+  m_LocalScale: {x: 0.06, y: 0.06, z: 0.06}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7448317802860426244}
   - {fileID: 693346317055733455}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5953502221475499429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,22 +63,9 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
---- !u!65 &7563132068478850759
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 693346317055374061}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.16554157, y: 19.54029, z: 0.33084524}
-  m_Center: {x: -0.008379236, y: 0.01031061, z: -0.95179284}
---- !u!65 &8824923598120637319
+--- !u!65 &7550659496406755745
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,8 +76,21 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.16554157, y: 19.54029, z: 0.33084524}
-  m_Center: {x: -0.008379236, y: 0.01031061, z: -0.95179284}
+  m_Size: {x: 0.5623936, y: 0.66081715, z: 17.747179}
+  m_Center: {x: 0.0039511207, y: -1.1638591, z: -0.08372665}
+--- !u!65 &4916553055789359003
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693346317055374061}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5623936, y: 0.66081715, z: 17.747179}
+  m_Center: {x: 0.0039511207, y: -1.1638591, z: -0.08372665}
 --- !u!1 &693346317055374063
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,15 +116,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 693346317055374063}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7448317802860426244}
+  m_Children: []
   m_Father: {fileID: 693346317055733453}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &693346317054439151
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -198,12 +198,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8022999740180669432}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -8.399997, z: -0.76}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -0.75999933, z: 8.399998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 693346317055733455}
+  m_Father: {fileID: 693346317055733453}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &8749327564378651942
