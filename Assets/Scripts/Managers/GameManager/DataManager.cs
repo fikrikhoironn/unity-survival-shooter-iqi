@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.IO;
 using System;
 
@@ -7,6 +8,11 @@ public class DataManager : MonoBehaviour
     public static DataManager instance;
     public GameData[] saves = new GameData[3];
     public GameData currentSaveData;
+
+    float timer = 0f;
+    float cutSceneTime = 25f;
+    bool loadLevel1Done = false;
+    bool clickedButtonStartGame = false;
 
     void Awake()
     {
@@ -17,7 +23,6 @@ public class DataManager : MonoBehaviour
             instance = this;
         }
     }
-
     private void LoadAllGameData()
     {
         for (int i = 0; i < saves.Length; i++)
@@ -26,11 +31,25 @@ public class DataManager : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        timer += Time.deltaTime;
+
+        // Scene 1 can be played if startgame button is clicked, timer already passed the cut scene 1 and cut scene is done
+        if (clickedButtonStartGame && timer >= cutSceneTime && !loadLevel1Done)
+        {
+            SceneManager.LoadScene("Scenes/Level 1", LoadSceneMode.Single);
+            loadLevel1Done = true;
+        }
+    }
+
+
     public void InstantiateGame()
     {
         currentSaveData = new GameData();
-        // Change scene to level1
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Scenes/Level 1");
+        SceneManager.LoadScene("Scenes/Cut Scenes/Cut Scene 1", LoadSceneMode.Single);
+        timer = 0f;
+        clickedButtonStartGame = true;
     }
 
     private GameData LoadGameData(int saveIndex)
