@@ -8,7 +8,11 @@ public class PetHealth : MonoBehaviour
     public float sinkSpeed = 2.5f;
 
     PetMovement petMovement;
+    PetAttackerMovement petAttackerMovement;
+    UnityEngine.AI.NavMeshAgent nav;
 
+
+    bool isPetAttacker = false;
     bool isSinking;
     public bool IsDead;
 
@@ -19,7 +23,18 @@ public class PetHealth : MonoBehaviour
     void Awake()
     {
         currentHealth = startingHealth;
-        petMovement = GetComponent<PetMovement>();
+        nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
+
+
+        if (GetComponent<PetMovement>())
+        {
+            petMovement = GetComponent<PetMovement>();
+        }
+        else
+        {
+            petAttackerMovement = GetComponent<PetAttackerMovement>();
+            isPetAttacker = true;
+        }
     }
 
     // Update is called once per frame
@@ -48,7 +63,14 @@ public class PetHealth : MonoBehaviour
     void Death()
     {
         IsDead = true;
-        petMovement.enabled = false;
+        if (isPetAttacker) {
+            petAttackerMovement.enabled = false;
+        }
+        else
+        {
+            petMovement.enabled = false;
+        }
+        nav.enabled = false;
         StartSinking();
     }
 

@@ -941,6 +941,7 @@ GameObject:
   - component: {fileID: 8828432760741052453}
   - component: {fileID: 731176500069785591}
   - component: {fileID: 1878771406911872709}
+  - component: {fileID: 5782386524813088560}
   m_Layer: 9
   m_Name: PetAuraBuff
   m_TagString: Pet
@@ -1176,6 +1177,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b29c12f873ce43ddad226f2710d9bef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &5782386524813088560
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364823692345502}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.12
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1370374334300704
 GameObject:
   m_ObjectHideFlags: 0

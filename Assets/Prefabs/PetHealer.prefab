@@ -1300,6 +1300,7 @@ GameObject:
   - component: {fileID: 7051604636776326275}
   - component: {fileID: 5798864453486293313}
   - component: {fileID: -1575314801688092692}
+  - component: {fileID: 5845210180689143021}
   m_Layer: 9
   m_Name: PetHealer
   m_TagString: Pet
@@ -1535,6 +1536,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBetweenHeals: 10
   healAmount: 10
+--- !u!135 &5845210180689143021
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5166211229123489226}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.12
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5166239819974289130
 GameObject:
   m_ObjectHideFlags: 0

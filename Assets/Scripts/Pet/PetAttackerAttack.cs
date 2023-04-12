@@ -89,8 +89,12 @@ public class PetAttackerAttack : MonoBehaviour
                 anim.SetBool("attacking", true);
 
                 // set nav
-                nav.velocity = Vector3.zero;
-                nav.isStopped = true;
+                if (nav.enabled == true)
+                {
+                    nav.velocity = Vector3.zero;
+                    nav.isStopped = true;
+                }
+           
 
 
 
@@ -137,7 +141,10 @@ public class PetAttackerAttack : MonoBehaviour
 
         yield return new WaitForSeconds(0.75f);
         // resume nav
-        nav.isStopped = false;
+        if (nav.enabled == true)
+        {
+            nav.isStopped = false;
+        }
     }
 
     // on trigger enter

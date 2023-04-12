@@ -1582,7 +1582,8 @@ GameObject:
   - component: {fileID: 5052982319186887578}
   - component: {fileID: 5052982319186887582}
   - component: {fileID: 5052982319186887559}
-  - component: {fileID: 1540677969}
+  - component: {fileID: 7998915749961227322}
+  - component: {fileID: 3690662766768902080}
   m_Layer: 9
   m_Name: PetAttacker
   m_TagString: Pet
@@ -1821,7 +1822,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShockWavePrefab: {fileID: 6446011160342766092, guid: 9c33b374f280d2543b5a3e2d7c2469cb, type: 3}
   enemies: []
---- !u!114 &1540677969
+--- !u!135 &7998915749961227322
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5051796429010878443}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.12
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3690662766768902080
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1830,7 +1844,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5051796429010878443}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b29c12f873ce43ddad226f2710d9bef, type: 3}
+  m_Script: {fileID: 11500000, guid: be1e7dbb1bc9f45c8abe6cbd74823ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5051812896101344033

@@ -1,8 +1,8 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PetMovement : MonoBehaviour
+public class PetAttackerMovement : MonoBehaviour
 {
     Transform player;
     PlayerHealth playerHealth;
@@ -10,6 +10,7 @@ public class PetMovement : MonoBehaviour
 
     Animator anim;
     Vector3 enemyPosition;
+    bool enemyInRange = false;
 
     private void Awake()
     {
@@ -26,10 +27,22 @@ public class PetMovement : MonoBehaviour
     {
         if (playerHealth.currentHealth > 0)
         {
-            nav.SetDestination(player.position - enemyPosition);
+            if (enemyInRange)
+            {
+                nav.SetDestination(enemyPosition);
+
+            }
+            else
+            {
+                nav.SetDestination(player.position );
+
+            }
 
             // look at nav destination
-            transform.LookAt(player.position);
+            transform.LookAt(nav.destination);
+
+            // fix rotation for pet attacker
+            transform.Rotate(new Vector3(0, 90, 0));
 
             if (nav.velocity.magnitude > 0)
             {
@@ -50,6 +63,7 @@ public class PetMovement : MonoBehaviour
     {
         if (other.CompareTag("Enemy") && !other.isTrigger)
         {
+            enemyInRange = true;
             enemyPosition = other.transform.position;
         }
     }
@@ -58,7 +72,7 @@ public class PetMovement : MonoBehaviour
     {
         if (other.CompareTag("Enemy") && !other.isTrigger)
         {
-            enemyPosition = new Vector3(0, 0, 0);
+            enemyInRange = false;
         }
     }
 }
