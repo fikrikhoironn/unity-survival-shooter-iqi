@@ -21,7 +21,7 @@ public class CheatScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            Debug.Log("BackQuote pressed");
+            Debug.Log("Q pressed");
             isCheatInputVisible = !isCheatInputVisible;
             cheatInput.gameObject.SetActive(isCheatInputVisible);
             if (isCheatInputVisible)
@@ -41,6 +41,11 @@ public class CheatScript : MonoBehaviour
             else if (cheatInput.text == "money")
             {
                 Wallet wallet = player.GetComponent<Wallet>();
+            }
+            else if (cheatInput.text == "motherlode")
+            {
+                Wallet wallet = player.GetComponent<Wallet>();
+                wallet.AddMoney(999999);
             }
             cheatInput.text = "";
         }

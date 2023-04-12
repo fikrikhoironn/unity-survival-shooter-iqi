@@ -18,4 +18,9 @@ public class Wallet : MonoBehaviour
     {
         gold += 999;
     }
+    
+    public void AddMoney(int amount)
+    {
+        gold += amount;
+    }
 }
