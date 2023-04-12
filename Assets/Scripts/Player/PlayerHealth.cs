@@ -69,6 +69,7 @@ public class PlayerHealth : MonoBehaviour
 
         //Merubah tampilan dari health slider
         healthSlider.value = currentHealth;
+        updateHealth();
 
         //Memainkan suara ketika terkena damage
         playerAudio.Play();
@@ -109,11 +110,11 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth = Mathf.Min(startingHealth, currentHealth + amount);
         healthSlider.value = currentHealth;
+        updateHealth();
     }
 
-    public void Suicide()
+    private void updateHealth()
     {
-        currentHealth = 0;
-        healthSlider.value = currentHealth;
+        DataManager.instance.currentSaveData.playerData.health = currentHealth;
     }
 }

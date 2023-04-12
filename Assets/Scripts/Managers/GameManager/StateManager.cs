@@ -10,7 +10,9 @@ public class StateManager : MonoBehaviour
     }
 
     public Transform shopTransform;
+    public Transform saveTransform;
     Shop shop;
+    Save save;
 
     public float delayBetweenLevels = 5;
     float delay;
@@ -20,7 +22,9 @@ public class StateManager : MonoBehaviour
 
     void Start()
     {
+        DontDestroyOnLoad(gameObject);
         shop = shopTransform.GetComponent<Shop>();
+        save = saveTransform.GetComponent<Save>();
         if (DataManager.instance.currentSaveData != null)
         {
             _time = TimeSpan.Parse(DataManager.instance.currentSaveData.time);
@@ -74,5 +78,6 @@ public class StateManager : MonoBehaviour
         delay = delayBetweenLevels;
         isBreak = !isBreak;
         shop.active = !shop.active;
+        save.active = !save.active;
     }
 }

@@ -33,20 +33,21 @@ public class Arrow : MonoBehaviour
         rb.AddForce(force, ForceMode.Impulse);
         // rb.AddTorque(transform.right * torque);
         transform.SetParent(null);
-
     }
 
     void OnTriggerEnter(Collider collider)
     {
         // not colliding trigger
-        if (collider.isTrigger) return;
+        if (collider.isTrigger)
+            return;
 
         Debug.Log("Arrow Hit something");
         // if (didHit) return;
         Debug.Log("Arrow Hit: " + collider.gameObject.name);
 
-        if (didHit) return;
-        
+        if (didHit)
+            return;
+
         // if hit not shootable layer and not floor, (not 6, not 3)
         if (collider.gameObject.layer != 6 && collider.gameObject.layer != 3)
         {
@@ -57,20 +58,16 @@ public class Arrow : MonoBehaviour
         didHit = true;
 
         Debug.Log("HERE");
-
-
-        rb.velocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
-        rb.isKinematic = true;
-
-        if (collider.CompareTag(enemyTag))
+        if (collider.CompareTag(enemyTag) && !collider.isTrigger && rb.velocity.magnitude > 0.1f)
         {
             Debug.Log("Arrow Hit enemy");
             enemyHealth = collider.GetComponent<EnemyHealth>();
             enemyHealth.TakeDamage(damage, transform.position);
-
         }
 
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        rb.isKinematic = true;
 
         // deactivate all collider
         Collider[] colliders = GetComponentsInChildren<Collider>();
@@ -85,6 +82,5 @@ public class Arrow : MonoBehaviour
         {
             l.enabled = false;
         }
-
     }
 }

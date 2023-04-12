@@ -7,18 +7,19 @@ public class Wallet : MonoBehaviour
 {
     public int gold;
     public TextMeshProUGUI goldBalance;
-    
+
     public void Update()
     {
         goldBalance.SetText(gold.ToString());
+        DataManager.instance.currentSaveData.playerData.money = gold;
     }
-    
+
     // cheat code to add gold
     public void AddGold()
     {
         gold += 999;
     }
-    
+
     public void AddMoney(int amount)
     {
         gold += amount;
