@@ -59,6 +59,11 @@ public class CheatScript : MonoBehaviour
                     playerShooting.BuffDamageShot(99999999);
                 }
             }
+            else if (cheatInput.text == "doublespeed")
+            {
+                PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+                playerMovement.DoubleSpeed();
+            }
             cheatInput.text = "";
         }
     }

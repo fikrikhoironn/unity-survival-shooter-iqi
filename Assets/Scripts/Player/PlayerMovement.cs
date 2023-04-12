@@ -70,4 +70,9 @@ public class PlayerMovement : MonoBehaviour
         //Move to position
         playerRigidbody.MovePosition(transform.position + movement);
     }
+    public void DoubleSpeed()
+    {
+        speed *= 2f;
+    }
+    
 }
