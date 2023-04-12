@@ -8,6 +8,8 @@ public class CheatScript : MonoBehaviour
     public GameObject player;
     private bool isCheatInputVisible = false;
     private InputField cheatInput;
+    private Graphic originalGraphic;
+
     
 
 
@@ -15,22 +17,29 @@ public class CheatScript : MonoBehaviour
     {
         // Get the InputField component
         cheatInput = GetComponent<InputField>();
-        // Hide the InputField initially
-        // cheatInput.gameObject.SetActive(false);
+        // Hide the InputField 
+        originalGraphic = cheatInput.targetGraphic;
+        cheatInput.interactable = false;
+        cheatInput.transform.localScale = Vector3.zero;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.BackQuote))
         {
             Debug.Log("Q pressed");
             isCheatInputVisible = !isCheatInputVisible;
-            cheatInput.gameObject.SetActive(isCheatInputVisible);
+            cheatInput.interactable = isCheatInputVisible;
             if (isCheatInputVisible)
             {
+                cheatInput.transform.localScale = Vector3.one;
                 cheatInput.Select();
-                cheatInput.text = "";
             }
+            else
+            {
+                cheatInput.transform.localScale = Vector3.zero;
+            }
+            cheatInput.text = "";
         }
 
         if (cheatInput.gameObject.activeSelf && Input.GetKeyDown(KeyCode.Return))
@@ -65,6 +74,7 @@ public class CheatScript : MonoBehaviour
                 playerMovement.DoubleSpeed();
             }
             cheatInput.text = "";
+            cheatInput.transform.localScale = Vector3.zero;
         }
     }
 
