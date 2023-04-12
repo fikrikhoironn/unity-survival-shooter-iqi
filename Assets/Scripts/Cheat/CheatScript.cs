@@ -10,14 +10,17 @@ public class CheatScript : MonoBehaviour
     private InputField cheatInput;
     private Graphic originalGraphic;
 
-    
 
 
+
+    private void Awake()
+    {
+        PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+
+    }
     void Start()
     {
-        // Get the InputField component
         cheatInput = GetComponent<InputField>();
-        // Hide the InputField 
         originalGraphic = cheatInput.targetGraphic;
         cheatInput.interactable = false;
         cheatInput.transform.localScale = Vector3.zero;
@@ -27,7 +30,6 @@ public class CheatScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.BackQuote))
         {
-            Debug.Log("Q pressed");
             isCheatInputVisible = !isCheatInputVisible;
             cheatInput.interactable = isCheatInputVisible;
             if (isCheatInputVisible)
@@ -44,34 +46,32 @@ public class CheatScript : MonoBehaviour
 
         if (cheatInput.gameObject.activeSelf && Input.GetKeyDown(KeyCode.Return))
         {
-            if (cheatInput.text == "suicide")
+            Wallet wallet = player.GetComponent<Wallet>();
+            PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+            PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+            switch (cheatInput.text)
             {
-                PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
-                playerHealth.TakeDamage(playerHealth.currentHealth);
-            }
-            else if (cheatInput.text == "money")
-            {
-                Wallet wallet = player.GetComponent<Wallet>();
-            }
-            else if (cheatInput.text == "motherlode")
-            {
-                Wallet wallet = player.GetComponent<Wallet>();
-                wallet.AddMoney(999999);
-            }
-            else if (cheatInput.text == "onehitkill")
-            {
-                GameObject gunBarrelEnd = GameObject.FindGameObjectWithTag("Gun");
-                PlayerShooting playerShooting;
-                if (gunBarrelEnd != null)
-                {
-                    playerShooting = gunBarrelEnd.GetComponent<PlayerShooting>();
-                    playerShooting.BuffDamageShot(99999999);
-                }
-            }
-            else if (cheatInput.text == "doublespeed")
-            {
-                PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
-                playerMovement.DoubleSpeed();
+                case "suicide":
+                    playerHealth.TakeDamage(playerHealth.currentHealth);
+                    break;
+                case "money":
+                    wallet.AddMoney(999999);
+                    break;
+                case "motherlode":
+                    wallet.AddMoney(999999);
+                    break;
+                case "onehitkill":
+                    GameObject gunBarrelEnd = GameObject.FindGameObjectWithTag("Gun");
+                    PlayerShooting playerShooting;
+                    if (gunBarrelEnd != null)
+                    {
+                        playerShooting = gunBarrelEnd.GetComponent<PlayerShooting>();
+                        playerShooting.BuffDamageShot(99999999);
+                    }
+                    break;
+                case "doublespeed":
+                    playerMovement.DoubleSpeed();
+                    break;
             }
             cheatInput.text = "";
             cheatInput.transform.localScale = Vector3.zero;
