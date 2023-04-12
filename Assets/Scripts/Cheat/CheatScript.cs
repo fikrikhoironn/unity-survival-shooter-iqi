@@ -8,6 +8,8 @@ public class CheatScript : MonoBehaviour
     public GameObject player;
     private bool isCheatInputVisible = false;
     private InputField cheatInput;
+    
+
 
     void Start()
     {
@@ -47,7 +49,18 @@ public class CheatScript : MonoBehaviour
                 Wallet wallet = player.GetComponent<Wallet>();
                 wallet.AddMoney(999999);
             }
+            else if (cheatInput.text == "onehitkill")
+            {
+                GameObject gunBarrelEnd = GameObject.FindGameObjectWithTag("Gun");
+                PlayerShooting playerShooting;
+                if (gunBarrelEnd != null)
+                {
+                    playerShooting = gunBarrelEnd.GetComponent<PlayerShooting>();
+                    playerShooting.BuffDamageShot(99999999);
+                }
+            }
             cheatInput.text = "";
         }
     }
+
 }
