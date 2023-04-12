@@ -570,8 +570,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 100
   currentHealth: 0
-  healthSlider: {fileID: 0}
-  damageImage: {fileID: 0}
+  healthSlider: {fileID: 3993549276683299153}
+  damageImage: {fileID: 3993549276683299152}
   deathClip: {fileID: 8300000, guid: d36a393bca4582043982db9089e1694f, type: 3}
   flashSpeed: 5
   flashColour: {r: 1, g: 0, b: 0, a: 0.1}
@@ -10500,6 +10500,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2fa8b3168e214094bf6566f7cfc0dde, type: 3}
+--- !u!114 &3993549276683299152 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6315588927203608985, guid: b2fa8b3168e214094bf6566f7cfc0dde, type: 3}
+  m_PrefabInstance: {fileID: 3993549276683299151}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3993549276683299153 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6315588925331193759, guid: b2fa8b3168e214094bf6566f7cfc0dde, type: 3}
+  m_PrefabInstance: {fileID: 3993549276683299151}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5718895745198564914
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -23,6 +23,7 @@ public class DataManager : MonoBehaviour
             instance = this;
         }
     }
+
     private void LoadAllGameData()
     {
         for (int i = 0; i < saves.Length; i++)
@@ -42,7 +43,6 @@ public class DataManager : MonoBehaviour
             loadLevel1Done = true;
         }
     }
-
 
     public void InstantiateGame()
     {
@@ -89,6 +89,10 @@ public class DataManager : MonoBehaviour
 
         // Change scene to level1
         UnityEngine.SceneManagement.SceneManager.LoadScene("Scenes/Level 1");
+
+        // Search for the player and set the player's position to the saved position
+        GameObject player = GameObject.Find("Player");
+        player.transform.position = new Vector3(-22.5f, 0, 0);
     }
 
     public void SaveGameData(GameData gameData, int saveIndex)
@@ -100,6 +104,7 @@ public class DataManager : MonoBehaviour
         }
         if (gameData != null)
         {
+            gameData.level += 1;
             saves[saveIndex] = gameData;
             string json = JsonUtility.ToJson(gameData);
             File.WriteAllText(Application.persistentDataPath + "/save" + saveIndex + ".json", json);
