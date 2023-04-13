@@ -16,4 +16,4 @@ MonoBehaviour:
   description: Pet ini bisa membantu kamu menyerang musuh
   icon: {fileID: 21300000, guid: c9ed6d6ea2f9657409bfa068d4846139, type: 3}
   cost: 140
-  selectedItemType: 4
+  selectedItemType: 1

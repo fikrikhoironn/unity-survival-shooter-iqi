@@ -11,7 +11,6 @@ public class PetHealth : MonoBehaviour
     PetAttackerMovement petAttackerMovement;
     UnityEngine.AI.NavMeshAgent nav;
 
-
     bool isPetAttacker = false;
     bool isSinking;
     public bool IsDead;
@@ -25,12 +24,8 @@ public class PetHealth : MonoBehaviour
         currentHealth = startingHealth;
         nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
 
-
-        if (GetComponent<PetMovement>())
-        {
-            petMovement = GetComponent<PetMovement>();
-        }
-        else
+        PetMovement petMovement = GetComponent<PetMovement>();
+        if (petMovement == null)
         {
             petAttackerMovement = GetComponent<PetAttackerMovement>();
             isPetAttacker = true;
@@ -43,8 +38,8 @@ public class PetHealth : MonoBehaviour
         //Check jika sinking
         if (isSinking)
         {
-            //memindahkan object kebawah
-            transform.Translate(-Vector3.up * sinkSpeed * Time.deltaTime);
+            //memindahkan object kebawah
+            transform.Translate(-Vector3.up * sinkSpeed * Time.deltaTime);
         }
     }
 
@@ -63,7 +58,8 @@ public class PetHealth : MonoBehaviour
     void Death()
     {
         IsDead = true;
-        if (isPetAttacker) {
+        if (isPetAttacker)
+        {
             petAttackerMovement.enabled = false;
         }
         else
@@ -71,6 +67,8 @@ public class PetHealth : MonoBehaviour
             petMovement.enabled = false;
         }
         nav.enabled = false;
+        PetManager.instance.petTransform = null;
+        DataManager.instance.currentSaveData.playerData.currentPet = PetType.NONE;
         StartSinking();
     }
 
@@ -88,10 +86,10 @@ public class PetHealth : MonoBehaviour
 
     public void StartSinking()
     {
-        //disable Navmesh Component
-        GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
-        //Set rigisbody ke kinematic
-        GetComponent<Rigidbody>().isKinematic = true;
+        //disable Navmesh Component
+        GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
+        //Set rigisbody ke kinematic
+        GetComponent<Rigidbody>().isKinematic = true;
         isSinking = true;
         Destroy(gameObject, 2f);
     }

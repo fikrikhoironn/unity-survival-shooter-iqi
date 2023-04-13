@@ -37,7 +37,6 @@ public class ItemList : MonoBehaviour
 
     void setSelectedItem(int index)
     {
-        print("NGENTOT" + items.Length + " - " + index);
         itemDetails.SetItem(items[index]);
     }
 }

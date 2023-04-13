@@ -16,4 +16,4 @@ MonoBehaviour:
   description: pet ini bisa ngeheal kamu
   icon: {fileID: 21300000, guid: d798b77d7e5b14f4581fba8daed9a098, type: 3}
   cost: 100
-  selectedItemType: 4
+  selectedItemType: 1
