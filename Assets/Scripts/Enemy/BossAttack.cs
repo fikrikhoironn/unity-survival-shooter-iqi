@@ -28,12 +28,16 @@ public class BossAttack : MonoBehaviour
 
     public float betweenAttackTime;
 
+    public GameObject ultimateEffectPrefab;
+
     bool isAttacking = false;
 
     int idleId;
     int attackId;
     int jumpAttackId;
     int walkingId;
+
+    AudioSource ultimateAttackSound;
 
     AnimatorClipInfo[] clipInfo;
     void Awake()
@@ -45,6 +49,7 @@ public class BossAttack : MonoBehaviour
         nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         EnemyHealth = GetComponent<EnemyHealth>();
+        ultimateAttackSound = ultimateAttack.transform.Find("UltimateSound").GetComponent<AudioSource>();
 
         // idleId = Animator.StringToHash("Idle");
         // attackId = Animator.StringToHash("Attack");
@@ -123,6 +128,8 @@ public class BossAttack : MonoBehaviour
 
                     // look at player
                     transform.LookAt(playerTransform);
+
+                    ultimateAttackSound.Play();
                 }
             }
 
@@ -202,17 +209,14 @@ public class BossAttack : MonoBehaviour
 
         // set animation to ultimate attack
         Debug.Log("Damaging player, ultimate attack");
+        // instansiate effect at the position of the ultimate attack
+        GameObject effect = Instantiate(ultimateEffectPrefab, ultimateAttack.transform.position, Quaternion.identity);
+        ParticleSystem particle = effect.GetComponent<ParticleSystem>();
+        // set parent of effect to null
+        effect.transform.parent = null;
+        particle.Play();
+        Destroy(effect, particle.main.duration);
 
-        GameObject effect = GameObject.Find("UltimateEffect");
-        // get first child of effect get it's particle system
-        ParticleSystem particle = effect.transform.GetChild(0).GetComponent<ParticleSystem>();
-        if (particle != null)
-        {
-            particle.Play();
-        }
-        else {
-            Debug.Log("effect is null");
-        }
 
 
 
