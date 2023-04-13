@@ -43,7 +43,7 @@ public class WeaponManager : MonoBehaviour
     void Start()
     {
 
-        ChangeWeapon(selectedWeapon);
+        // ChangeWeapon(selectedWeapon);
     }
 
     // Update is called once per frame

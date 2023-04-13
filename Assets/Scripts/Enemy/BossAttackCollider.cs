@@ -18,43 +18,49 @@ public class BossAttackCollider : MonoBehaviour
         {
             petHealth = GameObject.FindGameObjectWithTag("Pet").GetComponent<PetHealth>();
         }
-        
+
     }
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (!other.isTrigger)
         {
-            playerInRange = true;
-        }
+            if (other.gameObject.tag == "Player")
+            {
+                playerInRange = true;
+            }
 
-        if (other.gameObject.tag == "Pet")
-        {
-            petInRange = true;
+            if (other.gameObject.tag == "Pet")
+            {
+                petInRange = true;
+            }
         }
     }
 
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (!other.isTrigger)
         {
-            playerInRange = false;
-        }
+            if (other.gameObject.tag == "Player")
+            {
+                playerInRange = false;
+            }
 
-        if (other.gameObject.tag == "Pet")
-        {
-            petInRange = false;
+            if (other.gameObject.tag == "Pet")
+            {
+                petInRange = false;
+            }
         }
     }
 
