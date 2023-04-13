@@ -10,15 +10,11 @@ public class ItemObject : ScriptableObject
     public Sprite icon;
     public int cost;
 
-    public ItemTypes selectedItemType = new ItemTypes();
+    public ItemTypes selectedItemType;
+}
 
-    public enum ItemTypes
-    {
-        Sword,
-        Axe,
-        Ranged,
-        Resource,
-        Pet,
-        Usable
-    }
+public enum ItemTypes
+{
+    Weapon,
+    Pet,
 }

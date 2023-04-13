@@ -9,6 +9,7 @@ public class Shop : MonoBehaviour
     bool inRange = false;
     public Canvas shopUI;
     public Camera viewCam;
+    private ItemDisplay itemDisplay;
 
     public float camDelay = 2f;
     float camTimer = 0f;
@@ -16,6 +17,7 @@ public class Shop : MonoBehaviour
     void Start()
     {
         lights = GetComponentsInChildren<Light>(true);
+        itemDisplay = GetComponentInChildren<ItemDisplay>();
     }
 
     // Update is called once per frame
@@ -44,6 +46,7 @@ public class Shop : MonoBehaviour
             {
                 Time.timeScale = 0;
                 shopUI.enabled = true;
+                itemDisplay.Init();
             }
             if (shopUI.enabled && Input.GetKeyDown(KeyCode.Escape))
             {
@@ -65,6 +68,7 @@ public class Shop : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             inRange = true;
+            GetComponentInChildren<ItemDisplay>().SetWallet(other.GetComponent<Wallet>());
         }
     }
 

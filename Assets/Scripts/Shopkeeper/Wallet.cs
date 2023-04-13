@@ -6,11 +6,9 @@ using TMPro;
 public class Wallet : MonoBehaviour
 {
     public int gold;
-    public TextMeshProUGUI goldBalance;
 
     public void Update()
     {
-        goldBalance.SetText(gold.ToString());
         DataManager.instance.currentSaveData.playerData.money = gold;
     }
 

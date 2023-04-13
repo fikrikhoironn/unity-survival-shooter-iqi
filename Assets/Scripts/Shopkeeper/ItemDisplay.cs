@@ -6,50 +6,46 @@ using TMPro;
 
 public class ItemDisplay : MonoBehaviour
 {
-    public ItemObject displayedItem;
-    
-    //Logic
-    public string itemName;
-    public string itemDescription;
-    public Sprite itemIcon;
-    public int itemCost;
-    public string itemType;
-    
-    //Graphics
-    public TextMeshProUGUI itemNameUI;
-    public TextMeshProUGUI itemDescriptionUI;
-    public Image itemIconUI;
-    public TextMeshProUGUI itemCostUI;
-    public TextMeshProUGUI itemTypeUI;
+    public ItemTypes selectedItemType = ItemTypes.Weapon;
+    public ItemDetails itemDetails;
+    public ItemList itemList;
+    public ItemObject[] petItems;
+    public ItemObject[] weaponItems;
+    private Wallet playerWallet;
+    public TextMeshProUGUI goldText;
 
-    public void Start()
+    public void Init()
     {
-        itemName = displayedItem.name;
-        itemDescription = displayedItem.description;
-        itemIcon = displayedItem.icon;
-        itemCost = displayedItem.cost;
-        itemType = displayedItem.selectedItemType.ToString();
-        
-        itemNameUI.text = itemName;
-        itemDescriptionUI.text = itemDescription;
-        itemIconUI.sprite = itemIcon;
-        itemCostUI.text = itemCost.ToString();
-        itemTypeUI.text = itemType;
-        
+        UpdateGold();
+        changeType(1);
+        itemDetails.SetItem(petItems[0]);
     }
-    
-    public void Display()
+
+    public void SetWallet(Wallet wallet)
     {
-        itemName = displayedItem.name;
-        itemDescription = displayedItem.description;
-        itemIcon = displayedItem.icon;
-        itemCost = displayedItem.cost;
-        itemType = displayedItem.selectedItemType.ToString();
-        
-        itemNameUI.text = itemName;
-        itemDescriptionUI.text = itemDescription;
-        itemIconUI.sprite = itemIcon;
-        itemCostUI.text = itemCost.ToString();
-        itemTypeUI.text = itemType;
+        playerWallet = wallet;
+    }
+
+    public Wallet GetWallet()
+    {
+        return playerWallet;
+    }
+
+    public void UpdateGold()
+    {
+        goldText.text = "Your Gold: " + playerWallet.gold.ToString();
+    }
+
+    public void changeType(int type)
+    {
+        selectedItemType = (ItemTypes)type;
+        if (selectedItemType == ItemTypes.Pet)
+        {
+            itemList.setItemList(petItems);
+        }
+        else
+        {
+            itemList.setItemList(weaponItems);
+        }
     }
 }
