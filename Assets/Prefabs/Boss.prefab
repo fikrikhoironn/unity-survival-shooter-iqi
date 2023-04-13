@@ -538,8 +538,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  normalAttackCooldown: 999
-  ultimateAttackCooldown: 3
+  normalAttackCooldown: 3
+  ultimateAttackCooldown: 9
   normalAttackDamage: 1
   ultimateAttackDamage: 2
   betweenAttackTime: 3
