@@ -91,6 +91,7 @@ public class QuestManager : MonoBehaviour
         i = 0;
         j = 0;
         enemyKills.Clear();
+        bool isBoss = false;
         for (int i = 0; i < activeQuest.objectives.Length; i++)
         {
             if (!enemyKills.ContainsKey(activeQuest.objectives[i].enemy.name))
@@ -102,14 +103,19 @@ public class QuestManager : MonoBehaviour
                 == EnemyType.Boss
             )
             {
-                spawnDelay = 4f;
-                bossHealthCanvas.gameObject.SetActive(true);
+                isBoss = true;
             }
-            else
-            {
-                spawnDelay = 2f;
-                bossHealthCanvas.gameObject.SetActive(false);
-            }
+        }
+
+        if (isBoss)
+        {
+            spawnDelay = 4f;
+            bossHealthCanvas.gameObject.SetActive(true);
+        }
+        else
+        {
+            spawnDelay = 2f;
+            bossHealthCanvas.gameObject.SetActive(false);
         }
     }
 
