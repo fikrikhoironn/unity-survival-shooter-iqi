@@ -71,14 +71,7 @@ public class WeaponBow : MonoBehaviour
     void Update()
     {
         // Check if raycast hit floor
-        RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        if (
-            Input.GetButtonUp("Fire1")
-            && isCharging
-            && Physics.Raycast(ray, out hit, 100, floorMask)
-        )
+        if (Input.GetButtonUp("Fire1") && isCharging && StateManager.instance.isBreak == false)
         {
             // play released
             clipReleased.time = 0.5f;
@@ -94,7 +87,7 @@ public class WeaponBow : MonoBehaviour
 
             Debug.Log("charge power: " + firepower);
         }
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && StateManager.instance.isBreak == false)
         {
             // play arched, skip 0.1s using time
             clipArched.time = 0.1f;
