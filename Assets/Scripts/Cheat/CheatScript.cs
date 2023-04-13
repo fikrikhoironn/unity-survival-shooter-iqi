@@ -35,10 +35,12 @@ public class CheatScript : MonoBehaviour
             if (isCheatInputVisible)
             {
                 cheatInput.transform.localScale = Vector3.one;
+				Time.timeScale = 0f;
                 cheatInput.Select();
             }
             else
-            {
+            {	
+				Time.timeScale = 1f;
                 cheatInput.transform.localScale = Vector3.zero;
             }
             cheatInput.text = "";
@@ -74,6 +76,7 @@ public class CheatScript : MonoBehaviour
                     break;
             }
             cheatInput.text = "";
+			Time.timeScale = 1f;
             cheatInput.transform.localScale = Vector3.zero;
         }
     }
