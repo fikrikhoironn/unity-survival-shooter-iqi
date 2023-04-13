@@ -12,6 +12,8 @@ public class ItemDetails : MonoBehaviour
     public TextMeshProUGUI itemType;
     public TextMeshProUGUI itemCost;
     public Image itemImage;
+    public Button buyButton;
+
     private ItemObject selectedItem;
 
     public void SetItem(ItemObject item)
@@ -22,6 +24,17 @@ public class ItemDetails : MonoBehaviour
         itemType.text = "Type: " + (item.selectedItemType == ItemTypes.Pet ? "Pet" : "Weapon");
         itemCost.text = "Cost: " + item.cost.ToString();
         itemImage.sprite = item.icon;
+        if (
+            (item.selectedItemType == ItemTypes.Pet && PetManager.instance.petTransform != null) // Got pet already
+            || (false) // TODO: Or Weapon is already bought
+        )
+        {
+            buyButton.interactable = false;
+        }
+        else
+        {
+            buyButton.interactable = true;
+        }
     }
 
     public void buyItem()
@@ -31,11 +44,26 @@ public class ItemDetails : MonoBehaviour
         {
             itemDisplay.GetWallet().gold -= selectedItem.cost;
             itemDisplay.UpdateGold();
-            print("Bought " + selectedItem.name);
+            print("Bought " + selectedItem.name + " type " + selectedItem.selectedItemType);
             // Play Ka-Ching!
             if (selectedItem.selectedItemType == ItemTypes.Pet)
             {
-                // Add pet to inventory
+                PetType petType = PetType.NONE;
+                if (selectedItem.name == "Pet Attacker")
+                {
+                    petType = PetType.ATTACKER;
+                }
+                else if (selectedItem.name == "Pet Healer")
+                {
+                    petType = PetType.HEALER;
+                }
+                else if (selectedItem.name == "Pet Aura Buff")
+                {
+                    petType = PetType.AURA_BUFF;
+                }
+
+                PetManager.instance.SpawnPet(petType);
+                buyButton.interactable = false;
             }
             else
             {

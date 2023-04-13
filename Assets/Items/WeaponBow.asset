@@ -16,4 +16,4 @@ MonoBehaviour:
   description: Senjata panah
   icon: {fileID: 21300000, guid: a9506fcbff53ec1428f79e726f95f96d, type: 3}
   cost: 50
-  selectedItemType: 2
+  selectedItemType: 0

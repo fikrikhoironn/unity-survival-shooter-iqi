@@ -4,8 +4,8 @@ using UnityEngine;
 
 public enum PetType
 {
-    NONE,
     HEALER,
     ATTACKER,
-    AURA_BUFF
+    AURA_BUFF,
+    NONE,
 }

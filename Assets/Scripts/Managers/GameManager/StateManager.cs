@@ -22,7 +22,6 @@ public class StateManager : MonoBehaviour
 
     void Start()
     {
-        DontDestroyOnLoad(gameObject);
         shop = shopTransform.GetComponent<Shop>();
         save = saveTransform.GetComponent<Save>();
         if (DataManager.instance.currentSaveData != null)
