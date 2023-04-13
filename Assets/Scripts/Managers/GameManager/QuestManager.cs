@@ -110,7 +110,11 @@ public class QuestManager : MonoBehaviour
                 objective.GetComponent<TextMeshProUGUI>().text =
                     activeQuest.objectives[i].enemy.name
                     + ": "
-                    + enemyKills[activeQuest.objectives[i].enemy.name]
+                    + (
+                        enemyKills.TryGetValue(activeQuest.objectives[i].enemy.name, out int value)
+                            ? value
+                            : 0
+                    )
                     + "/"
                     + activeQuest.objectives[i].enemyCount;
             }

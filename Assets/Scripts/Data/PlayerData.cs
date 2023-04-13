@@ -12,4 +12,16 @@ public class PlayerData
     public bool[] unlockedWeapons = new bool[Enum.GetNames(typeof(WeaponType)).Length];
     public PetType currentPet = PetType.NONE;
     public int petHealth = 0;
+
+    public PlayerData copy()
+    {
+        PlayerData copy = new PlayerData();
+        copy.money = money;
+        copy.health = health;
+        copy.currentWeapon = currentWeapon;
+        copy.unlockedWeapons = unlockedWeapons;
+        copy.currentPet = currentPet;
+        copy.petHealth = petHealth;
+        return copy;
+    }
 }

@@ -80,7 +80,7 @@ public class DataManager : MonoBehaviour
             Debug.LogError("Invalid save index");
             return;
         }
-        currentSaveData = saves[saveIndex];
+        currentSaveData = saves[saveIndex].copy();
         if (currentSaveData == null)
         {
             Debug.LogError("Save file does not exist");
@@ -104,9 +104,10 @@ public class DataManager : MonoBehaviour
         }
         if (gameData != null)
         {
-            gameData.level += 1;
-            saves[saveIndex] = gameData;
-            string json = JsonUtility.ToJson(gameData);
+            GameData data = gameData.copy();
+            data.level += 1;
+            saves[saveIndex] = data;
+            string json = JsonUtility.ToJson(data);
             File.WriteAllText(Application.persistentDataPath + "/save" + saveIndex + ".json", json);
             return;
         }

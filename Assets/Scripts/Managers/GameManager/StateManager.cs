@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using TMPro;
 
 public class StateManager : MonoBehaviour
 {
@@ -13,9 +14,10 @@ public class StateManager : MonoBehaviour
     public Transform saveTransform;
     Shop shop;
     Save save;
+    public TextMeshProUGUI timeText;
 
     public float delayBetweenLevels = 5;
-    float delay;
+    public float delay;
 
     public bool isBreak = false;
     public static StateManager instance;
@@ -51,6 +53,8 @@ public class StateManager : MonoBehaviour
         else if (!isBreak)
         {
             _time += TimeSpan.FromSeconds(Time.deltaTime);
+            DataManager.instance.currentSaveData.time = _time.ToString();
+            timeText.text = _time.ToString(@"hh\:mm\:ss");
         }
         else if (isBreak && QuestManager.instance.isQuestComplete)
         {
