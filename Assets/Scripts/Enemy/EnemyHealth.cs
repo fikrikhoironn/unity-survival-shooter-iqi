@@ -6,7 +6,7 @@ public class EnemyHealth : MonoBehaviour
     public int startingHealth = 100;
     public int currentHealth;
     public float sinkSpeed = 2.5f;
-    public int scoreValue = 10;
+    public int goldValue = 15;
     public AudioClip deathClip;
 
     public static event Action<string> onEnemyKilled;
@@ -17,6 +17,8 @@ public class EnemyHealth : MonoBehaviour
     CapsuleCollider capsuleCollider;
     bool isDead;
     bool isSinking;
+    Wallet wallet;
+    public EnemyType enemyType;
 
     void Awake()
     {
@@ -25,7 +27,12 @@ public class EnemyHealth : MonoBehaviour
         enemyAudio = GetComponent<AudioSource>();
         hitParticles = GetComponentInChildren<ParticleSystem>();
         capsuleCollider = GetComponent<CapsuleCollider>();
+        wallet = GameObject.FindGameObjectWithTag("Player").GetComponent<Wallet>();
 
+        if (enemyType == EnemyType.Hellephant)
+        {
+            startingHealth = 200;
+        }
         //Set current health
         currentHealth = startingHealth;
     }
@@ -79,6 +86,8 @@ public class EnemyHealth : MonoBehaviour
         //Play Sound Dead
         enemyAudio.clip = deathClip;
         enemyAudio.Play();
+
+        wallet.gold += goldValue;
 
         //trigger event onEnemyKilled
         if (onEnemyKilled != null)

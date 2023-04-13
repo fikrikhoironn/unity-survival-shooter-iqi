@@ -8,23 +8,29 @@ public class EnemyMovement : MonoBehaviour
     EnemyHealth enemyHealth;
     UnityEngine.AI.NavMeshAgent nav;
 
+    EnemyType enemyType;
 
-    private void Awake ()
+    private void Awake()
     {
         // find game object with tag player
-        player = GameObject.FindGameObjectWithTag ("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
 
         // get reference component
         playerHealth = player.GetComponent<PlayerHealth>();
         enemyHealth = GetComponent<EnemyHealth>();
-        nav = GetComponent <UnityEngine.AI.NavMeshAgent> ();
+        enemyType = enemyHealth.enemyType;
+        nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
 
-
-    void Update ()
+    void Update()
     {
         if (enemyHealth.currentHealth > 0 && playerHealth.currentHealth > 0)
         {
+            if (enemyType == EnemyType.Zombunny)
+            {
+                // random speed around 1f to 10f
+                nav.speed = Random.Range(1f, 10f);
+            }
             nav.SetDestination(player.position);
         }
         else

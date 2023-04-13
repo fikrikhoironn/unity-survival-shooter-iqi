@@ -2,12 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class PetManager : MonoBehaviour
 {
     public static PetManager instance;
 
-    public Transform petTransform = null;
+    private Transform _petTransform = null;
+    public Transform petTransform
+    {
+        get { return _petTransform; }
+        set
+        {
+            _petTransform = value;
+            if (value != null)
+            {
+                petHealthSlider.gameObject.SetActive(true);
+            }
+            else
+            {
+                petHealthSlider.gameObject.SetActive(false);
+            }
+        }
+    }
+    public Slider petHealthSlider;
 
     [SerializeField]
     public PetPrefabs[] petPrefabs = null;
@@ -27,6 +45,11 @@ public class PetManager : MonoBehaviour
         if (currentPet != PetType.NONE)
         {
             SpawnPet(currentPet);
+            petHealthSlider.gameObject.SetActive(true);
+        }
+        else
+        {
+            petHealthSlider.gameObject.SetActive(false);
         }
     }
 
@@ -34,8 +57,11 @@ public class PetManager : MonoBehaviour
     void Update()
     {
         if (petTransform)
+        {
             DataManager.instance.currentSaveData.playerData.petHealth = (int)
                 petTransform.GetComponent<PetHealth>().currentHealth;
+            petHealthSlider.value = DataManager.instance.currentSaveData.playerData.petHealth;
+        }
     }
 
     public void SpawnPet(PetType petType)

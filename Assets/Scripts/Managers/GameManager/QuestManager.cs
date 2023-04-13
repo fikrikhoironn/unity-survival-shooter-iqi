@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using TMPro;
+using System.Linq;
 
 public class QuestManager : MonoBehaviour
 {
@@ -27,15 +28,28 @@ public class QuestManager : MonoBehaviour
         }
     }
     public static QuestManager instance;
+    public Canvas bossHealthCanvas;
     public bool isQuestComplete
     {
         get
         {
+            var objectiveSum = new Dictionary<string, int>();
             foreach (ObjectiveData objective in activeQuest.objectives)
             {
-                if (enemyKills.ContainsKey(objective.enemy.name))
+                if (objectiveSum.ContainsKey(objective.enemy.name))
                 {
-                    if (enemyKills[objective.enemy.name] < objective.enemyCount)
+                    objectiveSum[objective.enemy.name] += objective.enemyCount;
+                }
+                else
+                {
+                    objectiveSum.Add(objective.enemy.name, objective.enemyCount);
+                }
+            }
+            foreach (string objective in objectiveSum.Keys)
+            {
+                if (enemyKills.ContainsKey(objective))
+                {
+                    if (enemyKills[objective] < objectiveSum[objective])
                     {
                         return false;
                     }
@@ -48,7 +62,10 @@ public class QuestManager : MonoBehaviour
             return true;
         }
     }
-    public bool autoSpawn = true;
+    public float spawnDelay = 2f;
+    public float spawnDelayTimer = 0f;
+    private int i,
+        j = 0;
 
     void Start()
     {
@@ -71,52 +88,62 @@ public class QuestManager : MonoBehaviour
         {
             return;
         }
+        i = 0;
+        j = 0;
+        enemyKills.Clear();
         for (int i = 0; i < activeQuest.objectives.Length; i++)
         {
-            enemyKills.Add(activeQuest.objectives[i].enemy.name, 0);
-            // Spawn objective
-            if (autoSpawn)
+            if (!enemyKills.ContainsKey(activeQuest.objectives[i].enemy.name))
             {
-                for (int j = 0; j < activeQuest.objectives[i].enemyCount; j++)
-                {
-                    // Get random position on navmesh with min distance of 10 and max distance of 30
-                    Vector3 vec = Random.insideUnitSphere * 20;
-                    NavMeshHit hit;
-                    NavMesh.SamplePosition(
-                        vec + vec.normalized * 10,
-                        out hit,
-                        30,
-                        NavMesh.AllAreas
-                    );
-                    // Spawn enemy
-                    GameObject enemy = Instantiate(
-                        activeQuest.objectives[i].enemy,
-                        hit.position,
-                        Quaternion.identity
-                    );
-                }
+                enemyKills.Add(activeQuest.objectives[i].enemy.name, 0);
+            }
+            if (
+                activeQuest.objectives[i].enemy.GetComponent<EnemyHealth>().enemyType
+                == EnemyType.Boss
+            )
+            {
+                spawnDelay = 4f;
+                bossHealthCanvas.gameObject.SetActive(true);
+            }
+            else
+            {
+                spawnDelay = 2f;
+                bossHealthCanvas.gameObject.SetActive(false);
             }
         }
     }
 
     void Update()
     {
+        // Sum all objective based on enemy name
+        var objectiveSum = new Dictionary<string, int>();
+        foreach (ObjectiveData objective in activeQuest.objectives)
+        {
+            if (objectiveSum.ContainsKey(objective.enemy.name))
+            {
+                objectiveSum[objective.enemy.name] += objective.enemyCount;
+            }
+            else
+            {
+                objectiveSum.Add(objective.enemy.name, objective.enemyCount);
+            }
+        }
         // Update content for each objective in active quest
-        for (int i = 0; i < activeQuest.objectives.Length; i++)
+        for (int i = 0; i < objectiveSum.Keys.Count; i++)
         {
             if (i < content.childCount)
             {
                 RectTransform objective = content.GetChild(i).GetComponent<RectTransform>();
                 objective.GetComponent<TextMeshProUGUI>().text =
-                    activeQuest.objectives[i].enemy.name
+                    objectiveSum.Keys.ElementAt(i)
                     + ": "
                     + (
-                        enemyKills.TryGetValue(activeQuest.objectives[i].enemy.name, out int value)
+                        enemyKills.TryGetValue(objectiveSum.Keys.ElementAt(i), out int value)
                             ? value
                             : 0
                     )
                     + "/"
-                    + activeQuest.objectives[i].enemyCount;
+                    + objectiveSum[objectiveSum.Keys.ElementAt(i)];
             }
             else
             {
@@ -125,16 +152,48 @@ public class QuestManager : MonoBehaviour
                     content
                 );
                 objective.GetComponent<TMPro.TextMeshProUGUI>().text =
-                    activeQuest.objectives[i].enemy.name
+                    objectiveSum.Keys.ElementAt(i)
                     + ": "
-                    + enemyKills[activeQuest.objectives[i].enemy.name]
+                    + enemyKills[objectiveSum.Keys.ElementAt(i)]
                     + "/"
-                    + activeQuest.objectives[i].enemyCount;
+                    + objectiveSum[objectiveSum.Keys.ElementAt(i)];
             }
         }
         for (int i = activeQuest.objectives.Length; i < content.childCount; i++)
         {
             Destroy(content.GetChild(i).gameObject);
+        }
+        spawnDelayTimer += Time.deltaTime;
+        if (spawnDelayTimer >= spawnDelay)
+        {
+            spawnDelayTimer = 0f;
+            spawnEnemy();
+        }
+    }
+
+    private void spawnEnemy()
+    {
+        if (i < activeQuest.objectives.Length)
+        {
+            if (j < activeQuest.objectives[i].enemyCount)
+            {
+                // Get random position on navmesh with min distance of 10 and max distance of 30
+                Vector3 vec = Random.insideUnitSphere * 20;
+                NavMeshHit hit;
+                NavMesh.SamplePosition(vec + vec.normalized * 10, out hit, 30, NavMesh.AllAreas);
+                // Spawn enemy
+                GameObject enemy = Instantiate(
+                    activeQuest.objectives[i].enemy,
+                    hit.position,
+                    Quaternion.identity
+                );
+                j++;
+            }
+            else
+            {
+                i++;
+                j = 0;
+            }
         }
     }
 

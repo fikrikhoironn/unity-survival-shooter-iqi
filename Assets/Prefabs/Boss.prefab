@@ -315,8 +315,8 @@ Transform:
   m_GameObject: {fileID: 1123657921359104957}
   m_LocalRotation: {x: 0, y: 0.46898603, z: 0, w: 0.8832056}
   m_LocalPosition: {x: 2.5, y: 0, z: 4.43}
-  m_LocalScale: {x: 2, y: 2, z: 2}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5225172331727942035}
   - {fileID: 892099248571526749}
@@ -485,8 +485,9 @@ MonoBehaviour:
   startingHealth: 300
   currentHealth: 0
   sinkSpeed: 2.5
-  scoreValue: 10
+  goldValue: 15
   deathClip: {fileID: 0}
+  enemyType: 3
 --- !u!195 &919132147577844648
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -497,7 +498,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.6
-  m_Speed: 2
+  m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
