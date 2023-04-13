@@ -33,8 +33,7 @@ public class WeaponBow : MonoBehaviour
     AudioSource clipArched;
     AudioSource clipReleased;
 
-
-
+    private int floorMask;
 
     void Awake()
     {
@@ -44,8 +43,6 @@ public class WeaponBow : MonoBehaviour
         damagePerShot = initialDamagePerShot;
 
         playerTransform = transform.parent;
-
-
 
         firepowerPerSecond = maxChargePower / maxChargeTime;
 
@@ -61,20 +58,27 @@ public class WeaponBow : MonoBehaviour
         clipArched = transform.Find("archedAudio").GetComponent<AudioSource>();
         clipReleased = transform.Find("releasedAudio").GetComponent<AudioSource>();
 
-
+        // floorMask
+        floorMask = LayerMask.GetMask("Floor");
     }
 
     void Start()
     {
         Debug.Log("maxChargePower: " + maxChargePower);
         slider.maxValue = maxChargePower;
-
-
     }
 
     void Update()
     {
-        if (Input.GetButtonUp("Fire1") && isCharging)
+        // Check if raycast hit floor
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (
+            Input.GetButtonUp("Fire1")
+            && isCharging
+            && Physics.Raycast(ray, out hit, 100, floorMask)
+        )
         {
             // play released
             clipReleased.time = 0.5f;
@@ -98,7 +102,6 @@ public class WeaponBow : MonoBehaviour
             isCharging = true;
             currentChargeTime = 0f;
             slider.value = maxChargePower;
-
         }
 
         if (isCharging)
@@ -109,11 +112,7 @@ public class WeaponBow : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
-    {
-
-
-    }
+    void FixedUpdate() { }
 
     public void Fire(float firePower)
     {
@@ -136,17 +135,16 @@ public class WeaponBow : MonoBehaviour
 
         // destroy arrow after 3 seconds
         Destroy(this.currentArrow.gameObject, 3f);
-
-        
-
-
-
     }
-
 
     void ReloadArrow()
     {
-        this.currentArrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity, transform);
+        this.currentArrow = Instantiate(
+            arrowPrefab,
+            transform.position,
+            Quaternion.identity,
+            transform
+        );
         // set local position to zero
         this.currentArrow.transform.localPosition = Vector3.zero;
         Quaternion newRotation = Quaternion.LookRotation(playerTransform.forward);
@@ -169,7 +167,4 @@ public class WeaponBow : MonoBehaviour
             Destroy(slider.gameObject);
         }
     }
-
-
-
 }
