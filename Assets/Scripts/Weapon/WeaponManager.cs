@@ -14,6 +14,8 @@ public class WeaponManager : MonoBehaviour
 
     public Sprite gunSprite;
 
+    public GameObject gunPrefab;
+
     private int selectedWeapon;
 
 
@@ -48,12 +50,12 @@ public class WeaponManager : MonoBehaviour
         WeaponSpawnPoint = GameObject.Find("WeaponSpawnPoint");
         playerTransform = GameObject.Find("Player").transform;
 
-        selectedWeapon = 4;
+        selectedWeapon = 1;
     }
     void Start()
     {
 
-        // ChangeWeapon(selectedWeapon);
+        ChangeWeapon(selectedWeapon);
     }
 
     // Update is called once per frame
@@ -120,6 +122,9 @@ public class WeaponManager : MonoBehaviour
                 break;
             case 1:
                 weponIcon.sprite = gunSprite;
+
+                // spawn gun with default transform from prefab
+                currentWeapon = Instantiate(gunPrefab, WeaponSpawnPoint.transform);
                 break;
             case 3:
                 weponIcon.sprite = swordSprite;
