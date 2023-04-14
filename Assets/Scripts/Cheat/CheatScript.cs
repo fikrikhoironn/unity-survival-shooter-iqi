@@ -9,13 +9,16 @@ public class CheatScript : MonoBehaviour
     private bool isCheatInputVisible = false;
     private InputField cheatInput;
     private Graphic originalGraphic;
-
-
-
+    PetHealth petHealth;
 
     private void Awake()
     {
         PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+        if (GameObject.FindGameObjectWithTag("Pet"))
+        {
+            petHealth = GameObject.FindGameObjectWithTag("Pet").GetComponent<PetHealth>();
+        }
+
 
     }
     void Start()
@@ -78,9 +81,14 @@ public class CheatScript : MonoBehaviour
                 case "doublespeed":
                     playerMovement.DoubleSpeed();
                     break;
+                case "killpet":
+                    petHealth.TakeDamage(99999);
+                    Debug.Log("Pet Killed");
+                    break;
             }
             cheatInput.text = "";
 			Time.timeScale = 1f;
+            Debug.Log("Cheat Entered");
             cheatInput.transform.localScale = Vector3.zero;
         }
     }
