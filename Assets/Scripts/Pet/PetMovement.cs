@@ -26,7 +26,7 @@ public class PetMovement : MonoBehaviour
     {
         if (playerHealth.currentHealth > 0)
         {
-            nav.SetDestination(player.position - enemyPosition);
+            nav.SetDestination(player.position);
 
             // look at nav destination
             transform.LookAt(player.position);
