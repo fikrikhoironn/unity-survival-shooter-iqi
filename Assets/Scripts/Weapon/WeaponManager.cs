@@ -22,6 +22,8 @@ public class WeaponManager : MonoBehaviour
     public GameObject bowChargeBarPrefab;
     public GameObject bowPrefab;
 
+    public Transform playerTransform;
+
 
 
     // objects
@@ -37,6 +39,7 @@ public class WeaponManager : MonoBehaviour
         weponIcon = WeaponUI.transform.Find("WeaponIcon").GetComponent<Image>();
         WeaponExtraAttributes = WeaponUI.transform.Find("WeaponExtraAttributes").gameObject;
         WeaponSpawnPoint = GameObject.Find("WeaponSpawnPoint");
+        playerTransform = GameObject.Find("Player").transform;
 
         selectedWeapon = 4;
     }
@@ -104,6 +107,10 @@ public class WeaponManager : MonoBehaviour
                     Debug.Log("Bow Prefab is null");
                 }
                 currentWeapon = Instantiate(bowPrefab, WeaponSpawnPoint.transform.position, Quaternion.identity, WeaponSpawnPoint.transform);
+
+                // look at rotation player forward
+                Quaternion rotation = Quaternion.LookRotation(playerTransform.forward);
+
 
 
                 break;

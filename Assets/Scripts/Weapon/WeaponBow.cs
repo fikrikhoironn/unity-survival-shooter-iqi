@@ -71,7 +71,7 @@ public class WeaponBow : MonoBehaviour
     void Update()
     {
         // Check if raycast hit floor
-        if (Input.GetButtonUp("Fire1") && isCharging && StateManager.instance.isBreak == false)
+        if (Input.GetButtonUp("Fire1") && isCharging /* && StateManager.instance.isBreak == false */)
         {
             // play released
             clipReleased.time = 0.5f;
@@ -87,7 +87,7 @@ public class WeaponBow : MonoBehaviour
 
             Debug.Log("charge power: " + firepower);
         }
-        if (Input.GetButtonDown("Fire1") && StateManager.instance.isBreak == false)
+        if (Input.GetButtonDown("Fire1") /* && StateManager.instance.isBreak == false */)
         {
             // play arched, skip 0.1s using time
             clipArched.time = 0.1f;
@@ -95,6 +95,9 @@ public class WeaponBow : MonoBehaviour
             isCharging = true;
             currentChargeTime = 0f;
             slider.value = maxChargePower;
+
+            // instantiate new arrow
+            ReloadArrow();
         }
 
         if (isCharging)
@@ -109,8 +112,7 @@ public class WeaponBow : MonoBehaviour
 
     public void Fire(float firePower)
     {
-        // instantiate new arrow
-        ReloadArrow();
+
         var force = playerTransform.TransformDirection(Vector3.forward);
         // elevate y axis
         // normalize force

@@ -129,7 +129,18 @@ public class BossAttack : MonoBehaviour
                     // look at player
                     transform.LookAt(playerTransform);
 
+                    // set souund time to 0
+                    ultimateAttackSound.time = 0;
                     ultimateAttackSound.Play();
+
+                    if (ultimateAttackSound != null)
+                    {
+                        Debug.Log("Ultimate Attack Sound is not null");
+                    }
+                    else
+                    {
+                        Debug.Log("Ultimate Attack Sound is null");
+                    }
                 }
             }
 
