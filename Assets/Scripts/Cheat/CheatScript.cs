@@ -36,12 +36,16 @@ public class CheatScript : MonoBehaviour
             {
                 cheatInput.transform.localScale = Vector3.one;
 				Time.timeScale = 0f;
+				Cursor.lockState = CursorLockMode.None;
+				Cursor.visible = true;
                 cheatInput.Select();
             }
             else
             {	
 				Time.timeScale = 1f;
                 cheatInput.transform.localScale = Vector3.zero;
+				Cursor.lockState = CursorLockMode.Locked;
+				Cursor.visible = false;
             }
             cheatInput.text = "";
         }
