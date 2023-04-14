@@ -17,6 +17,14 @@ public class SettingsMenu : MonoBehaviour
         playerNameInput.text = PlayerPrefs.GetString("playerName", "");
     }
 
+    void OnDisable()
+    {
+        var sfxVolume = PlayerPrefs.GetInt("sfxVolume", 100);
+        var musicVolume = PlayerPrefs.GetInt("musicVolume", 100);
+        PrefsManager.instance.setSfxVolume(sfxVolume);
+        PrefsManager.instance.setMusicVolume(musicVolume);
+    }
+
     public void saveData()
     {
         // Save the settings to the player prefs

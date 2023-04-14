@@ -1995,6 +1995,7 @@ GameObject:
   m_Component:
   - component: {fileID: 349938924}
   - component: {fileID: 349938925}
+  - component: {fileID: 349938926}
   m_Layer: 5
   m_Name: Scoreboard
   m_TagString: Untagged
@@ -2032,6 +2033,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 349938923}
   m_CullTransparentMesh: 1
+--- !u!114 &349938926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349938923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dcb9f51e8df8f44eb50e4ed400ee3a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scorePrefab: {fileID: 2613039340956523012, guid: e8aa522670999d14c9ddf90d1ee5c3eb, type: 3}
+  scoreParent: {fileID: 1714181960}
 --- !u!1 &387639892
 GameObject:
   m_ObjectHideFlags: 0
@@ -2782,7 +2797,9 @@ MonoBehaviour:
       money: 0
       health: 0
       currentWeapon: 0
+      unlockedWeapons: 00000000
       currentPet: 0
+      petHealth: 0
   - saveName: 
     level: 0
     time: 
@@ -2790,7 +2807,9 @@ MonoBehaviour:
       money: 0
       health: 0
       currentWeapon: 0
+      unlockedWeapons: 00000000
       currentPet: 0
+      petHealth: 0
   - saveName: 
     level: 0
     time: 
@@ -2798,7 +2817,9 @@ MonoBehaviour:
       money: 0
       health: 0
       currentWeapon: 0
+      unlockedWeapons: 00000000
       currentPet: 0
+      petHealth: 0
   currentSaveData:
     saveName: My Game
     level: 1
@@ -2807,7 +2828,10 @@ MonoBehaviour:
       money: 0
       health: 100
       currentWeapon: 0
+      unlockedWeapons: 00000000
       currentPet: 0
+      petHealth: 0
+  scores: []
 --- !u!1 &499183602
 GameObject:
   m_ObjectHideFlags: 0
@@ -3540,6 +3564,18 @@ MonoBehaviour:
       - m_Target: {fileID: 741545531}
         m_TargetAssemblyTypeName: InputSlider, Assembly-CSharp
         m_MethodName: setSliderValue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1748250305}
+        m_TargetAssemblyTypeName: PrefsManager, Assembly-CSharp
+        m_MethodName: setSfxVolume
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4936,6 +4972,18 @@ MonoBehaviour:
       - m_Target: {fileID: 980462510}
         m_TargetAssemblyTypeName: InputSlider, Assembly-CSharp
         m_MethodName: setSliderValue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1748250305}
+        m_TargetAssemblyTypeName: PrefsManager, Assembly-CSharp
+        m_MethodName: setMusicVolume
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7448,6 +7496,51 @@ MonoBehaviour:
   sfxVolumeSlider: {fileID: 741545529}
   musicVolumeSlider: {fileID: 980462508}
   playerNameInput: {fileID: 245371239}
+--- !u!1 &1748250304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1748250306}
+  - component: {fileID: 1748250305}
+  m_Layer: 0
+  m_Name: PrefsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1748250305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1748250304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f82560042b5396438ba0f6857873ecc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: 5b84db49d40ea449aa4f3e3bd229ab5b, type: 2}
+--- !u!4 &1748250306
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1748250304}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1762051004
 GameObject:
   m_ObjectHideFlags: 0
