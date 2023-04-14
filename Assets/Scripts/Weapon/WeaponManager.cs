@@ -47,7 +47,7 @@ public class WeaponManager : MonoBehaviour
         WeaponSpawnPoint = GameObject.Find("WeaponSpawnPoint");
         playerTransform = GameObject.Find("Player").transform;
 
-        UnlockWeapon(1);
+        weaponUnlocked = DataManager.instance.currentSaveData.playerData.unlockedWeapons;
         selectedWeapon = 1;
     }
 
