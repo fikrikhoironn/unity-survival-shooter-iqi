@@ -102,6 +102,9 @@ public class EnemyHealth : MonoBehaviour
         {
             onEnemyKilled(gameObject.name.Replace("(Clone)", ""));
         }
+
+        // sinking
+        StartSinking();
     }
 
     public void StartSinking()
