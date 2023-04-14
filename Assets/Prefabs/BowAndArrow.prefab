@@ -55,6 +55,7 @@ MonoBehaviour:
   arrowPrefab: {fileID: 5953502221475499429, guid: 38e0cb2e8815ab949900960db26e0df8, type: 3}
   currentArrow: {fileID: 0}
   chargeBarPrefab: {fileID: 2736179333313072153, guid: acb1f90ddaca8794b87c4acc4911114e, type: 3}
+  delay: 0.5
 --- !u!1 &724664712258574209
 GameObject:
   m_ObjectHideFlags: 0

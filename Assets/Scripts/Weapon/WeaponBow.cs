@@ -35,6 +35,10 @@ public class WeaponBow : MonoBehaviour
 
     private int floorMask;
 
+    bool reloading = false;
+
+    public float delay;
+
     void Awake()
     {
         //GetMask
@@ -66,6 +70,9 @@ public class WeaponBow : MonoBehaviour
     {
         Debug.Log("maxChargePower: " + maxChargePower);
         slider.maxValue = maxChargePower;
+
+        // instantiate new arrow
+        ReloadArrow();
     }
 
     void Update()
@@ -89,15 +96,15 @@ public class WeaponBow : MonoBehaviour
         }
         if (Input.GetButtonDown("Fire1") /* && StateManager.instance.isBreak == false */)
         {
-            // play arched, skip 0.1s using time
-            clipArched.time = 0.1f;
-            clipArched.Play();
-            isCharging = true;
-            currentChargeTime = 0f;
-            slider.value = maxChargePower;
-
-            // instantiate new arrow
-            ReloadArrow();
+            if (currentArrow != null)
+            {
+                // play arched, skip 0.1s using time
+                clipArched.time = 0.1f;
+                clipArched.Play();
+                isCharging = true;
+                currentChargeTime = 0f;
+                slider.value = maxChargePower;
+            }
         }
 
         if (isCharging)
@@ -130,6 +137,21 @@ public class WeaponBow : MonoBehaviour
 
         // destroy arrow after 3 seconds
         Destroy(this.currentArrow.gameObject, 3f);
+        this.currentArrow = null;
+
+        // instantiate new arrow
+        StartCoroutine(ReloadWithDelay(delay));
+    }
+
+    IEnumerator ReloadWithDelay(float delay)
+    {
+        if (!reloading)
+        {
+            reloading = true;
+            yield return new WaitForSeconds(delay);
+            ReloadArrow();
+            reloading = false;
+        }
     }
 
     void ReloadArrow()
