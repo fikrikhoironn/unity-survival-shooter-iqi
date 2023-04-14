@@ -17,7 +17,8 @@ public class PlayerHealth : MonoBehaviour
     Animator anim;
     AudioSource playerAudio;
     PlayerMovement playerMovement;
-    PlayerShooting playerShooting;
+
+    PlayerAttack playerAttack;
 
     bool isDead;
     bool damaged;
@@ -28,13 +29,15 @@ public class PlayerHealth : MonoBehaviour
         anim = GetComponent<Animator>();
         playerAudio = GetComponent<AudioSource>();
         playerMovement = GetComponent<PlayerMovement>();
+        playerAttack = GetComponent<PlayerAttack>();
 
-        playerShooting = GetComponentInChildren<PlayerShooting>();
         if (currentHealth == 0)
         {
             currentHealth = startingHealth;
         }
         healthSlider.value = currentHealth;
+
+
     }
 
     void Update()
@@ -85,7 +88,7 @@ public class PlayerHealth : MonoBehaviour
     {
         isDead = true;
 
-        playerShooting.DisableEffects();
+        // playerShooting.DisableEffects();
 
         //mentrigger animasi Die
         anim.SetTrigger("Die");
@@ -96,8 +99,9 @@ public class PlayerHealth : MonoBehaviour
 
         //mematikan script player movement
         playerMovement.enabled = false;
+        playerAttack.enabled = false;
 
-        playerShooting.enabled = false;
+        // playerShooting.enabled = false;
     }
 
     public void RestartLevel()

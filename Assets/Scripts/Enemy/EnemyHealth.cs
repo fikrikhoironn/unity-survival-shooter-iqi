@@ -20,6 +20,8 @@ public class EnemyHealth : MonoBehaviour
     Wallet wallet;
     public EnemyType enemyType;
 
+    PlayerAttack playerAttack;
+
     void Awake()
     {
         //Mendapatkan reference komponen
@@ -28,6 +30,7 @@ public class EnemyHealth : MonoBehaviour
         hitParticles = GetComponentInChildren<ParticleSystem>();
         capsuleCollider = GetComponent<CapsuleCollider>();
         wallet = GameObject.FindGameObjectWithTag("Player").GetComponent<Wallet>();
+        playerAttack = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAttack>();
 
         if (enemyType == EnemyType.Hellephant)
         {
@@ -49,9 +52,14 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int amount, Vector3 hitPoint)
     {
+        int multiplierPercentage = playerAttack.getMultiplierPercentage();
+        // round to int
+        int totalAmount = (int)Math.Round(amount * (multiplierPercentage / 100f));
         //Check jika dead
         if (isDead)
             return;
+
+        Debug.Log("Total damage taken: " + totalAmount);
 
         //play audio
         enemyAudio.Play();

@@ -64,11 +64,11 @@ public class CheatScript : MonoBehaviour
                     break;
                 case "onehitkill":
                     GameObject gunBarrelEnd = GameObject.FindGameObjectWithTag("Gun");
-                    PlayerShooting playerShooting;
+                    PlayerAttack playerAttack;
                     if (gunBarrelEnd != null)
                     {
-                        playerShooting = gunBarrelEnd.GetComponent<PlayerShooting>();
-                        playerShooting.BuffDamageShot(99999999);
+                        playerAttack = gunBarrelEnd.GetComponent<PlayerAttack>();
+                        playerAttack.BuffDamageShot(99999999);
                     }
                     break;
                 case "doublespeed":
