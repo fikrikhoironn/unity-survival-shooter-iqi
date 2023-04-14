@@ -342,8 +342,9 @@ MonoBehaviour:
   startingHealth: 100
   currentHealth: 0
   sinkSpeed: 2.5
-  scoreValue: 10
+  goldValue: 15
   deathClip: {fileID: 8300000, guid: 8c615fd0429f34edf85539d70279360d, type: 3}
+  enemyType: 2
 --- !u!195 &2887476178997915488
 NavMeshAgent:
   m_ObjectHideFlags: 0

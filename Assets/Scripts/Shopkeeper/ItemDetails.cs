@@ -16,6 +16,8 @@ public class ItemDetails : MonoBehaviour
 
     private ItemObject selectedItem;
 
+    private string[] weaponNameIndex = new string[4] { "Default", "Shotgun", "Sword", "Bow" };
+
     public void SetItem(ItemObject item)
     {
         selectedItem = item;
@@ -26,7 +28,13 @@ public class ItemDetails : MonoBehaviour
         itemImage.sprite = item.icon;
         if (
             (item.selectedItemType == ItemTypes.Pet && PetManager.instance.petTransform != null) // Got pet already
-            || (false) // TODO: Or Weapon is already bought
+            || (
+                item.selectedItemType == ItemTypes.Weapon
+                && MapWeaponNameToIndex(item.name) != -1
+                && DataManager.instance.currentSaveData.playerData.unlockedWeapons[
+                    MapWeaponNameToIndex(item.name)
+                ]
+            ) // Weapon already unlockedwa
         )
         {
             buyButton.interactable = false;
@@ -35,6 +43,18 @@ public class ItemDetails : MonoBehaviour
         {
             buyButton.interactable = true;
         }
+    }
+
+    private int MapWeaponNameToIndex(string name)
+    {
+        for (int i = 0; i < weaponNameIndex.Length; i++)
+        {
+            if (weaponNameIndex[i] == name)
+            {
+                return i;
+            }
+        }
+        return -1;
     }
 
     public void buyItem()
@@ -67,7 +87,12 @@ public class ItemDetails : MonoBehaviour
             }
             else
             {
-                // Add weapon to inventory
+                int weaponIndex = MapWeaponNameToIndex(selectedItem.name);
+                if (weaponIndex != -1)
+                {
+                    itemDisplay.GetWeaponManager().UnlockWeapon(weaponIndex);
+                    buyButton.interactable = false;
+                }
             }
         }
         else

@@ -18,7 +18,6 @@ public class WeaponManager : MonoBehaviour
 
     private int selectedWeapon;
 
-
     // bow
     public Sprite bowSprite;
     public GameObject bowChargeBarPrefab;
@@ -30,12 +29,9 @@ public class WeaponManager : MonoBehaviour
     public GameObject shotgunSprite;
     public GameObject shotgunPrefab;
 
-
     public Transform playerTransform;
 
     bool[] weaponUnlocked = new bool[4] { true, false, false, false };
-
-
 
     // objects
 
@@ -45,7 +41,6 @@ public class WeaponManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-
         WeaponUI = GameObject.Find("WeaponUI");
         weponIcon = WeaponUI.transform.Find("WeaponIcon").GetComponent<Image>();
         WeaponExtraAttributes = WeaponUI.transform.Find("WeaponExtraAttributes").gameObject;
@@ -55,31 +50,31 @@ public class WeaponManager : MonoBehaviour
         UnlockWeapon(1);
         selectedWeapon = 1;
     }
+
     void Start()
     {
-
         ChangeWeapon(selectedWeapon);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1) && weaponUnlocked[0])
         {
             selectedWeapon = 1;
             ChangeWeapon(selectedWeapon);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha2) && weaponUnlocked[1])
         {
             selectedWeapon = 2;
             ChangeWeapon(selectedWeapon);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        if (Input.GetKeyDown(KeyCode.Alpha3) && weaponUnlocked[2])
         {
             selectedWeapon = 3;
             ChangeWeapon(selectedWeapon);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
+        if (Input.GetKeyDown(KeyCode.Alpha4) && weaponUnlocked[3])
         {
             selectedWeapon = 4;
             ChangeWeapon(selectedWeapon);
@@ -88,7 +83,7 @@ public class WeaponManager : MonoBehaviour
 
     void ChangeWeapon(int weaponIdx)
     {
-        if (!weaponUnlocked[weaponIdx-1])
+        if (!weaponUnlocked[weaponIdx - 1])
         {
             Debug.Log("Weapon " + weaponIdx + " is not unlocked");
             // return;
@@ -112,20 +107,28 @@ public class WeaponManager : MonoBehaviour
             case 4:
                 weponIcon.sprite = bowSprite;
                 GameObject WeaponUI = GameObject.Find("WeaponUI");
-                GameObject WeaponExtraAttributes = WeaponUI.transform.Find("WeaponExtraAttributes").gameObject;
-                GameObject chargeBar = Instantiate(bowChargeBarPrefab, WeaponExtraAttributes.transform);
+                GameObject WeaponExtraAttributes = WeaponUI.transform
+                    .Find("WeaponExtraAttributes")
+                    .gameObject;
+                GameObject chargeBar = Instantiate(
+                    bowChargeBarPrefab,
+                    WeaponExtraAttributes.transform
+                );
 
                 // instansiate bow with parent WeaponSpawnPoint
                 if (bowPrefab == null)
                 {
                     Debug.Log("Bow Prefab is null");
                 }
-                currentWeapon = Instantiate(bowPrefab, WeaponSpawnPoint.transform.position, Quaternion.identity, WeaponSpawnPoint.transform);
+                currentWeapon = Instantiate(
+                    bowPrefab,
+                    WeaponSpawnPoint.transform.position,
+                    Quaternion.identity,
+                    WeaponSpawnPoint.transform
+                );
 
                 // look at rotation player forward
                 Quaternion rotation = Quaternion.LookRotation(playerTransform.forward);
-
-
 
                 break;
             case 1:
@@ -137,16 +140,21 @@ public class WeaponManager : MonoBehaviour
             case 3:
                 weponIcon.sprite = swordSprite;
 
-                currentWeapon = Instantiate(swordPrefab, WeaponSpawnPoint.transform.position, Quaternion.identity, WeaponSpawnPoint.transform);
+                currentWeapon = Instantiate(
+                    swordPrefab,
+                    WeaponSpawnPoint.transform.position,
+                    Quaternion.identity,
+                    WeaponSpawnPoint.transform
+                );
                 break;
             default:
                 break;
         }
-
     }
 
     public void UnlockWeapon(int weaponIdx)
     {
-        weaponUnlocked[weaponIdx-1] = true;
+        weaponUnlocked[weaponIdx] = true;
+        DataManager.instance.currentSaveData.playerData.unlockedWeapons[weaponIdx] = true;
     }
 }

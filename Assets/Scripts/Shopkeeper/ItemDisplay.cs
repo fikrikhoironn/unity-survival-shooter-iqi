@@ -12,6 +12,7 @@ public class ItemDisplay : MonoBehaviour
     public ItemObject[] petItems;
     public ItemObject[] weaponItems;
     private Wallet playerWallet;
+    private WeaponManager weaponManager;
     public TextMeshProUGUI goldText;
 
     public void Init()
@@ -24,11 +25,17 @@ public class ItemDisplay : MonoBehaviour
     public void SetWallet(Wallet wallet)
     {
         playerWallet = wallet;
+        weaponManager = wallet.GetComponentInChildren<WeaponManager>();
     }
 
     public Wallet GetWallet()
     {
         return playerWallet;
+    }
+
+    public WeaponManager GetWeaponManager()
+    {
+        return weaponManager;
     }
 
     public void UpdateGold()

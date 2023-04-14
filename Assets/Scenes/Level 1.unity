@@ -528,9 +528,10 @@ MonoBehaviour:
       money: 1000
       health: 100
       currentWeapon: 0
-      unlockedWeapons: 00000000
+      unlockedWeapons: 01000001
       currentPet: 3
       petHealth: 0
+  scores: []
 --- !u!114 &576950700 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7536501874820728762, guid: b2fa8b3168e214094bf6566f7cfc0dde, type: 3}
@@ -586,7 +587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ec45203ae7a1a54c9d02c355f983833, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 6
 --- !u!82 &742560896
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5176,10 +5177,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27c63be2a8918c741863160b9d9da122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialDamagePerShot: 20
-  damagePerShot: 20
-  timeBetweenBullets: 0.15
-  range: 100
 --- !u!199 &1783851881
 ParticleSystemRenderer:
   serializedVersion: 6

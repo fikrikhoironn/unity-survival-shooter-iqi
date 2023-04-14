@@ -20,11 +20,10 @@ public class WeaponGun : MonoBehaviour
     Light gunLight;
     float effectsDisplayTime = 0.2f;
 
-
     void Awake()
     {
-        //GetMask
-        shootableMask = LayerMask.GetMask("Shootable");
+        //GetMask
+        shootableMask = LayerMask.GetMask("Shootable");
 
         //Mendapatkan Reference component
         gunParticles = GetComponent<ParticleSystem>();
@@ -34,13 +33,16 @@ public class WeaponGun : MonoBehaviour
         damagePerShot = initialDamagePerShot;
     }
 
-
     void Update()
     {
-
         timer += Time.deltaTime;
 
-        if (Input.GetButton("Fire1") && timer >= timeBetweenBullets && Time.timeScale != 0 && !StateManager.instance.isBreak)
+        if (
+            Input.GetButton("Fire1")
+            && timer >= timeBetweenBullets
+            && Time.timeScale != 0
+            && !StateManager.instance.isBreak
+        )
         {
             Shoot();
         }
@@ -51,11 +53,10 @@ public class WeaponGun : MonoBehaviour
         }
     }
 
-
     public void DisableEffects()
     {
-        //disable line renderer
-        gunLine.enabled = false;
+        //disable line renderer
+        gunLine.enabled = false;
 
         //disable light
         gunLight.enabled = false;
@@ -96,13 +97,13 @@ public class WeaponGun : MonoBehaviour
         //Lakukan raycast jika mendeteksi id nemy hit apapun
         if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))
         {
-            //Lakukan raycast hit hace component Enemyhealth
-            EnemyHealth enemyHealth = shootHit.collider.GetComponent<EnemyHealth>();
+            //Lakukan raycast hit hace component Enemyhealth
+            EnemyHealth enemyHealth = shootHit.collider.GetComponent<EnemyHealth>();
 
             if (enemyHealth != null)
             {
-                //Lakukan Take Damage
-                enemyHealth.TakeDamage(damagePerShot, shootHit.point);
+                //Jika ada, maka enemy health take damage
+                enemyHealth.TakeDamage(damagePerShot, shootHit.point);
             }
 
             //Set line end position ke hit position
@@ -110,8 +111,8 @@ public class WeaponGun : MonoBehaviour
         }
         else
         {
-            //set line end position ke range freom barrel
-            gunLine.SetPosition(1, shootRay.origin + shootRay.direction * range);
+            //set line end position ke range freom barrel
+            gunLine.SetPosition(1, shootRay.origin + shootRay.direction * range);
         }
     }
 }
