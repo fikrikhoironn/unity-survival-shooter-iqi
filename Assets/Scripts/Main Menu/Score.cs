@@ -12,9 +12,11 @@ public class Score : MonoBehaviour
     public string nameString;
     public TimeSpan timeSpan = new TimeSpan(0, 0, 0, 0, 0);
 
-    void Start()
+    public void setText(string name, TimeSpan time)
     {
+        nameString = name;
+        timeSpan = time;
         nameText.text = nameString;
-        timeText.text = timeSpan.ToString(@"hh\:mm\:ss\:ff");
+        timeText.text = timeSpan.ToString(@"hh\:mm\:ss");
     }
 }

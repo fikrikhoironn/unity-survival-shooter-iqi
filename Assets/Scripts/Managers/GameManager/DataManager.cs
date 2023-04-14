@@ -9,6 +9,8 @@ public class DataManager : MonoBehaviour
     public GameData[] saves = new GameData[3];
     public GameData currentSaveData;
 
+    public ScoreData[] scores;
+
     float timer = 0f;
     float cutSceneTime = 25f;
     bool loadLevel1Done = false;
@@ -18,6 +20,7 @@ public class DataManager : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
         LoadAllGameData();
+        LoadAllScoreData();
         if (instance == null)
         {
             instance = this;
@@ -29,6 +32,19 @@ public class DataManager : MonoBehaviour
         for (int i = 0; i < saves.Length; i++)
         {
             saves[i] = LoadGameData(i);
+        }
+    }
+
+    private void LoadAllScoreData()
+    {
+        if (File.Exists(Application.persistentDataPath + "/scores.json"))
+        {
+            string json = File.ReadAllText(Application.persistentDataPath + "/scores.json");
+            scores = JsonUtility.FromJson<ScoreData[]>(json);
+        }
+        else
+        {
+            scores = Array.Empty<ScoreData>();
         }
     }
 
@@ -120,5 +136,26 @@ public class DataManager : MonoBehaviour
             }
             saves[saveIndex] = null;
         }
+    }
+
+    public void SaveScoreData()
+    {
+        if (currentSaveData == null)
+        {
+            Debug.LogError("No save data");
+            return;
+        }
+        ScoreData scoreData = new ScoreData();
+        scoreData.name = PlayerPrefs.GetString("playerName");
+        scoreData.time = currentSaveData.time;
+        ScoreData[] newScores = new ScoreData[scores.Length + 1];
+        for (int i = 0; i < scores.Length; i++)
+        {
+            newScores[i] = scores[i];
+        }
+        newScores[scores.Length] = scoreData;
+        scores = newScores;
+        string json = JsonUtility.ToJson(scores);
+        File.WriteAllText(Application.persistentDataPath + "/scores.json", json);
     }
 }
