@@ -419,7 +419,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   QuestTracker: {fileID: 38827543}
-  quests: []
+  quests:
+  - objectives:
+    - enemy: {fileID: 3167390305184478010, guid: 2299997707cea4f2e9219e843299bfed, type: 3}
+      enemyCount: 1
+  - objectives:
+    - enemy: {fileID: 1123657921359104957, guid: 725cfb15c144ff343b76b4a9f4a16bde, type: 3}
+      enemyCount: 1
+    - enemy: {fileID: 5122197010735049194, guid: 58693835ad25f4b7e9d2bb46d4c67764, type: 3}
+      enemyCount: 5
+    - enemy: {fileID: 3167390305184478010, guid: 2299997707cea4f2e9219e843299bfed, type: 3}
+      enemyCount: 5
+    - enemy: {fileID: 803728995073793884, guid: ca2088ef3e2e140bcbc75663585bfd68, type: 3}
+      enemyCount: 5
   bossHealthCanvas: {fileID: 834144920}
   spawnDelay: 2
   spawnDelayTimer: 0

@@ -10,6 +10,20 @@ public class SwordController : MonoBehaviour
     public AudioClip SwordAttackSound;
     public bool IsAttacking = false;
 
+    CollisionDetector collisionDetector;
+
+    void Awake()
+    {
+        collisionDetector = GetComponent<CollisionDetector>();
+        if (collisionDetector == null)
+        {
+            Debug.LogError("No CollisionDetector found on " + gameObject.name);
+        }
+        else {
+            Debug.Log("CollisionDetector found on " + gameObject.name);
+        }
+    }
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -28,6 +42,7 @@ public class SwordController : MonoBehaviour
         Animator anim = Sword.GetComponent<Animator>();
         anim.SetTrigger("Attack");
         AudioSource.PlayClipAtPoint(SwordAttackSound, transform.position);
+        collisionDetector.damageAll();
         StartCoroutine(ResetAttackCooldown());
     }
     

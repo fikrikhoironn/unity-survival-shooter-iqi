@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3350044471114102140}
   - component: {fileID: 3350044471114102136}
   - component: {fileID: 3350044471114102138}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sword 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3350044471114066265}
-  m_LocalRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
+  m_LocalRotation: {x: 0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: 0.3, y: 0.3, z: 0.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -40,7 +40,7 @@ Transform:
   - {fileID: 3350044471114102141}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 89.98, y: 0, z: 0}
 --- !u!33 &3350044471116969309
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -140,8 +140,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.29076424, y: 1.8243773, z: 0.07995022}
-  m_Center: {x: 0, y: 0.68806434, z: 0}
+  m_Size: {x: 0.29076424, y: 1.8243773, z: 0.87149084}
+  m_Center: {x: 0, y: 0.68807006, z: -0.061611418}
 --- !u!82 &3350044471114102136
 AudioSource:
   m_ObjectHideFlags: 0
@@ -250,8 +250,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51dfd0453a1af4589843ea9d23a63b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swingDamage: 50
-  idlingDamage: 0
+  swingDamage: 15
+  idlingDamage: 40
   swordController: {fileID: 3350044470886463511}
 --- !u!1 &3350044471114066267
 GameObject:
@@ -263,7 +263,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3350044471114102139}
   - component: {fileID: 3350044471120183641}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cross Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -308,7 +308,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3350044471114102141}
   - component: {fileID: 3350044471120183645}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Handle Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -353,7 +353,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3350044471114102143}
   - component: {fileID: 3350044471120183647}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Blade Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

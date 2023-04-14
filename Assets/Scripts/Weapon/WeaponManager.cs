@@ -22,6 +22,13 @@ public class WeaponManager : MonoBehaviour
     public GameObject bowChargeBarPrefab;
     public GameObject bowPrefab;
 
+    public Sprite swordSprite;
+    public GameObject swordPrefab;
+
+    public GameObject shotgunSprite;
+    public GameObject shotgunPrefab;
+
+
     public Transform playerTransform;
 
 
@@ -98,9 +105,6 @@ public class WeaponManager : MonoBehaviour
                 GameObject WeaponExtraAttributes = WeaponUI.transform.Find("WeaponExtraAttributes").gameObject;
                 GameObject chargeBar = Instantiate(bowChargeBarPrefab, WeaponExtraAttributes.transform);
 
-                // spawn bow
-                Debug.Log("Bow Prefab = " + bowPrefab);
-                Debug.Log("WeaponSpawnPoint = " + WeaponSpawnPoint);
                 // instansiate bow with parent WeaponSpawnPoint
                 if (bowPrefab == null)
                 {
@@ -116,6 +120,11 @@ public class WeaponManager : MonoBehaviour
                 break;
             case 1:
                 weponIcon.sprite = gunSprite;
+                break;
+            case 3:
+                weponIcon.sprite = swordSprite;
+
+                currentWeapon = Instantiate(swordPrefab, WeaponSpawnPoint.transform.position, Quaternion.identity, WeaponSpawnPoint.transform);
                 break;
             default:
                 break;
