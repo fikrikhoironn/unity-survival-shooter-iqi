@@ -33,6 +33,8 @@ public class WeaponManager : MonoBehaviour
 
     public Transform playerTransform;
 
+    bool[] weaponUnlocked = new bool[4] { true, false, false, false };
+
 
 
     // objects
@@ -50,6 +52,7 @@ public class WeaponManager : MonoBehaviour
         WeaponSpawnPoint = GameObject.Find("WeaponSpawnPoint");
         playerTransform = GameObject.Find("Player").transform;
 
+        UnlockWeapon(1);
         selectedWeapon = 1;
     }
     void Start()
@@ -85,6 +88,11 @@ public class WeaponManager : MonoBehaviour
 
     void ChangeWeapon(int weaponIdx)
     {
+        if (!weaponUnlocked[weaponIdx-1])
+        {
+            Debug.Log("Weapon " + weaponIdx + " is not unlocked");
+            // return;
+        }
         Debug.Log("Change to weapon " + weaponIdx);
 
         // clear current weapon attributes
@@ -135,5 +143,10 @@ public class WeaponManager : MonoBehaviour
                 break;
         }
 
+    }
+
+    public void UnlockWeapon(int weaponIdx)
+    {
+        weaponUnlocked[weaponIdx-1] = true;
     }
 }
