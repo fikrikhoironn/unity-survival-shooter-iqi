@@ -80,6 +80,10 @@ public class WeaponBow : MonoBehaviour
         // Check if raycast hit floor
         if (Input.GetButtonUp("Fire1") && isCharging /* && StateManager.instance.isBreak == false */)
         {
+            // play arrow animation
+            Animator arrowAnim = currentArrow.GetComponent<Animator>();
+            arrowAnim.SetBool("arched", false);
+
             // play released
             clipReleased.time = 0.5f;
             clipReleased.Play();
@@ -93,6 +97,8 @@ public class WeaponBow : MonoBehaviour
             slider.value = maxChargePower;
 
             Debug.Log("charge power: " + firepower);
+
+
         }
         if (Input.GetButtonDown("Fire1") /* && StateManager.instance.isBreak == false */)
         {
@@ -104,6 +110,9 @@ public class WeaponBow : MonoBehaviour
                 isCharging = true;
                 currentChargeTime = 0f;
                 slider.value = maxChargePower;
+
+                Animator arrowAnim = currentArrow.GetComponent<Animator>();
+                arrowAnim.SetBool("arched", true);
             }
         }
 

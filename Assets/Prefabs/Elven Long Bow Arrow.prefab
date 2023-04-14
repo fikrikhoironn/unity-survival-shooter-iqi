@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -2402558226172064131}
   - component: {fileID: 7550659496406755745}
   - component: {fileID: 4916553055789359003}
+  - component: {fileID: 7391138868534055383}
   m_Layer: 7
   m_Name: Elven Long Bow Arrow
   m_TagString: Untagged
@@ -91,6 +92,27 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5623936, y: 0.66081715, z: 17.747179}
   m_Center: {x: 0.0039511207, y: -1.1638591, z: -0.08372665}
+--- !u!95 &7391138868534055383
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693346317055374061}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d30bc9e842cca6a4f9d7e92098e9f675, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &693346317055374063
 GameObject:
   m_ObjectHideFlags: 0
