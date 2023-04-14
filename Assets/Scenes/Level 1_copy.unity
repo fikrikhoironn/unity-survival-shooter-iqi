@@ -1118,6 +1118,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9065646258833364759, guid: 3adad55b01153574a86be3323df98c56, type: 3}
+      propertyPath: swordPrefab
+      value: 
+      objectReference: {fileID: 3350044471114066265, guid: ce35b9bb5fa7c49668d8f194b7908e32, type: 3}
+    - target: {fileID: 9065646258833364759, guid: 3adad55b01153574a86be3323df98c56, type: 3}
+      propertyPath: swordSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 08a2706e48e183644baa6d561f5e67ac, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3adad55b01153574a86be3323df98c56, type: 3}
 --- !u!1 &1160911575
