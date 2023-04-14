@@ -78,7 +78,7 @@ public class WeaponBow : MonoBehaviour
     void Update()
     {
         // Check if raycast hit floor
-        if (Input.GetButtonUp("Fire1") && isCharging /* && StateManager.instance.isBreak == false */)
+        if (Input.GetButtonUp("Fire1") && isCharging && StateManager.instance.isBreak == false)
         {
             // play arrow animation
             Animator arrowAnim = currentArrow.GetComponent<Animator>();
@@ -100,7 +100,7 @@ public class WeaponBow : MonoBehaviour
 
 
         }
-        if (Input.GetButtonDown("Fire1") /* && StateManager.instance.isBreak == false */)
+        if (Input.GetButtonDown("Fire1") && StateManager.instance.isBreak == false)
         {
             if (currentArrow != null)
             {

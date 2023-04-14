@@ -40,7 +40,7 @@ public class WeaponGun : MonoBehaviour
 
         timer += Time.deltaTime;
 
-        if (Input.GetButton("Fire1") && timer >= timeBetweenBullets && Time.timeScale != 0)
+        if (Input.GetButton("Fire1") && timer >= timeBetweenBullets && Time.timeScale != 0 && !StateManager.instance.isBreak)
         {
             Shoot();
         }
