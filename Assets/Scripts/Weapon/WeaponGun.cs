@@ -19,6 +19,8 @@ public class WeaponGun : MonoBehaviour
     AudioSource gunAudio;
     Light gunLight;
     float effectsDisplayTime = 0.2f;
+
+    Animator anim;
     
 
     void Awake()
@@ -32,6 +34,8 @@ public class WeaponGun : MonoBehaviour
         gunAudio = GetComponent<AudioSource>();
         gunLight = GetComponent<Light>();
         damagePerShot = initialDamagePerShot;
+
+        anim = transform.parent.GetComponent<Animator>();
     }
 
     void Update()
@@ -75,6 +79,7 @@ public class WeaponGun : MonoBehaviour
 
     void Shoot()
     {
+        anim.SetTrigger("shoot");
         timer = 0f;
 
         //Play audio
