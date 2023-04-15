@@ -26,10 +26,10 @@ public class WeaponManager : MonoBehaviour
     public Sprite swordSprite;
     public GameObject swordPrefab;
 
-    public GameObject shotgunSprite;
+    public Sprite shotgunSprite;
     public GameObject shotgunPrefab;
 
-    public Transform playerTransform;
+    Transform playerTransform;
 
     bool[] weaponUnlocked = new bool[4] { true, false, false, false };
 
@@ -125,7 +125,7 @@ public class WeaponManager : MonoBehaviour
                 currentWeapon = Instantiate(gunPrefab, WeaponSpawnPoint.transform);
                 break;
             case 2:
-                weponIcon.sprite = gunSprite;
+                weponIcon.sprite = shotgunSprite;
                 currentWeapon = Instantiate(shotgunPrefab, WeaponSpawnPoint.transform);
                 break;
             case 3:

@@ -528,7 +528,7 @@ MonoBehaviour:
       money: 1000
       health: 100
       currentWeapon: 0
-      unlockedWeapons: 01000100
+      unlockedWeapons: 01010101
       currentPet: 1
       petHealth: 0
   scores: []
@@ -1112,7 +1112,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9065646258833364758, guid: 3adad55b01153574a86be3323df98c56, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9065646258833364758, guid: 3adad55b01153574a86be3323df98c56, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1154,6 +1154,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9065646258833364759, guid: 3adad55b01153574a86be3323df98c56, type: 3}
+      propertyPath: shotgunPrefab
+      value: 
+      objectReference: {fileID: 7353216275223420818, guid: 415e41c275455a64eaa5ce0a561eea0c, type: 3}
+    - target: {fileID: 9065646258833364759, guid: 3adad55b01153574a86be3323df98c56, type: 3}
+      propertyPath: shotgunSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fb44e937833f2e14291e202b83f2a28d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3adad55b01153574a86be3323df98c56, type: 3}
 --- !u!1 &1160911575
