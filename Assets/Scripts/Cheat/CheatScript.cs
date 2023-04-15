@@ -73,7 +73,8 @@ public class CheatScript : MonoBehaviour
                     wallet.AddMoney(999999);
                     break;
                 case "onehitkill":
-                    playerAttack.BuffDamageShot(10000);
+                    playerAttack.BuffDamageShot(999999);
+                    Debug.Log("one hit kill activated");
                     break;
                 case "doublespeed":
                     playerMovement.DoubleSpeed();

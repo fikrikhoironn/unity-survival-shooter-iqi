@@ -9,6 +9,7 @@ public class PlayerAttack : MonoBehaviour
     public void BuffDamageShot(int damageBuffPercentage)
     {
         damageMultiplierPercentage += damageBuffPercentage;
+        Debug.Log("Damage Multiplier: " + damageMultiplierPercentage);
     }
 
     public void ResetDamageShot()
