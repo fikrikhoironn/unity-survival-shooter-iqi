@@ -13,7 +13,7 @@ public class PetHealth : MonoBehaviour
 
     bool isPetAttacker = false;
     bool isSinking;
-    public bool IsDead;
+    public bool IsDead = false;
 
     // -- CHEAT --
     bool isFullHPPetCheat = false;

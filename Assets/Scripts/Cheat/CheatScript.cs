@@ -5,18 +5,24 @@ using UnityEngine.UI;
 
 public class CheatScript : MonoBehaviour
 {
-    public GameObject player;
-    private bool isCheatInputVisible = false;
+    public bool isCheatInputVisible = false;
     private InputField cheatInput;
     private Graphic originalGraphic;
     PetHealth petHealth;
     PlayerAttack playerAttack;
+    PlayerHealth playerHealth;
+    PlayerMovement playerMovement;
+    Wallet wallet;
 
     private void Awake()
     {
-        PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
-        playerAttack = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAttack>();
+        var player = GameObject.FindGameObjectWithTag("Player");
+        playerMovement = player.GetComponent<PlayerMovement>();
+        playerHealth = player.GetComponent<PlayerHealth>();
+        playerAttack = player.GetComponent<PlayerAttack>();
+        wallet = player.GetComponent<Wallet>();
     }
+
     void Start()
     {
         cheatInput = GetComponent<InputField>();
@@ -26,38 +32,34 @@ public class CheatScript : MonoBehaviour
     }
 
     void Update()
-    {   
-        if (GameObject.FindGameObjectWithTag("Pet"))
-        {
-            petHealth = GameObject.FindGameObjectWithTag("Pet").GetComponent<PetHealth>();
-        }
+    {
         if (Input.GetKeyDown(KeyCode.BackQuote))
         {
-            isCheatInputVisible = !isCheatInputVisible;
-            cheatInput.interactable = isCheatInputVisible;
-            if (isCheatInputVisible)
+            print("Time.timeScale: " + Time.timeScale);
+            if (!isCheatInputVisible && Time.timeScale > 0)
             {
+                isCheatInputVisible = true;
+                cheatInput.interactable = true;
                 cheatInput.transform.localScale = Vector3.one;
-				Time.timeScale = 0f;
-				Cursor.lockState = CursorLockMode.None;
-				Cursor.visible = true;
+                Time.timeScale = 0f;
                 cheatInput.Select();
             }
-            else
-            {	
-				Time.timeScale = 1f;
+            else if (isCheatInputVisible)
+            {
+                isCheatInputVisible = false;
+                cheatInput.interactable = false;
+                Time.timeScale = 1f;
                 cheatInput.transform.localScale = Vector3.zero;
-				Cursor.lockState = CursorLockMode.Locked;
-				Cursor.visible = false;
             }
             cheatInput.text = "";
         }
 
         if (cheatInput.gameObject.activeSelf && Input.GetKeyDown(KeyCode.Return))
         {
-            Wallet wallet = player.GetComponent<Wallet>();
-            PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
-            PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+            if (PetManager.instance.petTransform != null)
+            {
+                petHealth = PetManager.instance.petTransform.GetComponent<PetHealth>();
+            }
             switch (cheatInput.text)
             {
                 case "suicide":
@@ -84,14 +86,13 @@ public class CheatScript : MonoBehaviour
                     break;
                 case "killpet":
                     petHealth.TakeDamage(99999);
-                    Debug.Log("Pet Killed");
+                    print(petHealth);
                     break;
             }
             cheatInput.text = "";
-			Time.timeScale = 1f;
+            Time.timeScale = 1f;
             Debug.Log("Cheat Entered");
             cheatInput.transform.localScale = Vector3.zero;
         }
     }
-
 }

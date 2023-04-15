@@ -42,7 +42,7 @@ public class Shop : MonoBehaviour
                 viewCam.enabled = false;
             }
 
-            if (inRange && Input.GetKeyDown(KeyCode.E))
+            if (inRange && Input.GetKeyDown(KeyCode.E) && Time.timeScale > 0)
             {
                 Time.timeScale = 0;
                 shopUI.enabled = true;
