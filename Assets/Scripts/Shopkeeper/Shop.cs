@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
@@ -14,10 +15,17 @@ public class Shop : MonoBehaviour
     public float camDelay = 2f;
     float camTimer = 0f;
 
+    public GameObject notification;
+
+
     void Start()
     {
         lights = GetComponentsInChildren<Light>(true);
         itemDisplay = GetComponentInChildren<ItemDisplay>();
+        if (notification == null)
+        {
+            Debug.LogError("Notification not found");
+        }
     }
 
     // Update is called once per frame
@@ -48,6 +56,16 @@ public class Shop : MonoBehaviour
                 shopUI.enabled = true;
                 itemDisplay.Init();
             }
+            if (!inRange && Input.GetKeyDown(KeyCode.E) && Time.timeScale > 0)
+            {
+                // if notification still active
+                if (!notification.activeSelf)
+                {
+                    StartCoroutine(ShowNotification());
+                }
+                
+
+            }
             if (shopUI.enabled && Input.GetKeyDown(KeyCode.Escape))
             {
                 Time.timeScale = 1;
@@ -61,6 +79,13 @@ public class Shop : MonoBehaviour
                 light.intensity = Mathf.Lerp(light.intensity, 0, Time.deltaTime);
             }
         }
+    }
+
+    IEnumerator ShowNotification()
+    {
+        notification.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        notification.SetActive(false);
     }
 
     public void OnTriggerEnter(Collider other)
