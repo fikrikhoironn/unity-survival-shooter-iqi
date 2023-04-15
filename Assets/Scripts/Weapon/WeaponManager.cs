@@ -133,9 +133,12 @@ public class WeaponManager : MonoBehaviour
                 break;
             case 1:
                 weponIcon.sprite = gunSprite;
-
                 // spawn gun with default transform from prefab
                 currentWeapon = Instantiate(gunPrefab, WeaponSpawnPoint.transform);
+                break;
+            case 2:
+                weponIcon.sprite = gunSprite;
+                currentWeapon = Instantiate(shotgunPrefab, WeaponSpawnPoint.transform);
                 break;
             case 3:
                 weponIcon.sprite = swordSprite;
