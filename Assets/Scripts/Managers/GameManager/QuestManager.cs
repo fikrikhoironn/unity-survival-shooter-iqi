@@ -21,6 +21,8 @@ public class QuestManager : MonoBehaviour
             }
             else
             {
+                DataManager.instance.SaveScoreData();
+                SceneManagerObject.instance.PlayCutscenes(2);
                 var quest = new QuestData();
                 quest.objectives = new ObjectiveData[0];
                 return quest;
@@ -107,15 +109,22 @@ public class QuestManager : MonoBehaviour
             }
         }
 
-        if (isBoss)
+        if (SceneManagerObject.instance.currentCutSceneIndex == 0 && isBoss)
         {
-            spawnDelay = 4f;
-            bossHealthCanvas.gameObject.SetActive(true);
+            SceneManagerObject.instance.PlayCutscenes(1);
         }
         else
         {
-            spawnDelay = 2f;
-            bossHealthCanvas.gameObject.SetActive(false);
+            if (isBoss)
+            {
+                spawnDelay = 4f;
+                bossHealthCanvas.gameObject.SetActive(true);
+            }
+            else
+            {
+                spawnDelay = 2f;
+                bossHealthCanvas.gameObject.SetActive(false);
+            }
         }
     }
 

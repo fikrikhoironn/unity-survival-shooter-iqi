@@ -8,6 +8,7 @@ TagManager:
   - Pet
   - Gun
   - BossHealthSlider
+  - Cutscene
   layers:
   - Default
   - TransparentFX
