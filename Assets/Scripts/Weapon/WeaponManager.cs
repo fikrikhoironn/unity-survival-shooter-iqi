@@ -79,10 +79,72 @@ public class WeaponManager : MonoBehaviour
             selectedWeapon = 4;
             ChangeWeapon(selectedWeapon);
         }
+        // handle scroll
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+        {
+            selectedWeapon = getWeaponScroll("up");
+            ChangeWeapon(selectedWeapon);
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+        {
+            selectedWeapon = getWeaponScroll("down");
+            ChangeWeapon(selectedWeapon);
+        }
+    }
+
+    int getWeaponScroll(string direction)
+    {
+        if (direction == "up")
+        {
+            int prevWeapon = selectedWeapon;
+            // loop in reverse
+            for (int i = 0; i < weaponUnlocked.Length; i++)
+            {
+                prevWeapon = prevWeapon - 1;
+                if (prevWeapon == 0)
+                {
+                    prevWeapon = weaponUnlocked.Length;
+                }
+                if (isWeaponUnlocked(prevWeapon))
+                {
+                    return prevWeapon;
+                }
+            }
+            return selectedWeapon;
+
+        }
+        else if (direction == "down")
+        {
+            int nextWeapon = selectedWeapon;
+            // loop
+            for (int i = 0; i < weaponUnlocked.Length; i++)
+            {
+                nextWeapon = nextWeapon + 1;
+                if (nextWeapon > weaponUnlocked.Length)
+                {
+                    nextWeapon = 1;
+                }
+                if (isWeaponUnlocked(nextWeapon))
+                {
+                    return nextWeapon;
+                }
+            }
+            return selectedWeapon;
+        }
+        else
+        {
+            return selectedWeapon;
+        }
+    }
+
+    bool isWeaponUnlocked(int weaponIdx)
+    {
+        return weaponUnlocked[weaponIdx-1];
     }
 
     void ChangeWeapon(int weaponIdx)
     {
+        print("Change to weapon " + weaponIdx);
         // clear current weapon attributes
         foreach (Transform child in WeaponExtraAttributes.transform)
         {
