@@ -32,10 +32,6 @@ public class EnemyHealth : MonoBehaviour
         wallet = GameObject.FindGameObjectWithTag("Player").GetComponent<Wallet>();
         playerAttack = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAttack>();
 
-        if (enemyType == EnemyType.Hellephant)
-        {
-            startingHealth = 200;
-        }
         //Set current health
         currentHealth = startingHealth;
     }
