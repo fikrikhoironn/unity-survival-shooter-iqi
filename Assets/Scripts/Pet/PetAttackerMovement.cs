@@ -27,15 +27,13 @@ public class PetAttackerMovement : MonoBehaviour
     {
         if (playerHealth.currentHealth > 0)
         {
-            if (enemyInRange)
+            if (enemyInRange && (enemyPosition - transform.position).magnitude > 8)
             {
                 nav.SetDestination(enemyPosition);
-
             }
             else
             {
-                nav.SetDestination(player.position );
-
+                nav.SetDestination(player.position);
             }
 
             // look at nav destination
