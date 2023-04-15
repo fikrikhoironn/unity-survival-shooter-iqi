@@ -14,12 +14,6 @@ public class CheatScript : MonoBehaviour
     private void Awake()
     {
         PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
-        if (GameObject.FindGameObjectWithTag("Pet"))
-        {
-            petHealth = GameObject.FindGameObjectWithTag("Pet").GetComponent<PetHealth>();
-        }
-
-
     }
     void Start()
     {
@@ -30,7 +24,11 @@ public class CheatScript : MonoBehaviour
     }
 
     void Update()
-    {
+    {   
+        if (GameObject.FindGameObjectWithTag("Pet"))
+        {
+            petHealth = GameObject.FindGameObjectWithTag("Pet").GetComponent<PetHealth>();
+        }
         if (Input.GetKeyDown(KeyCode.BackQuote))
         {
             isCheatInputVisible = !isCheatInputVisible;
