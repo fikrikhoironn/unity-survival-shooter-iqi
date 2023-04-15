@@ -16,6 +16,8 @@ public class MenuManager : MonoBehaviour
         changeMenu("main");
 
         buttonClick = GetComponents<AudioSource>()[0];
+
+        BGMManager.instance.changeBGM("menu");
     }
 
     public void changeMenu(string menu)

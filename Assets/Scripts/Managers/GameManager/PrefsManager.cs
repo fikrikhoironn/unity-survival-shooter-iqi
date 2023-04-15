@@ -27,14 +27,14 @@ public class PrefsManager : MonoBehaviour
     public void setSfxVolume(float sfxVolume)
     {
         // Normalize amount,
-        sfxVolume = sfxVolume / 100f * 30f - 30f;
+        sfxVolume = sfxVolume / 100f * 60f - 60f;
         mixer.SetFloat("sfxVol", sfxVolume);
     }
 
     public void setMusicVolume(float musicVolume)
     {
         // Normalize amount,
-        musicVolume = musicVolume / 100f * 30f - 30f;
+        musicVolume = musicVolume / 100f * 60f - 60f;
         mixer.SetFloat("musicVol", musicVolume);
     }
 }
