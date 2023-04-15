@@ -55,8 +55,8 @@ public class DataManager : MonoBehaviour
     public void InstantiateGame()
     {
         currentSaveData = new GameData();
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Scenes/Level 1");
-        // SceneManagerObject.instance.PlayCutscenes(0);
+        // UnityEngine.SceneManagement.SceneManager.LoadScene("Scenes/Level 1");
+        SceneManagerObject.instance.PlayCutscenes(0);
     }
 
     private GameData LoadGameData(int saveIndex)

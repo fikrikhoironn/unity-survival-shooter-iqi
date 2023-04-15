@@ -22,10 +22,10 @@ public class Shop : MonoBehaviour
     {
         lights = GetComponentsInChildren<Light>(true);
         itemDisplay = GetComponentInChildren<ItemDisplay>();
-        if (notification == null)
-        {
-            Debug.LogError("Notification not found");
-        }
+        // if (notification == null)
+        // {
+        //     Debug.LogError("Notification not found");
+        // }
     }
 
     // Update is called once per frame
@@ -90,7 +90,7 @@ public class Shop : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (!other.isTrigger && other.CompareTag("Player"))
         {
             inRange = true;
             GetComponentInChildren<ItemDisplay>().SetWallet(other.GetComponent<Wallet>());
@@ -99,7 +99,7 @@ public class Shop : MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (!other.isTrigger && other.CompareTag("Player"))
         {
             inRange = false;
         }

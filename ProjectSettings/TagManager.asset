@@ -9,6 +9,7 @@ TagManager:
   - Gun
   - BossHealthSlider
   - Cutscene
+  - Notification
   layers:
   - Default
   - TransparentFX
