@@ -1,12 +1,44 @@
 # IF3210-2023-Unity-IQI
 
+## Deskripsi Aplikasi
+Extended Survival Shooter merupakan game modifiksasi Survival Shooter yang di dalamnya terdapat tambahan story dan beberapa fitur tambahan, seperti main menu, local scoreboard, dan shopkeeper yang menyediakan berbagai jenis weapon dan pet yang dapat dibeli dan digunakan oleh player. Game ini juga menyediakan cheat yang bisa kalian gunakan juga lho!
 
+## Library
+- Library 1
+- Library 2
+- Library 3
 
-## Getting started
+## Screenshot
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+### Scene
+![Scene](/game_ss/Scene.jpg?raw=true "Scene")
+### Quest
+![Quest](/game_ss/Quest.jpg?raw=true "Quest")
+### Save Game
+![Save Game](/game_ss/Save_Game.jpg?raw=true "Save Game")
+### Game Over
+![Game Over](/game_ss/Game_Over.jpg?raw=true "Game Over")
+### Scoreboard
+![Scoreboard](/game_ss/Scoreboard.jpg?raw=true "Scoreboard")
+### Main Menu
+![Main Menu](/game_ss/Main_Menu.jpg?raw=true "Main Menu")
+### Shopkeeper
+![Shopkeeper](/game_ss/Shopkeeper.jpg?raw=true "Shopkeeper")
+### Weapon
+![Weapon](/game_ss/Weapon.jpg?raw=true "Weapon")
+### Pet
+![Pet](/game_ss/Pet.jpg?raw=true "Pet")
+### Cheat
+![Cheat](/game_ss/Cheat.jpg?raw=true "Cheat")
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+## Pembagian tugas
+| Nama                   |     NIM    | Jumlah Jam |           Tasks         |
+|------------------------|:----------:|:----------:|:-----------------------:|
+| Tri Sulton Adila       |  13520033  | 6          |Weapon shotgun|
+| Fikri Khoiron Fadhila  |  13520056  | 1          |lorem ipsum|
+| Rifqi Naufal Abdjul    |  13520062  | 1          |lorem ipsum|
+| Ziyad Dhia Rafi        |  13520064  | 1          |lorem ipsum|
+| Grace Claudia          |  13520078  | 1          |lorem ipsum|
 
 ## Features
 - Pet
