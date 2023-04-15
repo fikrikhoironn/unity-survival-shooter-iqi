@@ -42,6 +42,7 @@ public class StateManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        BGMManager.instance.changeBGM("main");
     }
 
     void Update()
@@ -82,5 +83,13 @@ public class StateManager : MonoBehaviour
         isBreak = !isBreak;
         shop.active = !shop.active;
         save.active = !save.active;
+        if (isBreak)
+        {
+            StartCoroutine(BGMManager.instance.changeFadeBGM("break"));
+        }
+        else
+        {
+            StartCoroutine(BGMManager.instance.changeFadeBGM("main"));
+        }
     }
 }
