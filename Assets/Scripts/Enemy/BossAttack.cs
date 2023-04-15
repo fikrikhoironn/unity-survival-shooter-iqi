@@ -40,6 +40,7 @@ public class BossAttack : MonoBehaviour
     AudioSource ultimateAttackSound;
 
     AnimatorClipInfo[] clipInfo;
+
     void Awake()
     {
         // find collider on child object (NormalAttack and UltimateAttack)
@@ -49,53 +50,28 @@ public class BossAttack : MonoBehaviour
         nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         EnemyHealth = GetComponent<EnemyHealth>();
-        ultimateAttackSound = ultimateAttack.transform.Find("UltimateSound").GetComponent<AudioSource>();
+        ultimateAttackSound = ultimateAttack.transform
+            .Find("UltimateSound")
+            .GetComponent<AudioSource>();
 
         // idleId = Animator.StringToHash("Idle");
         // attackId = Animator.StringToHash("Attack");
         // jumpAttackId = Animator.StringToHash("Jump Attack");
         // walkingId = Animator.StringToHash("Walking");
     }
+
     void Start()
     {
         normalAttackTimer = 0f;
         ultimateAttackTimer = 0f;
         betweenAttackTimer = 0f;
-
     }
 
     // Update is called once per frame
-    void Update()
-    {
-
-        // if (stateHash == idleId)
-        // {
-        //     Debug.Log("Idle");
-        // }
-        // else if (stateHash == attackId)
-        // {
-        //     Debug.Log("Attack");
-        // }
-        // else if (stateHash == jumpAttackId)
-        // {
-        //     Debug.Log("Jump Attack");
-        // }
-        // else if (stateHash == walkingId)
-        // {
-        //     Debug.Log("Walking");
-        // }
-        // else
-        // {
-        //     Debug.Log("Unknown State");
-        // }
-        // Debug.Log("Time: " + time);
-
-
-    }
+    void Update() { }
 
     void FixedUpdate()
     {
-
         if (EnemyHealth.currentHealth <= 0)
         {
             return;
@@ -106,7 +82,9 @@ public class BossAttack : MonoBehaviour
         ultimateAttackTimer += Time.deltaTime;
         betweenAttackTimer += Time.deltaTime;
 
-        if (ultimateAttackTimer >= ultimateAttackCooldown && betweenAttackTimer >= betweenAttackTime)
+        if (
+            ultimateAttackTimer >= ultimateAttackCooldown && betweenAttackTimer >= betweenAttackTime
+        )
         {
             // entering ultimate state
 
@@ -121,7 +99,6 @@ public class BossAttack : MonoBehaviour
                 {
                     isAttacking = true;
                     anim.SetBool("jumpAttack", true);
-                    Debug.Log("Player in range, Ultimate Attack");
 
                     // stop nav
                     nav.isStopped = true;
@@ -132,15 +109,6 @@ public class BossAttack : MonoBehaviour
                     // set souund time to 0
                     ultimateAttackSound.time = 0;
                     ultimateAttackSound.Play();
-
-                    if (ultimateAttackSound != null)
-                    {
-                        Debug.Log("Ultimate Attack Sound is not null");
-                    }
-                    else
-                    {
-                        Debug.Log("Ultimate Attack Sound is null");
-                    }
                 }
             }
 
@@ -149,7 +117,9 @@ public class BossAttack : MonoBehaviour
                 UltimateAttack();
             }
         }
-        else if (normalAttackTimer >= normalAttackCooldown && betweenAttackTimer >= betweenAttackTime)
+        else if (
+            normalAttackTimer >= normalAttackCooldown && betweenAttackTimer >= betweenAttackTime
+        )
         {
             // entering attack state
 
@@ -165,7 +135,6 @@ public class BossAttack : MonoBehaviour
                 {
                     isAttacking = true;
                     anim.SetBool("attack", true);
-                    Debug.Log("Player in range, Normal Attack");
 
                     // stop nav
                     nav.isStopped = true;
@@ -173,13 +142,11 @@ public class BossAttack : MonoBehaviour
                     // look at player
                     transform.LookAt(playerTransform);
                 }
-
             }
             if (isAttacking && isAnimatingAttack() && time >= 0.4f)
             {
                 NormalAttack();
             }
-
         }
         else
         {
@@ -199,9 +166,6 @@ public class BossAttack : MonoBehaviour
 
     void NormalAttack()
     {
-        // set animation to ultimate attack
-        Debug.Log("Damaging player, normal attack");
-
         // damaging player or pet
         normalAttack.Damage(normalAttackDamage);
         anim.SetBool("attack", false);
@@ -217,20 +181,17 @@ public class BossAttack : MonoBehaviour
 
     void UltimateAttack()
     {
-
-        // set animation to ultimate attack
-        Debug.Log("Damaging player, ultimate attack");
         // instansiate effect at the position of the ultimate attack
-        GameObject effect = Instantiate(ultimateEffectPrefab, ultimateAttack.transform.position, Quaternion.identity);
+        GameObject effect = Instantiate(
+            ultimateEffectPrefab,
+            ultimateAttack.transform.position,
+            Quaternion.identity
+        );
         ParticleSystem particle = effect.GetComponent<ParticleSystem>();
         // set parent of effect to null
         effect.transform.parent = null;
         particle.Play();
         Destroy(effect, particle.main.duration);
-
-
-
-
 
         // damaging player or pet
         ultimateAttack.Damage(ultimateAttackDamage);
@@ -243,7 +204,6 @@ public class BossAttack : MonoBehaviour
         // resume nav
         nav.isStopped = false;
     }
-
 
     // }
 }

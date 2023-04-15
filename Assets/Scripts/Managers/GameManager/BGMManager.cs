@@ -32,7 +32,6 @@ public class BGMManager : MonoBehaviour
         float timer = 0f;
         while (timer < fadeTime)
         {
-            print(timer);
             timer += Time.deltaTime;
             audioSource.volume = Mathf.Lerp(0, 1, timer / fadeTime);
             yield return null;
@@ -44,7 +43,6 @@ public class BGMManager : MonoBehaviour
         float timer = 0f;
         while (timer < fadeTime)
         {
-            print(timer);
             timer += Time.deltaTime;
             audioSource.volume = Mathf.Lerp(1, 0, timer / fadeTime);
             yield return null;
@@ -53,7 +51,6 @@ public class BGMManager : MonoBehaviour
 
     public IEnumerator changeFadeBGM(string name)
     {
-        print("changeFadeBGM");
         yield return StartCoroutine(FadeOut());
         audioSource.Stop();
         audioSource.clip = bgms[Array.FindIndex(bgms, bgm => bgm.name == name)].clip;

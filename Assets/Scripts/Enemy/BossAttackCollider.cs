@@ -10,7 +10,6 @@ public class BossAttackCollider : MonoBehaviour
     bool playerInRange = false;
     bool petInRange = false;
 
-
     void Awake()
     {
         playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
@@ -18,18 +17,12 @@ public class BossAttackCollider : MonoBehaviour
         {
             petHealth = GameObject.FindGameObjectWithTag("Pet").GetComponent<PetHealth>();
         }
-
     }
-    void Start()
-    {
 
-    }
+    void Start() { }
 
     // Update is called once per frame
-    void Update()
-    {
-
-    }
+    void Update() { }
 
     void OnTriggerEnter(Collider other)
     {
@@ -46,7 +39,6 @@ public class BossAttackCollider : MonoBehaviour
             }
         }
     }
-
 
     void OnTriggerExit(Collider other)
     {
@@ -68,19 +60,12 @@ public class BossAttackCollider : MonoBehaviour
     {
         if (playerInRange)
         {
-            Debug.Log("Player damaged");
             playerHealth.TakeDamage(damage);
         }
 
         if (petInRange)
         {
-            Debug.Log("Pet damaged");
             petHealth.TakeDamage(damage);
-        }
-
-        if (!playerInRange && !petInRange)
-        {
-            Debug.Log("No one damaged");
         }
     }
 

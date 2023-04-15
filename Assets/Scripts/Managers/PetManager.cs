@@ -66,7 +66,6 @@ public class PetManager : MonoBehaviour
 
     public void SpawnPet(PetType petType)
     {
-        print("Pet Type: " + petType);
         GameObject petPrefabsData = null;
 
         for (int i = 0; i < petPrefabs.Length; i++)
@@ -77,7 +76,6 @@ public class PetManager : MonoBehaviour
                 break;
             }
         }
-        print("Pet Prefabs Data: " + petPrefabsData);
 
         if (petPrefabsData != null)
         {

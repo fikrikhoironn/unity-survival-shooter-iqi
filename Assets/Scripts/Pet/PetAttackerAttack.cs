@@ -2,11 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class PetAttackerAttack : MonoBehaviour
 {
-
-
     Animator anim;
 
     // get this object transform
@@ -14,7 +11,6 @@ public class PetAttackerAttack : MonoBehaviour
 
     // shockwave prefab and object
     public GameObject ShockWavePrefab;
-
 
     // enemy array
     public List<GameObject> enemies;
@@ -24,7 +20,6 @@ public class PetAttackerAttack : MonoBehaviour
 
     float timeBetweenShockWave = 5.0f;
 
-
     GameObject closestEnemy = null;
 
     // pet navmesh agent
@@ -32,10 +27,6 @@ public class PetAttackerAttack : MonoBehaviour
 
     // audio source
     AudioSource audioSource;
-
-
-
-
 
     private void Awake()
     {
@@ -50,28 +41,17 @@ public class PetAttackerAttack : MonoBehaviour
 
         // get audio source
         audioSource = GetComponent<AudioSource>();
-
-
-
-
-
     }
 
-    void Update()
-    {
+    void Update() { }
 
-    }
     void FixedUpdate()
     {
-
         // add time to timer
         timer += Time.deltaTime;
 
         if (timer >= timeBetweenShockWave)
         {
-
-
-
             // 1 second delay
 
 
@@ -94,20 +74,9 @@ public class PetAttackerAttack : MonoBehaviour
                     nav.velocity = Vector3.zero;
                     nav.isStopped = true;
                 }
-           
-
-
-
 
                 StartCoroutine(Attack());
-
-                Debug.Log("Attacking, time now = " + timer + "");
-
             }
-
-
-
-
         }
     }
 
@@ -119,7 +88,11 @@ public class PetAttackerAttack : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
 
         // instantiate shockwave
-        GameObject shockwave = Instantiate(ShockWavePrefab, closestEnemy.transform.position, Quaternion.identity);
+        GameObject shockwave = Instantiate(
+            ShockWavePrefab,
+            closestEnemy.transform.position,
+            Quaternion.identity
+        );
 
         try
         {
@@ -127,15 +100,8 @@ public class PetAttackerAttack : MonoBehaviour
         }
         catch (System.Exception)
         {
-            Debug.Log("Already destroyed");
+            Debug.LogError("Already destroyed");
         }
-
-
-
-
-
-
-
 
         anim.SetBool("attacking", false);
 
@@ -156,9 +122,6 @@ public class PetAttackerAttack : MonoBehaviour
             // append other object to enemies array
             GameObject enemy = other.gameObject;
             enemies.Add(enemy);
-
-
-
         }
     }
 

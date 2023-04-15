@@ -41,26 +41,19 @@ public class Arrow : MonoBehaviour
         if (collider.isTrigger)
             return;
 
-        Debug.Log("Arrow Hit something");
-        // if (didHit) return;
-        Debug.Log("Arrow Hit: " + collider.gameObject.name);
-
         if (didHit)
             return;
 
         // if hit not shootable layer and not floor, (not 6, not 3)
         if (collider.gameObject.layer != 6 && collider.gameObject.layer != 3)
         {
-            Debug.Log("Arrow Hit non shootable layer");
             return;
         }
 
         didHit = true;
 
-        Debug.Log("HERE");
         if (collider.CompareTag(enemyTag) && !collider.isTrigger && rb.velocity.magnitude > 0.1f)
         {
-            Debug.Log("Arrow Hit enemy");
             enemyHealth = collider.GetComponent<EnemyHealth>();
             enemyHealth.TakeDamage(damage, transform.position);
         }

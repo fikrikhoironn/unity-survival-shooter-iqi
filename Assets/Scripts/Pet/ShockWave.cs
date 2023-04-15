@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ShockWave : MonoBehaviour
 {
-
     List<GameObject> enemies;
 
     public int damage;
@@ -13,7 +12,6 @@ public class ShockWave : MonoBehaviour
     {
         enemies = new List<GameObject>();
 
-        Debug.Log("Start HERE");
         // start coroutine
         StartCoroutine(DamageAllEnemies());
     }
@@ -22,35 +20,21 @@ public class ShockWave : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
-    {
-
-    }
+    void Update() { }
 
     private void OnTriggerEnter(Collider other)
     {
-        // log tag
-        Debug.Log("Tag: " + other.tag);
         // if other object is player
         if (other.tag == "Enemy")
         {
-
             // append other object to enemies array
             GameObject enemy = other.gameObject;
             // add if not exist
             if (!enemies.Contains(enemy))
             {
-                Debug.Log("Enemy Added, " + other.gameObject);
                 enemies.Add(enemy);
             }
-
-
-
-
-
-
         }
-
     }
 
     void OnTriggerExit(Collider other)
@@ -64,11 +48,7 @@ public class ShockWave : MonoBehaviour
 
     private IEnumerator DamageAllEnemies()
     {
-        Debug.Log("Attack");
         yield return new WaitForSeconds(1.0f);
-
-        // show enemies
-        Debug.Log("Enemies: " + enemies.Count);
 
         foreach (GameObject enemy in enemies)
         {
