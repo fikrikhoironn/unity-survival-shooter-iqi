@@ -322,6 +322,7 @@ MonoBehaviour:
   shopUI: {fileID: 2749969332751261581}
   viewCam: {fileID: 5718895744002281425}
   camDelay: 2
+  notification: {fileID: 0}
 --- !u!1001 &5718895743754616931
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -967,6 +968,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7598773139278659608, guid: 57b1087d72d8c412cb5b9bd38f5f7e6c, type: 3}
+      propertyPath: weaponItems.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7598773139278659608, guid: 57b1087d72d8c412cb5b9bd38f5f7e6c, type: 3}
+      propertyPath: weaponItems.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7ab3655fa0d7a0c4bb0736260f855cfb, type: 2}
+    - target: {fileID: 7598773139278659608, guid: 57b1087d72d8c412cb5b9bd38f5f7e6c, type: 3}
+      propertyPath: weaponItems.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: fb8a31e9142ec8546945e93d67bd7e16, type: 2}
+    - target: {fileID: 7598773139278659608, guid: 57b1087d72d8c412cb5b9bd38f5f7e6c, type: 3}
+      propertyPath: weaponItems.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8dfdcec7ceefd48e4b9d85a7a5e601e0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57b1087d72d8c412cb5b9bd38f5f7e6c, type: 3}
 --- !u!224 &2749969332751261576 stripped

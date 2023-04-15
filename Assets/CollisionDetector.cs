@@ -46,6 +46,10 @@ public class CollisionDetector : MonoBehaviour
     {
         foreach (GameObject enemy in enemies)
         {
+            if (enemy == null)
+            {
+                continue;
+            }
             EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
             enemyHealth.TakeDamage(swingDamage, enemy.transform.position);
         }
