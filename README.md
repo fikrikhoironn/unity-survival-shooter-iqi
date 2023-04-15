@@ -35,16 +35,31 @@ Extended Survival Shooter merupakan game modifiksasi Survival Shooter yang di da
 | Nama                   |     NIM    | Jumlah Jam |           Tasks         |
 |------------------------|:----------:|:----------:|:-----------------------:|
 | Tri Sulton Adila       |  13520033  | 6          |Weapon shotgun|
-| Fikri Khoiron Fadhila  |  13520056  | 1          |lorem ipsum|
-| Rifqi Naufal Abdjul    |  13520062  | 1          |lorem ipsum|
-| Ziyad Dhia Rafi        |  13520064  | 1          |lorem ipsum|
-| Grace Claudia          |  13520078  | 1          |lorem ipsum|
+| Fikri Khoiron Fadhila  |  13520056  | 24          |Shopkeeper, weapon sword, cheat|
+| Rifqi Naufal Abdjul    |  13520062  | 24          |story mode, save game, game over, local scoreboard, main menu, all manager|
+| Ziyad Dhia Rafi        |  13520064  | 24          |Pet attacker, boss scene, weapon bow|
+| Grace Claudia          |  13520078  | 24          |Basegame. pet healer, pet aura buff, cutscene 1, cutscene 2, cutscene 3|
 
 ## Features
+- Main menu
+main menu berisi berbagai pilihan yaitu:
+    1. Memulai game baru
+    2. Load game yang telah disimpan
+    3. Membuka local scoreboard untuk menampilkan riwayat skor hasil permainan yaitu urutan waktu menamatkan game dari 
+    4. Membuka menu settings untuk menentukan nama pemain dan mengatuf volume sfx/music
+    5. Exit dari game
+- Shopkeeper
+Shopkeeper hanya dapat di akses setelah quest selesai. Untuk mengakses shopkeeper, tekan `E` pada keyboard. Mengakses shopkeeper hanya dapat dilakukan dari jarak yang cukup dekat, apabila mengakses dari jarak diluar jangkauan akan keluar pesan error. Untuk keluar dari shopkeeper tekan `esc`pada keyboard.
+- Weapon
+    1. Gun
+    2. Bow
+    3. Arrow
 - Pet
     Masing-masing pet memiliki nyawa sebanyak 50. Terdapat 3 jenis pet dengan skill masing-masing sebagai berikut:
     1. Tipe Healer
-    Tipe ini akan menambah darah player sebanyak 10 setiap 10 detik. Pet ini akan bersuara setiap menambahkan darah player. Skill akan hilang setelah pet mati.
+    Tipe ini akan menambah darah player sebanyak 10 setiap 10 detik. Tipe pet ini selalu mengikuti arah gerak player. Pet ini akan bersuara setiap menambahkan darah player. Skill akan hilang setelah pet mati.
     2. Tipe Attacker
+    Tipe ini akan membantu player membunuh musuh dari jarak jauh. Sesuai spesifikasi, tipe ini akan mendekati musuh SETELAH menyerang karena menyerang dilakukan dari jarak jauh. Pet ini akan bersuara setiap membunuh musuh. Skill akan hilang setelah pet mati.
     3. Tipe Aura Buff
-    Tipe ini akan menambah damage per shot sebanyak 80. Pet ini akan bersuara hanya sekali yaitu pada setiap awal game. Skill akan hilang setelah pet mati.
+    Tipe ini akan menambah damage per shot sebanyak 80. Tipe pet ini selalu mengikuti arah gerak player. Pet ini akan bersuara hanya sekali yaitu pada setiap awal game. Skill akan hilang setelah pet mati.
+- Cheat
