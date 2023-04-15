@@ -7,7 +7,7 @@ public class SwordController : MonoBehaviour
     public GameObject Sword;
     public bool CanAttack = true;
     public float AttackCooldown = 1f;
-    public AudioClip SwordAttackSound;
+    AudioSource SwordAttackSound;
     public bool IsAttacking = false;
 
     CollisionDetector collisionDetector;
@@ -15,6 +15,7 @@ public class SwordController : MonoBehaviour
     void Awake()
     {
         collisionDetector = GetComponent<CollisionDetector>();
+        SwordAttackSound = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -34,7 +35,7 @@ public class SwordController : MonoBehaviour
         CanAttack = false;
         Animator anim = Sword.GetComponent<Animator>();
         anim.SetTrigger("Attack");
-        AudioSource.PlayClipAtPoint(SwordAttackSound, transform.position);
+        SwordAttackSound.Play();
         collisionDetector.damageAll();
         StartCoroutine(ResetAttackCooldown());
         StartCoroutine(ResetAttackBool());
