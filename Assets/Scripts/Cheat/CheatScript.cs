@@ -79,6 +79,9 @@ public class CheatScript : MonoBehaviour
                 case "doublespeed":
                     playerMovement.DoubleSpeed();
                     break;
+                case "fullhppet":
+                    petHealth.FullHpPet();
+                    break;
                 case "killpet":
                     petHealth.TakeDamage(99999);
                     Debug.Log("Pet Killed");
