@@ -22,6 +22,7 @@ public class PlayerHealth : MonoBehaviour
 
     bool isDead;
     bool damaged;
+    bool isNoDamageCheat = false;
 
     void Awake()
     {
@@ -65,23 +66,29 @@ public class PlayerHealth : MonoBehaviour
     //fungsi untuk mendapatkan damage
     public void TakeDamage(int amount)
     {
-        damaged = true;
+      
+            damaged = true;
 
-        //mengurangi health
-        currentHealth -= amount;
+            //mengurangi health
+            if (!isNoDamageCheat)
+            {
+                currentHealth -= amount;
+            }
+            
+            //Merubah tampilan dari health slider
+            healthSlider.value = currentHealth;
+            updateHealth();
 
-        //Merubah tampilan dari health slider
-        healthSlider.value = currentHealth;
-        updateHealth();
+            //Memainkan suara ketika terkena damage
+            playerAudio.Play();
 
-        //Memainkan suara ketika terkena damage
-        playerAudio.Play();
-
-        //Memanggil method Death() jika darahnya kurang dari sama dengan 10 dan belu mati
-        if (currentHealth <= 0 && !isDead)
-        {
-            Death();
-        }
+            //Memanggil method Death() jika darahnya kurang dari sama dengan 10 dan belu mati
+            if (currentHealth <= 0 && !isDead)
+            {
+                Death();
+            }
+        
+        
     }
 
     void Death()
@@ -120,5 +127,10 @@ public class PlayerHealth : MonoBehaviour
     private void updateHealth()
     {
         DataManager.instance.currentSaveData.playerData.health = currentHealth;
+    }
+    
+    public void NoDamageCheat()
+    {
+        isNoDamageCheat = true;
     }
 }

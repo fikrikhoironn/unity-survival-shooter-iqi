@@ -10,10 +10,12 @@ public class CheatScript : MonoBehaviour
     private InputField cheatInput;
     private Graphic originalGraphic;
     PetHealth petHealth;
+    PlayerAttack playerAttack;
 
     private void Awake()
     {
         PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+        playerAttack = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAttack>();
     }
     void Start()
     {
@@ -61,6 +63,9 @@ public class CheatScript : MonoBehaviour
                 case "suicide":
                     playerHealth.TakeDamage(playerHealth.currentHealth);
                     break;
+                case "nodamage":
+                    playerHealth.NoDamageCheat();
+                    break;
                 case "money":
                     wallet.AddMoney(999999);
                     break;
@@ -68,13 +73,7 @@ public class CheatScript : MonoBehaviour
                     wallet.AddMoney(999999);
                     break;
                 case "onehitkill":
-                    GameObject gunBarrelEnd = GameObject.FindGameObjectWithTag("Gun");
-                    PlayerAttack playerAttack;
-                    if (gunBarrelEnd != null)
-                    {
-                        playerAttack = gunBarrelEnd.GetComponent<PlayerAttack>();
-                        playerAttack.BuffDamageShot(99999999);
-                    }
+                    playerAttack.BuffDamageShot(10000);
                     break;
                 case "doublespeed":
                     playerMovement.DoubleSpeed();
