@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Shotgun : MonoBehaviour
 {
+    Animator anim;
     public int initialDamagePerShot = 20;
     public int damagePerShot;
 
@@ -48,6 +49,8 @@ public class Shotgun : MonoBehaviour
         gunAudio = GetComponent<AudioSource>();
         gunLight = GetComponent<Light>();
         damagePerShot = initialDamagePerShot;
+        
+        anim = transform.parent.GetComponent<Animator>();
     }
 
     void Update()
@@ -95,6 +98,8 @@ public class Shotgun : MonoBehaviour
     void Shoot()
     {
         timer = 0f;
+        
+        anim.SetTrigger("Attack");
 
         //Play audio
         gunAudio.Play();
@@ -108,6 +113,7 @@ public class Shotgun : MonoBehaviour
 
         //Set posisi ray shoot dan direction
         shootRay.origin = transform.position;
+        
 
         //enable Line renderer dan set first position
         for (int i = 0; i < gunLines.Length; i++)
