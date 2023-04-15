@@ -83,13 +83,6 @@ public class WeaponManager : MonoBehaviour
 
     void ChangeWeapon(int weaponIdx)
     {
-        if (!weaponUnlocked[weaponIdx - 1])
-        {
-            Debug.Log("Weapon " + weaponIdx + " is not unlocked");
-            // return;
-        }
-        Debug.Log("Change to weapon " + weaponIdx);
-
         // clear current weapon attributes
         foreach (Transform child in WeaponExtraAttributes.transform)
         {
@@ -115,11 +108,6 @@ public class WeaponManager : MonoBehaviour
                     WeaponExtraAttributes.transform
                 );
 
-                // instansiate bow with parent WeaponSpawnPoint
-                if (bowPrefab == null)
-                {
-                    Debug.Log("Bow Prefab is null");
-                }
                 currentWeapon = Instantiate(
                     bowPrefab,
                     WeaponSpawnPoint.transform.position,

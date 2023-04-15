@@ -15,20 +15,13 @@ public class SwordController : MonoBehaviour
     void Awake()
     {
         collisionDetector = GetComponent<CollisionDetector>();
-        if (collisionDetector == null)
-        {
-            Debug.LogError("No CollisionDetector found on " + gameObject.name);
-        }
-        else {
-            Debug.Log("CollisionDetector found on " + gameObject.name);
-        }
     }
 
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if(CanAttack && !StateManager.instance.isBreak)
+            if (CanAttack && !StateManager.instance.isBreak)
             {
                 SwordAttack();
             }
@@ -44,19 +37,18 @@ public class SwordController : MonoBehaviour
         AudioSource.PlayClipAtPoint(SwordAttackSound, transform.position);
         collisionDetector.damageAll();
         StartCoroutine(ResetAttackCooldown());
+        StartCoroutine(ResetAttackBool());
     }
-    
+
     IEnumerator ResetAttackCooldown()
     {
-        StartCoroutine(ResetAttackBool());
         yield return new WaitForSeconds(AttackCooldown);
         CanAttack = true;
     }
-    
+
     IEnumerator ResetAttackBool()
     {
         yield return new WaitForSeconds(0.5f);
         IsAttacking = false;
     }
-    
 }

@@ -14,6 +14,7 @@ public class Shotgun : MonoBehaviour
     float timer;
     Ray shootRay = new Ray();
     RaycastHit shootHit;
+
     // RaycastHit shootHit2;
     int shootableMask;
     ParticleSystem gunParticles;
@@ -32,15 +33,18 @@ public class Shotgun : MonoBehaviour
 
         //Mendapatkan Reference component
         gunParticles = GetComponent<ParticleSystem>();
-        gunLines = new LineRenderer[] { GameObject.Find("Bullet1").GetComponent<LineRenderer>(), 
-                                        GameObject.Find("Bullet2").GetComponent<LineRenderer>(), 
-                                        GameObject.Find("Bullet3").GetComponent<LineRenderer>(), 
-                                        GameObject.Find("Bullet4").GetComponent<LineRenderer>(), 
-                                        GameObject.Find("Bullet5").GetComponent<LineRenderer>(), 
-                                        GameObject.Find("Bullet6").GetComponent<LineRenderer>(), 
-                                        GameObject.Find("Bullet7").GetComponent<LineRenderer>(), 
-                                        GameObject.Find("Bullet8").GetComponent<LineRenderer>(), 
-                                        GameObject.Find("Bullet9").GetComponent<LineRenderer>() };
+        gunLines = new LineRenderer[]
+        {
+            GameObject.Find("Bullet1").GetComponent<LineRenderer>(),
+            GameObject.Find("Bullet2").GetComponent<LineRenderer>(),
+            GameObject.Find("Bullet3").GetComponent<LineRenderer>(),
+            GameObject.Find("Bullet4").GetComponent<LineRenderer>(),
+            GameObject.Find("Bullet5").GetComponent<LineRenderer>(),
+            GameObject.Find("Bullet6").GetComponent<LineRenderer>(),
+            GameObject.Find("Bullet7").GetComponent<LineRenderer>(),
+            GameObject.Find("Bullet8").GetComponent<LineRenderer>(),
+            GameObject.Find("Bullet9").GetComponent<LineRenderer>()
+        };
         gunAudio = GetComponent<AudioSource>();
         gunLight = GetComponent<Light>();
         damagePerShot = initialDamagePerShot;
@@ -127,7 +131,6 @@ public class Shotgun : MonoBehaviour
 
                     int damage = Convert.ToInt32(((1 - (distance / range)) * damagePerShot));
 
-                    Debug.Log("i : " + i + "; distance : " + distance + "; damage : " + damage);
                     //Jika ada, maka enemy health take damage
                     enemyHealth.TakeDamage(damage, shootHit.point);
                 }

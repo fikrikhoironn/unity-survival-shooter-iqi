@@ -35,7 +35,6 @@ public class CheatScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.BackQuote))
         {
-            print("Time.timeScale: " + Time.timeScale);
             if (!isCheatInputVisible && Time.timeScale > 0)
             {
                 isCheatInputVisible = true;
@@ -76,7 +75,6 @@ public class CheatScript : MonoBehaviour
                     break;
                 case "onehitkill":
                     playerAttack.BuffDamageShot(999999);
-                    Debug.Log("one hit kill activated");
                     break;
                 case "doublespeed":
                     playerMovement.DoubleSpeed();
@@ -85,13 +83,11 @@ public class CheatScript : MonoBehaviour
                     petHealth.FullHpPet();
                     break;
                 case "killpet":
-                    petHealth.TakeDamage(99999);
-                    print(petHealth);
+                    petHealth.SetToZero();
                     break;
             }
             cheatInput.text = "";
             Time.timeScale = 1f;
-            Debug.Log("Cheat Entered");
             cheatInput.transform.localScale = Vector3.zero;
         }
     }

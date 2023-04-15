@@ -64,7 +64,6 @@ public class ItemDetails : MonoBehaviour
         {
             itemDisplay.GetWallet().gold -= selectedItem.cost;
             itemDisplay.UpdateGold();
-            print("Bought " + selectedItem.name + " type " + selectedItem.selectedItemType);
             // Play Ka-Ching!
             if (selectedItem.selectedItemType == ItemTypes.Pet)
             {
@@ -94,10 +93,6 @@ public class ItemDetails : MonoBehaviour
                     buyButton.interactable = false;
                 }
             }
-        }
-        else
-        {
-            Debug.Log("Not enough gold");
         }
     }
 }

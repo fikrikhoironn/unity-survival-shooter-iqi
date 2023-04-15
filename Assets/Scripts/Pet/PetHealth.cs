@@ -24,7 +24,7 @@ public class PetHealth : MonoBehaviour
         currentHealth = startingHealth;
         nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
 
-        PetMovement petMovement = GetComponent<PetMovement>();
+        petMovement = GetComponent<PetMovement>();
         if (petMovement == null)
         {
             petAttackerMovement = GetComponent<PetAttackerMovement>();
@@ -58,7 +58,7 @@ public class PetHealth : MonoBehaviour
     void Death()
     {
         IsDead = true;
-        if (isPetAttacker)
+        if (petAttackerMovement)
         {
             petAttackerMovement.enabled = false;
         }

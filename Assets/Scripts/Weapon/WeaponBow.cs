@@ -50,8 +50,6 @@ public class WeaponBow : MonoBehaviour
 
         firepowerPerSecond = maxChargePower / maxChargeTime;
 
-        Debug.Log("firepowerPerSecond: " + firepowerPerSecond);
-
         GameObject WeaponExtraAttributes = GameObject.Find("WeaponExtraAttributes");
 
         GameObject chargeBar = WeaponExtraAttributes.transform.GetChild(0).gameObject;
@@ -68,7 +66,6 @@ public class WeaponBow : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("maxChargePower: " + maxChargePower);
         slider.maxValue = maxChargePower;
 
         // instantiate new arrow
@@ -95,10 +92,6 @@ public class WeaponBow : MonoBehaviour
                 firepower = maxChargePower;
             }
             slider.value = maxChargePower;
-
-            Debug.Log("charge power: " + firepower);
-
-
         }
         if (Input.GetButtonDown("Fire1") && StateManager.instance.isBreak == false)
         {
@@ -128,7 +121,6 @@ public class WeaponBow : MonoBehaviour
 
     public void Fire(float firePower)
     {
-
         var force = playerTransform.TransformDirection(Vector3.forward);
         // elevate y axis
         // normalize force
@@ -139,10 +131,6 @@ public class WeaponBow : MonoBehaviour
 
         this.currentArrow.Fly(force);
         this.currentArrow.setEnemyTag("Enemy");
-        Debug.Log("force: " + force);
-
-        // print force magnitude
-        Debug.Log("force magnitude: " + force.magnitude);
 
         // destroy arrow after 3 seconds
         Destroy(this.currentArrow.gameObject, 3f);

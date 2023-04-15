@@ -13,7 +13,6 @@ public class BossMovement : MonoBehaviour
     EnemyHealth enemyHealth;
     UnityEngine.AI.NavMeshAgent nav;
 
-
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -22,19 +21,14 @@ public class BossMovement : MonoBehaviour
         playerHealth = player.GetComponent<PlayerHealth>();
         enemyHealth = GetComponent<EnemyHealth>();
         nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
-
     }
 
-    void Start()
-    {
-
-
-    }
+    void Start() { }
 
     private void FixedUpdate()
-    {      
-        if (enemyHealth.currentHealth <= 0) {
-            Debug.Log("Enemy is dead");
+    {
+        if (enemyHealth.currentHealth <= 0)
+        {
             // set all velocity to 0
             nav.velocity = Vector3.zero;
             nav.angularSpeed = 0;
@@ -46,7 +40,6 @@ public class BossMovement : MonoBehaviour
             GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
             GetComponent<Rigidbody>().isKinematic = true;
             return;
-
         }
         if (playerHealth.currentHealth > 0)
         {
@@ -66,11 +59,7 @@ public class BossMovement : MonoBehaviour
         {
             anim.SetBool("walking", false);
         }
-        
     }
 
-    private void LateUpdate()
-    {
-        
-    }
+    private void LateUpdate() { }
 }

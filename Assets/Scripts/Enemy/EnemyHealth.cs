@@ -59,8 +59,6 @@ public class EnemyHealth : MonoBehaviour
         if (isDead)
             return;
 
-        Debug.Log("Total damage taken: " + totalAmount);
-
         //play audio
         enemyAudio.Play();
 

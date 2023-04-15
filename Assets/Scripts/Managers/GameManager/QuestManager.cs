@@ -213,7 +213,5 @@ public class QuestManager : MonoBehaviour
         {
             enemyKills.Add(enemyName, 1);
         }
-        print(enemyName);
-        print(enemyKills[enemyName]);
     }
 }

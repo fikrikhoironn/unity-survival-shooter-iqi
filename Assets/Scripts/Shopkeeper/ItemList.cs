@@ -25,7 +25,6 @@ public class ItemList : MonoBehaviour
         }
 
         // Add new buttons
-        print("items.Length: " + items.Length);
         for (int i = 0; i < items.Length; i++)
         {
             Button btn = Instantiate(itemButtonPrefab, transform);
