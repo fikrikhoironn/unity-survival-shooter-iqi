@@ -19,6 +19,7 @@ public class WeaponGun : MonoBehaviour
     AudioSource gunAudio;
     Light gunLight;
     float effectsDisplayTime = 0.2f;
+    
 
     void Awake()
     {
