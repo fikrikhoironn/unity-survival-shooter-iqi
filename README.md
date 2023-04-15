@@ -34,7 +34,7 @@ Extended Survival Shooter merupakan game modifiksasi Survival Shooter yang di da
 ## Pembagian tugas
 | Nama                   |     NIM    | Jumlah Jam |           Tasks         |
 |------------------------|:----------:|:----------:|:-----------------------:|
-| Tri Sulton Adila       |  13520033  | 1          |Weapon shotgun|
+| Tri Sulton Adila       |  13520033  | 6          |Weapon shotgun|
 | Fikri Khoiron Fadhila  |  13520056  | 1          |lorem ipsum|
 | Rifqi Naufal Abdjul    |  13520062  | 1          |lorem ipsum|
 | Ziyad Dhia Rafi        |  13520064  | 1          |lorem ipsum|
