@@ -66,8 +66,8 @@ Shopkeeper hanya dapat di akses setelah quest selesai. Untuk mengakses shopkeepe
 ## Pembagian tugas
 | Nama                   |     NIM    | Jumlah Jam |           Tasks         |
 |------------------------|:----------:|:----------:|:-----------------------:|
-| Tri Sulton Adila       |  13520033  | 6          |Weapon shotgun|
-| Fikri Khoiron Fadhila  |  13520056  | 24          |Shopkeeper, weapon sword, cheat|
-| Rifqi Naufal Abdjul    |  13520062  | 24          |story mode, save game, game over, local scoreboard, main menu, all manager|
-| Ziyad Dhia Rafi        |  13520064  | 24          |Pet attacker, boss scene, weapon bow|
-| Grace Claudia          |  13520078  | 24          |Basegame. pet healer, pet aura buff, cutscene 1, cutscene 2, cutscene 3|
+| Tri Sulton Adila       |  13520033  | 24          |Weapon shotgun|
+| Fikri Khoiron Fadhila  |  13520056  | 36          |Shopkeeper, weapon sword, cheat|
+| Rifqi Naufal Abdjul    |  13520062  | 36          |story mode, save game, game over, local scoreboard, main menu, all manager|
+| Ziyad Dhia Rafi        |  13520064  | 36          |Pet attacker, boss scene, weapon bow|
+| Grace Claudia          |  13520078  | 36          |Basegame. pet healer, pet aura buff, cutscene 1, cutscene 2, cutscene 3|
