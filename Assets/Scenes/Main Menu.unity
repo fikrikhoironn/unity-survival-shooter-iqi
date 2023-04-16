@@ -2320,9 +2320,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 485563541}
-        m_TargetAssemblyTypeName: DataManager, Assembly-CSharp
-        m_MethodName: InstantiateGame
+      - m_Target: {fileID: 782371368}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: startGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
