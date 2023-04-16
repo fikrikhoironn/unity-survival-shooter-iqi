@@ -56,6 +56,11 @@ public class MenuManager : MonoBehaviour
         buttonClick.Play();
     }
 
+    public void startGame()
+    {
+        DataManager.instance.InstantiateGame();
+    }
+
     public void quitGame()
     {
         Application.Quit();

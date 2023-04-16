@@ -25,15 +25,13 @@ public class GameOverManager : MonoBehaviour
             anim.SetTrigger("GameOver");
             playerDead = true;
             StartCoroutine(RestartLevel());
-
-            Time.timeScale = 0f;
+            playerHealth.gameObject.SetActive(false);
         }
     }
 
     IEnumerator RestartLevel()
     {
         yield return new WaitForSecondsRealtime(5f);
-        Time.timeScale = 1f;
         SceneManagerObject.instance.LoadMainMenu();
     }
 }

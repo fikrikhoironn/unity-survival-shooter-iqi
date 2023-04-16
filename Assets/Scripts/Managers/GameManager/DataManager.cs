@@ -55,7 +55,6 @@ public class DataManager : MonoBehaviour
     public void InstantiateGame()
     {
         currentSaveData = new GameData();
-        // UnityEngine.SceneManagement.SceneManager.LoadScene("Scenes/Level 1");
         SceneManagerObject.instance.PlayCutscenes(0);
     }
 
@@ -99,7 +98,6 @@ public class DataManager : MonoBehaviour
 
         // Search for the player and set the player's position to the saved position
         GameObject player = GameObject.Find("Player");
-        player.transform.position = new Vector3(-22.5f, 0, 0);
     }
 
     public void SaveGameData(GameData gameData, int saveIndex)
