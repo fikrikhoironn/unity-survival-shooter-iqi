@@ -73,4 +73,9 @@ public class SceneManagerObject : MonoBehaviour
         currentCutSceneIndex = index;
         SceneManager.LoadScene(cutScenes[currentCutSceneIndex], LoadSceneMode.Single);
     }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene(mainMenu, LoadSceneMode.Single);
+    }
 }

@@ -21,7 +21,6 @@ public class QuestManager : MonoBehaviour
             }
             else
             {
-                DataManager.instance.SaveScoreData();
                 var quest = new QuestData();
                 quest.objectives = new ObjectiveData[0];
                 return quest;
@@ -67,6 +66,7 @@ public class QuestManager : MonoBehaviour
             }
             if (isBoss)
             {
+                DataManager.instance.SaveScoreData();
                 SceneManagerObject.instance.PlayCutscenes(2);
             }
             return true;

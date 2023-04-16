@@ -2,6 +2,8 @@
 using UnityEngine.SceneManagement;
 
 using UnityEngine.UI;
+using System;
+using System.Collections;
 
 public class GameOverManager : MonoBehaviour
 {
@@ -22,6 +24,16 @@ public class GameOverManager : MonoBehaviour
         {
             anim.SetTrigger("GameOver");
             playerDead = true;
+            StartCoroutine(RestartLevel());
+
+            Time.timeScale = 0f;
         }
+    }
+
+    IEnumerator RestartLevel()
+    {
+        yield return new WaitForSecondsRealtime(5f);
+        Time.timeScale = 1f;
+        SceneManagerObject.instance.LoadMainMenu();
     }
 }
