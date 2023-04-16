@@ -4,9 +4,8 @@
 Extended Survival Shooter merupakan game modifiksasi Survival Shooter yang di dalamnya terdapat tambahan story dan beberapa fitur tambahan, seperti main menu, local scoreboard, dan shopkeeper yang menyediakan berbagai jenis weapon dan pet yang dapat dibeli dan digunakan oleh player. Game ini juga menyediakan cheat yang bisa kalian gunakan juga lho!
 
 ## Library
-- Library 1
-- Library 2
-- Library 3
+- Unity Engine (UnityEngine.SceneManagement, UnityEngine.UI, dll)
+- TMPro
 
 ## Screenshot
 
@@ -33,15 +32,6 @@ Extended Survival Shooter merupakan game modifiksasi Survival Shooter yang di da
 ### Cheat
 ![Cheat](/game_ss/Cheat.jpg?raw=true "Cheat")
 
-## Pembagian tugas
-| Nama                   |     NIM    | Jumlah Jam |           Tasks         |
-|------------------------|:----------:|:----------:|:-----------------------:|
-| Tri Sulton Adila       |  13520033  | 6          |Weapon shotgun|
-| Fikri Khoiron Fadhila  |  13520056  | 24          |Shopkeeper, weapon sword, cheat|
-| Rifqi Naufal Abdjul    |  13520062  | 24          |story mode, save game, game over, local scoreboard, main menu, all manager|
-| Ziyad Dhia Rafi        |  13520064  | 24          |Pet attacker, boss scene, weapon bow|
-| Grace Claudia          |  13520078  | 24          |Basegame. pet healer, pet aura buff, cutscene 1, cutscene 2, cutscene 3|
-
 ## Features
 - Main menu
 main menu berisi berbagai pilihan yaitu:
@@ -53,16 +43,31 @@ main menu berisi berbagai pilihan yaitu:
 - Shopkeeper
 Shopkeeper hanya dapat di akses setelah quest selesai. Untuk mengakses shopkeeper, tekan `E` pada keyboard. Mengakses shopkeeper hanya dapat dilakukan dari jarak yang cukup dekat, apabila mengakses dari jarak diluar jangkauan akan keluar pesan error. Untuk keluar dari shopkeeper tekan `esc`pada keyboard.
 - Weapon
-    1. Gun
-    2. Shotgun
-    2. Sword
-    3. Bow & Arrow
+    Terdapat 4 jenis weapon, 1 weapon deafult, 3 weapon tambahan (shotgun, sword, bow) yang dapat dibeli di shopkeeper, cara menggantinya adalah dengan scroll up down menggunakan mouse atau pencet 1(default), 2(shotgun), 3(sword), 4(bow).
+
 - Pet
-    Masing-masing pet memiliki nyawa sebanyak 50. Terdapat 3 jenis pet dengan skill masing-masing sebagai berikut:
+    Terdapat 3 jenis pet yang dapat dibeli di shopkeeper dengan skill masing-masing sebagai berikut:
     1. Tipe Healer
-    Tipe ini akan menambah darah player sebanyak 10 setiap 10 detik. Tipe pet ini selalu mengikuti arah gerak player. Pet ini akan bersuara setiap menambahkan darah player. Skill akan hilang setelah pet mati.
+    Tipe ini akan menambah darah player dalam satuan waktu tertentu Tipe pet ini selalu mengikuti arah gerak player. Pet ini akan bersuara setiap menambahkan darah player. Skill akan hilang setelah pet mati.
     2. Tipe Attacker
     Tipe ini akan membantu player membunuh musuh dari jarak jauh. Sesuai spesifikasi, tipe ini akan mendekati musuh SETELAH menyerang karena menyerang dilakukan dari jarak jauh. Pet ini akan bersuara setiap membunuh musuh. Skill akan hilang setelah pet mati.
     3. Tipe Aura Buff
-    Tipe ini akan menambah damage per shot sebanyak 80. Tipe pet ini selalu mengikuti arah gerak player. Pet ini akan bersuara hanya sekali yaitu pada setiap awal game. Skill akan hilang setelah pet mati.
+    Tipe ini akan menambah damage per shot. Tipe pet ini selalu mengikuti arah gerak player. Pet ini akan bersuara hanya sekali yaitu pada setiap awal game. Skill akan hilang setelah pet mati.
 - Cheat
+    Cara mengakses cheat adalah menggunakan backtick. Terdapat beberapa kata yang dapat diinput untuk cheat yaitu:
+    - No damage: HP dari player tidak akan berkurang jika diserang oleh mob.
+    - 1 hit kill: 1 serangan dari player akan langsung membunuh mob yang diserang.
+    - Motherlode: Player akan mendapatkan uang yang tak terhingga.
+    - x2 speed: Kecepatan pergerakan dari player bertambah sebanyak 2 kali lipat.
+    - Full HP pet: HP dari pet tidak akan berkurang jika diserang oleh mob.
+    - Kill pet: Membunuh pet secara instant.
+
+
+## Pembagian tugas
+| Nama                   |     NIM    | Jumlah Jam |           Tasks         |
+|------------------------|:----------:|:----------:|:-----------------------:|
+| Tri Sulton Adila       |  13520033  | 6          |Weapon shotgun|
+| Fikri Khoiron Fadhila  |  13520056  | 24          |Shopkeeper, weapon sword, cheat|
+| Rifqi Naufal Abdjul    |  13520062  | 24          |story mode, save game, game over, local scoreboard, main menu, all manager|
+| Ziyad Dhia Rafi        |  13520064  | 24          |Pet attacker, boss scene, weapon bow|
+| Grace Claudia          |  13520078  | 24          |Basegame. pet healer, pet aura buff, cutscene 1, cutscene 2, cutscene 3|
