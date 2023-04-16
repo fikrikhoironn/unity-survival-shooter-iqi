@@ -10,16 +10,18 @@ Extended Survival Shooter merupakan game modifiksasi Survival Shooter yang di da
 
 ## Screenshot
 
-### Scene
-![Scene](/game_ss/Scene.jpg?raw=true "Scene")
+### Opening
+![Opening](/game_ss/Opening.jpg?raw=true "Opening")
+### Boss
+![Boss](/game_ss/Boss.jpg?raw=true "Boss")
+### Closing
+![Closing](/game_ss/Closing.jpg?raw=true "Closing")
 ### Quest
 ![Quest](/game_ss/Quest.jpg?raw=true "Quest")
 ### Save Game
 ![Save Game](/game_ss/Save_Game.jpg?raw=true "Save Game")
 ### Game Over
 ![Game Over](/game_ss/Game_Over.jpg?raw=true "Game Over")
-### Scoreboard
-![Scoreboard](/game_ss/Scoreboard.jpg?raw=true "Scoreboard")
 ### Main Menu
 ![Main Menu](/game_ss/Main_Menu.jpg?raw=true "Main Menu")
 ### Shopkeeper
@@ -52,8 +54,9 @@ main menu berisi berbagai pilihan yaitu:
 Shopkeeper hanya dapat di akses setelah quest selesai. Untuk mengakses shopkeeper, tekan `E` pada keyboard. Mengakses shopkeeper hanya dapat dilakukan dari jarak yang cukup dekat, apabila mengakses dari jarak diluar jangkauan akan keluar pesan error. Untuk keluar dari shopkeeper tekan `esc`pada keyboard.
 - Weapon
     1. Gun
-    2. Bow
-    3. Arrow
+    2. Shotgun
+    2. Sword
+    3. Bow & Arrow
 - Pet
     Masing-masing pet memiliki nyawa sebanyak 50. Terdapat 3 jenis pet dengan skill masing-masing sebagai berikut:
     1. Tipe Healer
