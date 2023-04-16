@@ -30,12 +30,7 @@ public class BossHealthSlider : MonoBehaviour
                 var boss = GameObject.Find("Boss(Clone)");
                 if (boss != null)
                 {
-                    slider.gameObject.SetActive(true);
                     bossHealth = boss.GetComponent<EnemyHealth>();
-                }
-                else
-                {
-                    slider.gameObject.SetActive(false);
                 }
             }
         }

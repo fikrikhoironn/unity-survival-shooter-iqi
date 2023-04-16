@@ -223,6 +223,10 @@ public class QuestManager : MonoBehaviour
 
     private void addKillCount(string enemyName)
     {
+        if (enemyName == "Boss")
+        {
+            bossHealthCanvas.gameObject.SetActive(false);
+        }
         if (enemyKills.ContainsKey(enemyName))
         {
             enemyKills[enemyName]++;
