@@ -84,13 +84,15 @@ public class PetAttackerAttack : MonoBehaviour
     {
         // play audio clip
         audioSource.Play();
+        // take position
+        Vector3 position = closestEnemy.transform.position;
 
         yield return new WaitForSeconds(1.0f);
 
         // instantiate shockwave
         GameObject shockwave = Instantiate(
             ShockWavePrefab,
-            closestEnemy.transform.position,
+            position,
             Quaternion.identity
         );
 
