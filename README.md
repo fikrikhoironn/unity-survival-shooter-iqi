@@ -55,12 +55,12 @@ Shopkeeper hanya dapat di akses setelah quest selesai. Untuk mengakses shopkeepe
     Tipe ini akan menambah damage per shot. Tipe pet ini selalu mengikuti arah gerak player. Pet ini akan bersuara hanya sekali yaitu pada setiap awal game. Skill akan hilang setelah pet mati.
 - Cheat
     Cara mengakses cheat adalah menggunakan backtick. Terdapat beberapa kata yang dapat diinput untuk cheat yaitu:
-    - No damage: HP dari player tidak akan berkurang jika diserang oleh mob.
-    - 1 hit kill: 1 serangan dari player akan langsung membunuh mob yang diserang.
-    - Motherlode: Player akan mendapatkan uang yang tak terhingga.
-    - x2 speed: Kecepatan pergerakan dari player bertambah sebanyak 2 kali lipat.
-    - Full HP pet: HP dari pet tidak akan berkurang jika diserang oleh mob.
-    - Kill pet: Membunuh pet secara instant.
+    - nodamage: HP dari player tidak akan berkurang jika diserang oleh mob.
+    - onehitkill: 1 serangan dari player akan langsung membunuh mob yang diserang.
+    - motherload: Player akan mendapatkan uang yang tak terhingga.
+    - doublespeed: Kecepatan pergerakan dari player bertambah sebanyak 2 kali lipat.
+    - fullhppet: HP dari pet tidak akan berkurang jika diserang oleh mob.
+    - killpet: Membunuh pet secara instant.
 
 
 ## Pembagian tugas
