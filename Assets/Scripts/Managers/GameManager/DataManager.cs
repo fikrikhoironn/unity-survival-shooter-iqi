@@ -95,9 +95,6 @@ public class DataManager : MonoBehaviour
 
         // Change scene to level1
         UnityEngine.SceneManagement.SceneManager.LoadScene("Scenes/Level 1");
-
-        // Search for the player and set the player's position to the saved position
-        GameObject player = GameObject.Find("Player");
     }
 
     public void SaveGameData(GameData gameData, int saveIndex)
