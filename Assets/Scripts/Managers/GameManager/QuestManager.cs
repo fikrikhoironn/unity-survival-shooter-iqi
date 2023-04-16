@@ -22,7 +22,6 @@ public class QuestManager : MonoBehaviour
             else
             {
                 DataManager.instance.SaveScoreData();
-                SceneManagerObject.instance.PlayCutscenes(2);
                 var quest = new QuestData();
                 quest.objectives = new ObjectiveData[0];
                 return quest;
@@ -35,6 +34,7 @@ public class QuestManager : MonoBehaviour
     {
         get
         {
+            var isBoss = false;
             var objectiveSum = new Dictionary<string, int>();
             foreach (ObjectiveData objective in activeQuest.objectives)
             {
@@ -49,6 +49,10 @@ public class QuestManager : MonoBehaviour
             }
             foreach (string objective in objectiveSum.Keys)
             {
+                if (objective == "Boss")
+                {
+                    isBoss = true;
+                }
                 if (enemyKills.ContainsKey(objective))
                 {
                     if (enemyKills[objective] < objectiveSum[objective])
@@ -60,6 +64,10 @@ public class QuestManager : MonoBehaviour
                 {
                     return false;
                 }
+            }
+            if (isBoss)
+            {
+                SceneManagerObject.instance.PlayCutscenes(2);
             }
             return true;
         }
@@ -119,6 +127,7 @@ public class QuestManager : MonoBehaviour
             {
                 spawnDelay = 4f;
                 bossHealthCanvas.gameObject.SetActive(true);
+                BGMManager.instance.changeBGM("boss");
             }
             else
             {
